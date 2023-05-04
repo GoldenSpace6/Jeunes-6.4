@@ -1,0 +1,65 @@
+
+
+body{
+    background: linear-gradient(to right, white,lightgrey);
+}
+
+
+
+.bas_de_page{
+    background-color: white;
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+
+.titre{
+    color: darkblue;
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+}
+
+
+.logo_home{
+    display: block;     /* block : l'élément est affiché comme un bloc, 
+                            prenant toute la largeur disponible et étant suivi d'un saut de ligne.*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -3%;
+    width: 30%;
+   
+}
+
+.sous_titre{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 20%;
+}
+
+.bouton{
+    text-decoration: none;
+    color: red;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: -3px;
+}
+
+
+
+
