@@ -1,0 +1,294 @@
+body{
+    /*background: radial-gradient(at 0% 30%, white 10px, lightgrey 50%);*/
+    background-color: grey;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.logo_home{
+    height: 25%;
+    width: 20%;
+    margin-left: 50px;
+    margin-top: -5px;
+}
+
+.titre{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-size: 48px;
+    margin-left: 42%;
+    margin-top: -80px;
+}
+
+li{
+    display:inline; 
+    padding:10px;
+    background-color: lightgrey;
+    padding-bottom: 12px;
+    padding-top: 22px;
+    word-spacing: 0px;
+}
+
+.les_modules{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 60px;
+    
+}
+
+
+a{
+   font-size: 24px;
+   text-decoration: none;
+}
+
+
+li.bouton_jeune a{
+   color: FC0049;
+   padding-left: 30px;
+}
+
+li.bouton_referent a{
+    color: darkgreen;
+ }
+
+ li.bouton_consultant a{
+    color: blue;
+ }
+
+ li.bouton_partenaire a{
+    color: dimgray;
+    padding-right: 30px;
+ }
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.bas_de_page{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 72.60%;
+    width: 100%;
+}
+
+h2.premier_titre{
+    color:5C5256;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 125px;
+}
+
+
+.text_dequoi{
+    color:5C5256;
+    text-align: justify;
+    margin-top: -20px;
+    margin-left: 30px;
+    word-spacing: 1px;
+}
+
+
+h2.deuxieme_titre{
+    margin-left: 37%;
+    margin-top: -137px;
+    color:5C5256;
+}
+
+.a_quiaddresse1{
+    text-align: justify;
+    height: 83.9056px;
+    width: 480.8979px;
+    margin-top: -14px;
+    margin-left: 37%;
+    color:5C5256;
+    word-spacing: 1px;
+    
+}
+
+
+.a_quiaddresse2{
+    text-align: justify;
+    height: 83.9056px;
+    width: 473.8979px;
+    margin-top: -12px;
+    margin-left: 37%;
+    color:5C5256;
+    word-spacing: 1px;
+}
+
+
+.troisieme_paragraphe{
+    text-align: justify;
+    height: 83.9056px;
+    width: 444.8979px;
+    margin-top: -220px;
+    margin-left: 70%;
+    color:5C5256;
+    word-spacing: 1px;
+    
+}
+
+
+h3{
+    margin-top: -10px;
+    margin-left: 70%;
+    color:5C5256;
+    word-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.haut_de_page{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+*/
