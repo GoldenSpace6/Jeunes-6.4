@@ -201,12 +201,15 @@ min-width: 400px;
 .premier_carre{
     left: 0%;
 }
-
+.premier_carre > p :first-child { 
+}
 .premier_carre_et_texte{
     background: linear-gradient(to right, white, purple);
     border: 4px solid purple;
 }
 
+.premier_carre > p :last-child { 
+}
 .premier_carre_et_deuxieme_texte{
     background-image: linear-gradient(to top left, lightgrey, white);
 }
@@ -217,11 +220,15 @@ min-width: 400px;
     left: 36%;
 }
 
+.deuxieme_carre > p :first-child { 
+}
 .deuxieme_carre_et_premier_texte{
     background: linear-gradient(to right, lightgreen, green);
     border: 4px solid lightgreen;
 }
 
+.deuxieme_carre > p :last-child { 
+}
 .deuxieme_carre_et_deuxieme_texte{ 
     background-image: linear-gradient(to top left, lightgreen, white);    
 }
@@ -232,12 +239,16 @@ min-width: 400px;
     left: 72%;
 }
 
+.troisieme_carre > p :first-child { 
+}
 .troisieme_carre_et_premier_texte{
     background: linear-gradient(to right, lightblue, blue);
     color: white;
     border: 4px solid rgb(95, 95, 219);
 }
 
+.troisieme_carre > p :last-child { 
+}
 .troisieme_carre_et_deuxieme_texte{ 
     background-image: linear-gradient(to top left, lightblue, white);
 }
