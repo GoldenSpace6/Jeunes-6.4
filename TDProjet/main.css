@@ -105,10 +105,16 @@ a{
 }
 
 
-li.bouton_jeune a{
+a.bouton_jeune{
    color: #FC0049;
    
 }
+
+a.clicked{
+    background-color: rgb(240, 23, 186);
+    background-color: blue;
+    
+ }
 
 li.bouton_referent a{
     color: darkgreen;
@@ -121,12 +127,6 @@ li.bouton_consultant a{
 li.bouton_partenaire a{
     color: dimgray;
 }
-
-li.bouton_partenaire a:hover{
-    background-color: rgb(231, 21, 214);
-    
-}
-
 
 
 
