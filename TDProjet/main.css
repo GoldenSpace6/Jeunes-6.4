@@ -27,7 +27,8 @@ body{
 .titre{
     position: absolute;
     width: 100vw;
-    min-height: 0px;
+    min-width: 600px;
+    
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
@@ -67,7 +68,7 @@ body{
 
 .les_modules{
     position: initial;
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
@@ -79,6 +80,7 @@ body{
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 
@@ -89,8 +91,6 @@ ul{
 li{
     position: initial;
     display: inline; 
-    text-align: center;
-    justify-content: center;
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 15px;
@@ -129,7 +129,7 @@ a.bouton_consultant{
 }
 
 a.bouton_consultant.background{
-   background-color: #17a4e1;;
+   background-color: #17a4e1;
    color: white;
    padding: 7px 20px;
 }
@@ -149,14 +149,14 @@ a.bouton_partenaire.background{
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-
+/*
 .les_ecritures{
     position: initial;
     width: 100%;
-    /*top: 21%;*/
+    /*top: 21%;
    
 }
-
+*/
 
 .boite{
     position: static;
@@ -194,6 +194,7 @@ a.bouton_partenaire.background{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    left: 2%;
 }
 
 
@@ -228,7 +229,6 @@ a.bouton_partenaire.background{
     text-align: justify;
     font-size: 18px;
     line-height: 20px;
-
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -270,6 +270,44 @@ a.bouton_partenaire.background{
 /*========================================================================================================================*/
 
 
+.les_boutons{
+    position: absolute;
+    width: 270px;
+    /*max-height: 400px;*/
+    top: 6vh;
+    left: 82vw;
+    font-size: 24px;
+    display: inline-block;
+}
+
+
+a.connexion{
+    color: lightgrey;
+    background-color: rgb(61, 56, 56);
+    
+}
+
+
+a.connexion img{
+    border: none;
+    max-width: 27px;
+    max-height: 27px;
+    margin: -5px 0;
+    padding-left: 3px;
+    border-left: 1px solid;
+    border-left-color: rgb(185, 183, 183);
+}
+
+a.inscription{
+    color: lightgrey;
+    background-color: rgb(61, 56, 56);
+    border-left: 5px solid;
+    border-left-color:  rgb(185, 183, 183);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 .les_ecritures2{
     position: initial;
@@ -300,17 +338,16 @@ div.images > * {
 
 .titre_partenaire{
     position: absolute;
-    color: rgb(94, 94, 94);
+    color: #70707b;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     font-size: 6vw;
-    top: 30%;
-    left:45vh;
+    top: 5vh;
+    left:54vh;
     text-align: center;
     width: 100vw;
     min-height: 0px;
-    top: 2vh;
-    left:54vh;
+    
 }
 
 .text_partenaire{
@@ -345,24 +382,11 @@ div.images > * {
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-/*
-.les_boutons{
-    position: absolute;
-    height: 100px;
-    width: 400px;
-    top: 30%;
-    left: 78%;
-}
-*/
-
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
 .titre_jeune{
     position: absolute;
     width: 100vw;
     min-height: 0px;
-    color: rgb(245, 14, 187);
+    color:  #e5239b;;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     font-size: 3vw;
@@ -375,12 +399,83 @@ div.images > * {
 .petit_texte{
     position: absolute;
     width: 100vw;
-    min-height: 0px;
+    min-width: 800px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     font-size: 3vw;
     top: 18vh;
-    left:35vh;
+    left:32vh;
     text-align: center;
 }
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.titre_referent{
+    position: absolute;
+    width: 100vw;
+    min-width: 0px;
+    color: #14A74B;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 5vh;
+    left:64vh;
+    text-align: center;
+    font-size: 6vw;
+}
+
+.petit_texte2{
+    position: absolute;
+    width: 100vw;
+    min-width: 800px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 18vh;
+    left:32vh;
+    text-align: center;
+}
+
+
+.bordure_referent{
+    
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.titre_consultant{
+    position: absolute;
+    width: 100vw;
+    min-width: 0px;
+    color: #17a4e1;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 5vh;
+    left:56vh;
+    text-align: center;
+    font-size: 6vw;
+}
+
+.petit_texte3{
+    position: absolute;
+    width: 100vw;
+    min-width: 800px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 18vh;
+    left:32vh;
+    text-align: center;
+}
+
