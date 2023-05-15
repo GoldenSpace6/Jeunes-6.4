@@ -191,11 +191,10 @@ a.bouton_partenaire.background{
 
 
 .les_carees{
-    position: initial;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    left: 2%;
 }
 
 
@@ -234,6 +233,7 @@ a.bouton_partenaire.background{
 }
 
 .premier_carre{
+    color: white;
     right: 11%;
     background: linear-gradient(to right, white, purple);
     border: 4px solid purple;
@@ -245,7 +245,7 @@ a.bouton_partenaire.background{
 /* LE DEUXIEME CARRE */
 
 .deuxieme_carre{
-    
+    color: white;
     background: linear-gradient(to right, lightgreen, green);
     border: 4px solid lightgreen;
 }
