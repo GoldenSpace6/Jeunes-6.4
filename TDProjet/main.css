@@ -170,6 +170,7 @@ a.bouton_partenaire.background{
     margin-right: 30px ;
     margin-top: 8px;
     width: 30vw;
+    max-width: 90vw;
     min-width: 470px;
 }
 
