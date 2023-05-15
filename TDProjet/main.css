@@ -72,7 +72,6 @@ body{
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    height: 30px;
     width: 800px;
     z-index: 1;
     background: radial-gradient(at 30% 10%,white -30%,lightgrey);
@@ -92,6 +91,7 @@ li{
     position: initial;
     display: inline; 
     flex-wrap: wrap;
+    height: 30px;
     padding-left: 20px;
     padding-right: 15px;
 }
