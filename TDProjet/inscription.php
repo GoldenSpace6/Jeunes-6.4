@@ -73,15 +73,15 @@
                 <fieldset>
                     <legend>Créer ton compte</legend>
                     <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom"><br>
+                    <input type="text" name="nom" id="nom"><?php echo $errNom?><br>
                     <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom" id="prenom"><br>
+                    <input type="text" name="prenom" id="prenom"><?php echo $errPrenom?><br>
                     <label for="date">Date de naissance</label>
-                    <input type="Date" name="date" id="date"><br>
+                    <input type="Date" name="date" id="date"><?php echo $errDate?><br>
                     <label for="e-mail">E-mail</label>
-                    <input type="email" name="mail" id="e-mail"><br>
+                    <input type="email" name="mail" id="e-mail"><?php echo $errMail?><br>
                     <label for="mdp">Mot de passe</label>
-                    <input type="password" name="mdp" id="mdp" minlenght="8">
+                    <input type="password" name="mdp" id="mdp" minlenght="8"><?php echo $errMdp?>
                     <button type="submit">Login</button>
                 </fieldset> 
             </form>
