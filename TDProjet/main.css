@@ -18,7 +18,7 @@ body{
 
 
 .logo_home{
-    position: absolute;
+    position: relative;
     height: 100%;
     left: 5vh;
 }
@@ -45,14 +45,13 @@ body{
 
 .bas_de_page{
     position: initial;
-    display:flex;
     flex-wrap: wrap;
     justify-content: center;
     bottom: 0%;
     left: 0%;
     height: 73%;
     width: 100%;
-    
+    height: max-content;
 }
 
 
@@ -72,6 +71,8 @@ body{
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
     z-index: 1;
     background: radial-gradient(at 30% 10%,white -30%,lightgrey);
@@ -178,7 +179,7 @@ a.bouton_partenaire.background{
     position: relative;
     max-width: 90vw;
     text-align: justify;
-    color:5C5256;
+    color:#5C5256;
 }
 
 .titre_paragraphe{
@@ -274,9 +275,9 @@ a.bouton_partenaire.background{
 .les_boutons{
     position: absolute;
     width: 270px;
-    /*max-height: 400px;*/
+    min-width: 200px;
     top: 6vh;
-    left: 82vw;
+    right: 0vw;
     font-size: 24px;
     display: inline-block;
 }
@@ -411,6 +412,38 @@ div.images > * {
 }
 
 
+.texte_jeune{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #e5239b;
+    font-size: 24px;
+}
+
+.carre_jeune{
+    position: relative;
+    border: 3px solid #e5239b;
+    top: 11vh;
+    width: 40vw;
+    padding: 18px;
+    color:#e5239b;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.texte_carre_jeune > input{
+    position: relative;
+    border: none;
+    border-bottom: 2px dotted #e5239b;
+    color:black;
+    bottom: 0.5vh;
+    text-align: justify;
+    width: 4vw;
+}
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -445,10 +478,38 @@ div.images > * {
 }
 
 
-.bordure_referent{
-    
+.texte_referent{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #14A74B;
+    font-size: 24px;
 }
 
+.carre_referent{
+    position: relative;
+    border: 4px solid #14A74B;
+    top: 11vh;
+    width: 40vw;
+    padding: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texte_carre_referent > input{
+    border-bottom: 4px dotted #14A74B;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color:black
+}
+
+.carre_referent{
+    color:#14A74B
+}
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
