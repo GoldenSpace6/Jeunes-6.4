@@ -13,27 +13,24 @@
     $file = file_get_contents($url);
     $arr = json_decode($file,true);
     
-    $errNom = $errPrenom = $errMail = $errDate = $errMdp = ""
-    $nom = $prenom = $mail = $date = $mdp = ""
+    $errNom = $errPrenom = $errMail = $errDate = $errMdp = "";
+    $nom = $prenom = $mail = $date = $mdp = "";
         
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
     $mail = $_POST["mail"];
     $date = $_POST["date"];
     $mdp = $_POST["mdp"];
-    if ($mail==null) {
-        echo "Mail n'existe pas ou vide";
-
-    } elseif($nom==null) {
-        echo "nom vide";
-        //$dom = new DOMDocument;
-        //$dom = getElementById("nom")
-    } elseif($prenom==null) {
-        echo "prenom vide";
-    } elseif($date==null) {
-        echo "date vide";
-    } elseif($mdp==null) {
-        echo "mdp vide";
+    if (empty($mail)) {
+        $errMail = "Mail n'existe pas ou vide";
+    } elseif(empty($nom)) {
+        $errNom = "Nom manquant";
+    } elseif(empty($prenom)) {
+        $errPrenom = "Prenom manquant";
+    } elseif(empty($date)) {
+        $errDate = "*Date manquant";
+    } elseif(empty($mdp)) {
+        $errMdp = "*Mot de passe manquant";
     } else {
         find($arr,$mail);
 
