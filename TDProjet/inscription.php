@@ -12,7 +12,10 @@
     $url = "test.json";
     $file = file_get_contents($url);
     $arr = json_decode($file,true);
-
+    
+    $errNom = $errPrenom = $errMail = $errDate = $errMdp = ""
+    $nom = $prenom = $mail = $date = $mdp = ""
+        
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
     $mail = $_POST["mail"];
