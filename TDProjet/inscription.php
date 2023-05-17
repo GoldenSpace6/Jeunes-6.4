@@ -23,15 +23,24 @@
     $mdp = $_POST["mdp"];
     if (empty($mail)) {
         $errMail = "Mail n'existe pas ou vide";
-    } elseif(empty($nom)) {
+    } 
+    if(empty($nom)) {
         $errNom = "Nom manquant";
-    } elseif(empty($prenom)) {
+        $err = 1;
+    }
+    if(empty($prenom)) {
         $errPrenom = "Prenom manquant";
-    } elseif(empty($date)) {
+        $err = 1;
+    }
+    if(empty($date)) {
         $errDate = "*Date manquant";
-    } elseif(empty($mdp)) {
+        $err = 1;
+    }
+    if(empty($mdp)) {
         $errMdp = "*Mot de passe manquant";
-    } else {
+        $err = 1;
+    }
+    if($err != 1) {
         find($arr,$mail);
 
         array_push($arr,array(
