@@ -6,6 +6,8 @@
 
     <?php
     function find($tab,$email) {
+        foreach($tab as $i) {
+        }
         echo $email;
     }
 
@@ -21,18 +23,8 @@
     if (empty($mail) or empty($mdp) or getmdp($arr,$mail)!=$mdp) {
         $err = "E-Mail ou mot de passe invalide";
     } else {
+        echo "Bonjour".$mail;
         getmdp($arr,$mail);
-
-        array_push($arr,array(
-            "nom"=>$nom,
-            "prenom"=>$prenom,
-            "mail"=>$mail,
-            "date"=>$date,
-            "mdp"=>$mdp
-        ));
-        //echo 'Bonjour ' . htmlspecialchars($_POST["nom"]) . '!';
-    
-        file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
         //header("home.html");
     }
 ?>
@@ -56,10 +48,9 @@
                 <li> <a class="bouton_consultant" href="consultant.html">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
         </div>
-    
         
         <div class="texte_connexion">
-            <form action="inscription.php" method="POST">
+            <form action="connexion.php" method="POST">
                 <fieldset>
                     <legend>Connecte ton compte</legend>
                     <?php echo $err?><br>
@@ -71,25 +62,7 @@
                 </fieldset> 
             </form>
         </div>
-        <div class="texte_inscription">
-            <form action="inscription.php" method="POST">
-                <fieldset>
-                    <legend>Créer ton compte</legend>
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom"><?php echo $errNom?><br>
-                    <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom" id="prenom"><?php echo $errPrenom?><br>
-                    <label for="date">Date de naissance</label>
-                    <input type="Date" name="date" id="date"><?php echo $errDate?><br>
-                    <label for="e-mail">E-mail</label>
-                    <input type="email" name="mail" id="e-mail"><?php echo $errMail?><br>
-                    <label for="mdp">Mot de passe</label>
-                    <input type="password" name="mdp" id="mdp" minlenght="8"><?php echo $errMdp?>
-                    <button type="submit">Login</button>
-                </fieldset> 
-            </form>
-        </div>
     </div>  
-    <a href="connexion.html">J'ai déjà un compte</a>
+    <a href="inscription.php">Je n'ai pas de compte</a>
 </body>
 </html>
