@@ -13,26 +13,15 @@
     $file = file_get_contents($url);
     $arr = json_decode($file,true);
     
-    $errNom = $errPrenom = $errMail = $errDate = $errMdp = "";
+    $err = "";
     $nom = $prenom = $mail = $date = $mdp = "";
         
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
     $mail = $_POST["mail"];
-    $date = $_POST["date"];
     $mdp = $_POST["mdp"];
-    if (empty($mail)) {
-        $errMail = "Mail n'existe pas ou vide";
-    } elseif(empty($nom)) {
-        $errNom = "Nom manquant";
-    } elseif(empty($prenom)) {
-        $errPrenom = "Prenom manquant";
-    } elseif(empty($date)) {
-        $errDate = "*Date manquant";
-    } elseif(empty($mdp)) {
-        $errMdp = "*Mot de passe manquant";
+    if (empty($mail) or empty($mdp) or getmdp($arr,$mail)!=$mdp) {
+        $err = "E-Mail ou mot de passe invalide";
     } else {
-        find($arr,$mail);
+        getmdp($arr,$mail);
 
         array_push($arr,array(
             "nom"=>$nom,
@@ -68,6 +57,20 @@
                 <li> <a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
         </div>
     
+        
+        <div class="texte_connexion">
+            <form action="inscription.php" method="POST">
+                <fieldset>
+                    <legend>Connecte ton compte</legend>
+                    <?php echo $err?><br>
+                    <label for="e-mail">E-mail</label>
+                    <input type="e-mail" name="mail" id="e-mail"><br>
+                    <label for="mdp">Mot de passe</label>
+                    <input type="passeword" name="mdp" id="mdp">
+                    <button type="submit">Connexion</button>
+                </fieldset> 
+            </form>
+        </div>
         <div class="texte_inscription">
             <form action="inscription.php" method="POST">
                 <fieldset>
