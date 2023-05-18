@@ -5,56 +5,68 @@
     <title>Jeunes 6.4 - Inscription</title>
 
     <?php
-    function find($tab,$email) {
-        echo $email;
-    }
+        function find($tab,$email) {
+            echo $email;
+        }
 
-    $url = "test.json";
-    $file = file_get_contents($url);
-    $arr = json_decode($file,true);
-    
-    $errNom = $errPrenom = $errMail = $errDate = $errMdp = "";
-    $nom = $prenom = $mail = $date = $mdp = "";
+        $url = "test.json";
+        $file = file_get_contents($url);
+        $arr = json_decode($file,true);
         
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
-    $mail = $_POST["mail"];
-    $date = $_POST["date"];
-    $mdp = $_POST["mdp"];
-    if (empty($mail)) {
-        $errMail = "Mail n'existe pas ou vide";
-    } 
-    if(empty($nom)) {
-        $errNom = "Nom manquant";
-        $err = 1;
-    }
-    if(empty($prenom)) {
-        $errPrenom = "Prenom manquant";
-        $err = 1;
-    }
-    if(empty($date)) {
-        $errDate = "*Date manquant";
-        $err = 1;
-    }
-    if(empty($mdp)) {
-        $errMdp = "*Mot de passe manquant";
-        $err = 1;
-    }
-    if($err != 1) {
-        find($arr,$mail);
+        $errNom = $errPrenom = $errMail = $errDate = $errMdp = "";
+        $nom = $prenom = $mail = $date = $mdp = "";
+        
+        
+        if(isset($_POST["nom"])){
+            $nom = $_POST["nom"];
+        }
+        if(isset($_POST["prenom"])){
+            $prenom = $_POST["prenom"];
+        }
+        if(isset($_POST["mail"])){
+        $mail = $_POST["mail"];
+        }
+        if(isset($_POST["date"])){
+        $date = $_POST["date"];
+        }
+        if(isset($_POST["mdp"])){
+        $mdp = $_POST["mdp"];
+        }
 
-        array_push($arr,array(
-            "nom"=>$nom,
-            "prenom"=>$prenom,
-            "mail"=>$mail,
-            "date"=>$date,
-            "mdp"=>$mdp
-        ));
-        //echo 'Bonjour ' . htmlspecialchars($_POST["nom"]) . '!';
-    
-        file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
-        //header("home.html");
-    }
+        if (empty($mail)) {
+            $errMail = "*Mail n'existe pas ou vide";
+        } 
+        if(empty($nom)) {
+            $errNom = "*Nom manquant";
+            $err = 1;
+        }
+        if(empty($prenom)) {
+            $errPrenom = "*Prenom manquant";
+            $err = 1;
+        }
+        if(empty($date)) {
+            $errDate = "*Date manquant";
+            $err = 1;
+        }
+        if(empty($mdp)) {
+            $errMdp = "*Mot de passe manquant";
+            $err = 1;
+        }
+        if($err != 1) {
+            find($arr,$mail);
+
+            array_push($arr,array(
+                "nom"=>$nom,
+                "prenom"=>$prenom,
+                "mail"=>$mail,
+                "date"=>$date,
+                "mdp"=>$mdp
+            ));
+            //echo 'Bonjour ' . htmlspecialchars($_POST["nom"]) . '!';
+        
+            file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
+            //header("home.html");
+        }
 ?>
 </head>
 
@@ -97,5 +109,8 @@
         </div>
     </div>  
     <a href="connexion.html">J'ai déjà un compte</a>
+
+    
+
 </body>
 </html>
