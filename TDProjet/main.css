@@ -236,11 +236,12 @@ a.bouton_partenaire.background{
 .premier_carre{
     color: white;
     right: 11%;
-    background: linear-gradient(to right, white, purple);
-    border: 4px solid purple;
+    background: linear-gradient(to right, white, #e5239b);
+    border: 4px solid #e5239b;
 }
 .premier_carre p:last-child { 
     background-image: linear-gradient(to top left, lightgrey, white);
+    color: black;
 }
 
 /* LE DEUXIEME CARRE */
@@ -252,7 +253,8 @@ a.bouton_partenaire.background{
 }
 
 .deuxieme_carre p:last-child { 
-    background-image: linear-gradient(to top left, lightgreen, white);    
+    background-image: linear-gradient(to top left, lightgreen, white);  
+    color: black;  
 }
 
 /* TROISIEME CARRE */
@@ -489,7 +491,7 @@ div.images > * {
     font-size: 24px;
 }
 
-.carre_referent{
+/*.carre_referent{
     position: relative;
     border: 4px solid #14A74B;
     top: 11vh;
@@ -497,18 +499,28 @@ div.images > * {
     padding: 18px;
     margin-left: auto;
     margin-right: auto;
-}
+}*/
 
 .texte_carre_referent > input{
-    border-bottom: 4px dotted #14A74B;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    color:black
+    position: relative;
+    border: none;
+    border-bottom: 2px dotted #14A74B;
+    color:black;
+    bottom: 0.5vh;
+    text-align: justify;
+    width: 4vw;
 }
 
 .carre_referent{
-    color:#14A74B
+    position: relative;
+    border: 3px solid #14A74B;
+    top: 11vh;
+    width: 40vw;
+    padding: 18px;
+    color:#14A74B;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -541,3 +553,122 @@ div.images > * {
     text-align: center;
 }
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.titre_inscription{
+    position: absolute;
+    width: 100vw;
+    min-width: 0px;
+    color: #70707b;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 5vh;
+    left:64vh;
+    text-align: center;
+    font-size: 6vw;
+}
+
+
+.texte_inscription{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #70707b;
+    font-size: 24px;
+}
+
+.carre_inscription{
+    position: relative;
+    border: 3px solid #70707b;
+    top: 9vh;
+    width: 40vw;
+    padding: 18px;
+    color:#70707b;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.texte_carre_inscription > input{
+    position: relative;
+    border: none;
+    border-bottom: 2px dotted #70707b;
+    color:black;
+    bottom: 0.5vh;
+    text-align: justify;
+    width: 4vw;
+}
+
+.deja_un_compte{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 15vh;
+    color:  #70707b;
+    font-size: 24px;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+.titre_connexion{
+    position: absolute;
+    width: 100vw;
+    min-width: 0px;
+    color: #70707b;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    top: 5vh;
+    left:64vh;
+    text-align: center;
+    font-size: 6vw;
+}
+
+
+.texte_connexion{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #70707b;
+    font-size: 24px;
+}
+
+.carre_connexion{
+    position: relative;
+    border: 3px solid #70707b;
+    top: 11vh;
+    width: 40vw;
+    padding: 18px;
+    color:#70707b;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.texte_carre_connexion > input{
+    position: relative;
+    border: none;
+    border-bottom: 2px dotted #70707b;
+    color:black;
+    bottom: 0.5vh;
+    text-align: justify;
+    width: 4vw;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
