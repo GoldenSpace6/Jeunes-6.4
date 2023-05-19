@@ -17,31 +17,33 @@
     </div>
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page">  
-        <div class="les_modules">
+        <ul class="les_modules">
                 <li> <a class="bouton_jeune" href="jeune.html">JEUNE</a> </li>
                 <li> <a class="bouton_referent" href="referent.html">REFERENT</a> </li>
                 <li> <a class="bouton_consultant" href="consultant.html">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
-        </div>
+        </ul>
     
         <div class="texte_inscription">
-            <form action="" method="">
-                <fieldset>
-                    <legend>Créer ton compte</legend>
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom"><br>
-                    <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom"><br>
-                    <label for="date">Date de naissance</label>
-                    <input type="Date" name="date"><br>
-                    <label for="e-mail">E-mail</label>
-                    <input type="e-mail" name="e-mail"><br>
-                    <label for="mdp">Mot de passe</label>
-                    <input type="password" name="mdp" minlenght="8">
-                </fieldset> 
+            Créer ton compte
+        </div>
+
+        <div class="carre_inscription">
+            <form action="" method="post" class="texte_carre_inscription">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom"><br>
+                <label for="prenom">Prénom</label>
+                <input type="text" name="prenom" id="prenom"><br>
+                <label for="date">Date de naissance</label>
+                <input type="Date" name="date" id="date"><br>
+                <label for="e-mail">E-mail</label>
+                <input type="e-mail" name="e-mail" id="e-mail"><br>
+                <label for="mdp">Mot de passe</label>
+                <input type="password" name="mdp" id="mdp" minlenght="8">
             </form>
         </div>
     </div>  
-    <a href="connexion.html">J'ai déjà un compte</a>
+    <a class="deja_un_compte" href="connexion.html">J'ai déjà un compte</a>
 </body>
 </html>
+
