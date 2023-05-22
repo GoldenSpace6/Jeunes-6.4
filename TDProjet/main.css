@@ -484,8 +484,8 @@ div.images > * {
     display: flex;
     flex-wrap: wrap;
     float: right;
-    top: -60vh;
-    margin: auto;
+    top: -70vh;
+    right: 3vw;
 }
 
 .mes_savoir_etres{
@@ -496,7 +496,7 @@ div.images > * {
     font-size: 18px;
     word-spacing: -2px;
     left: 22vw;
-    top: -2vw;
+    top: -1vw;
 }
 
 .rectangle_texte_1{
@@ -513,6 +513,7 @@ div.images > * {
     background-color: pink;
     width: 14vw;
     left: 9vw;
+    top: 3vh;
 }
 
 .liste_checkbox_jeune{
@@ -525,7 +526,7 @@ div.images > * {
     text-align: center;
     color: #e5239b;
     font-weight: bold;
-    top: 28vh;
+    top: 38vh;
     right: 3vw;
 }
 
@@ -569,7 +570,6 @@ div.images > * {
     color: #14A74B;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
-    
     top: 5vh;
     left:64vh;
     text-align: center;
@@ -598,7 +598,7 @@ div.images > * {
     justify-content: center;
     top: 3vh;
     color:  #14A74B;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .carre_referent{
@@ -614,6 +614,7 @@ div.images > * {
     width: 40vw;
     padding: 18px;
     background: white;
+    color: #14A74B
 }
 
 .texte_carre_referent > input{
@@ -662,7 +663,7 @@ div.images > * {
     flex-wrap: wrap;
     float: right;
     top: -60vh;
-    margin: auto;
+    right: 3vw;
 }
 
 .mes_savoir_etres_2{
@@ -678,7 +679,7 @@ div.images > * {
 
 .rectangle_texte_2{
     background: linear-gradient(to right, #c3ff1c -50%, #14A74B);
-    padding-left: vw;
+    padding-left: 1vw;
     font-size: 24px;
     color: white;
     
@@ -758,6 +759,7 @@ textarea{
     background:#c3ff1c;
     border: none;
     resize: none;
+    padding: 20px;
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
