@@ -18,14 +18,30 @@ body{
 }
 
 
-.logo_home{
+.logo_home {
     position: relative;
-    height: 100%;
     left: 5vh;
+    width:42.881vh;
+    min-height: 100px;
 }
 
+.logo_home > * {
+    height: 100%;
+}
 
 .titre{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-size: 6vw;
+    top: 5vh;
+    text-align: right;
+    width: 100vw;
+    pointer-events: none;
+    min-height: 0px;
+}
+
+.soustitre{
     position: absolute;
     width: 100vw;
     min-width: 600px;
@@ -35,9 +51,10 @@ body{
     letter-spacing: 4px;
     font-size: 3vw;
     top: 18vh;
-    left:36vh;
-    text-align: center;
+    text-align: right;
+    pointer-events: none;
 }
+
 
 
 
@@ -340,16 +357,7 @@ div.images > a > * {
 }
 
 .titre_partenaire{
-    position: absolute;
     color: #70707b;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 2px;
-    font-size: 6vw;
-    top: 5vh;
-    text-align: right;
-    width: 100vw;
-    min-height: 0px;
-    
 }
 
 .text_partenaire{
@@ -385,29 +393,8 @@ div.images > a > * {
 
 
 .titre_jeune{
-    position: absolute;
-    width: 100vw;
-    min-height: 0px;
-    color:  #e5239b;;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    top: 5vh;
-    text-align: right;
-    font-size: 6vw;
+    color:  #e5239b;
 }
-
-.petit_texte{
-    position: absolute;
-    width: 100vw;
-    min-width: 800px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    font-size: 3vw;
-    top: 18vh;
-    text-align: right;
-}
-
 
 .texte_jeune{
     position: relative;
@@ -513,30 +500,8 @@ div.images > a > * {
 
 
 .titre_referent{
-    position: absolute;
-    width: 100vw;
-    min-width: 0px;
     color: #14A74B;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    top: 5vh;
-    text-align: right;
-    font-size: 6vw;
 }
-
-.petit_texte2{
-    position: absolute;
-    width: 100vw;
-    min-width: 800px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    font-size: 3vw;
-    top: 18vh;
-    left:32vh;
-    text-align: center;
-}
-
 
 .texte_referent{
     position: relative;
@@ -713,44 +678,13 @@ textarea{
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-
 .titre_consultant{
-    position: absolute;
-    width: 100vw;
-    min-width: 0px;
     color: #17a4e1;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    
-    top: 5vh;
-    text-align: right;
-    font-size: 6vw;
-}
-
-.petit_texte3{
-    position: absolute;
-    width: 100vw;
-    min-width: 800px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    font-size: 3vw;
-    top: 18vh;
-    left:32vh;
-    text-align: center;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .titre_inscription{
-    position: absolute;
-    width: 100vw;
-    min-height: 0px;
-    color:  #e5239b;;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    top: 5vh;
-    text-align: right;
-    font-size: 6vw;
+    color:  #e5239b;
 }
 
 .texte_inscription{
@@ -778,7 +712,6 @@ textarea{
     padding: 18px;
     color:#e5239b;
     background: white;
-    
 }
 
 .texte_carre_inscription > input{
@@ -878,9 +811,7 @@ textarea{
     padding-left: 6vw;
     font-size: 32px;
     color: white;
-    
 }
-
 
 .petit_rectangle_jeune{
     position: relative;
@@ -904,23 +835,10 @@ textarea{
     right: 3vw;
 }
 
-
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-
-
-
 .titre_connexion{
-    position: absolute;
-    width: 100vw;
-    min-width: 0px;
     color: #70707b;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
-    font-size: 3vw;
-    top: 5vh;
-    text-align: right;
-    font-size: 6vw;
 }
 
 
@@ -957,20 +875,4 @@ textarea{
     width: 4vw;
 }
 
-
-
-
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
