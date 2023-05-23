@@ -3,8 +3,9 @@
 
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Inscription</title>
+    <script src="checkbox_verification.js" type="text/javascript"></script>
     <?php
-        function find($tab,$email) {
+        function getmdp($tab,$email) {
             foreach($tab as $jeune) {
                 if($jeune["mail"] == $email) {
                     return $jeune["mdp"];
@@ -12,21 +13,27 @@
             }
             return null;
         }
-        $url = "test.json";
-        $file = file_get_contents($url);
-        $arr = json_decode($file,true);
-            
-        $nom = $prenom = $mail = $date = $mdp = "";
+
+        function error() {
+            return false;
+        }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $url = "test.json";
+            $file = file_get_contents($url);
+            $arr = json_decode($file,true);
+                
+            $nom = $prenom = $mail = $date = $mdp = "";
+
             if(isset($_POST["nom"])){
                 $nom = $_POST["nom"];
             }
             if(isset($_POST["prenom"])){
                 $prenom = $_POST["prenom"];
             }
-            if(isset($_POST["mail"])){
-                $mail = $_POST["mail"];
+            if(isset($_POST["e-mail"])){
+                $mail = $_POST["e-mail"];
             }
             if(isset($_POST["date"])){
                 $date = $_POST["date"];
@@ -35,10 +42,14 @@
                 $mdp = $_POST["mdp"];
             }
 
-            if(empty($mail)) {
-                echo "mail incorrect";
+            $exist=getmdp($arr,$mail);
+
+            if(error()) {
+                die("ERR0R");
+            }elseif (!(empty($exist))) {
+                $errmail="e-mail deja inscrit.";
             } else {
-                $exist=find($arr,$mail);
+                $errmail="";
                 array_push($arr,array(
                     "nom"=>$nom,
                     "prenom"=>$prenom,
@@ -46,9 +57,12 @@
                     "date"=>$date,
                     "mdp"=>$mdp
                 ));
-                echo 'Bonjour ' . htmlspecialchars($_POST["nom"]) . '!';
+                file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
+
+                echo 'Bonjour ' . htmlspecialchars($_POST["prenom"]) . '!';
                 
-                //file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
+                //session_start();
+
                 //header("home.html");
             }
         }
@@ -59,7 +73,7 @@
 <body>
     
     <div class="haut_de_page">
-        <a href="presentation.html"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
+        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
 
         <div class="titre_inscription">
                 INSCRIPTION
@@ -87,7 +101,7 @@
                     <label for="date">Date de naissance</label>
                     <input type="Date" name="date" id="date" required><br>
                     <label for="e-mail">E-mail</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><?php echo $errmail;?><br>
                     <label for="mdp">Mot de passe</label>
                     <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
                     <button type="submit" id="submit">Login</button>

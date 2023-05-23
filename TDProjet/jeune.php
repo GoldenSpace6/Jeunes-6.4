@@ -29,7 +29,7 @@
     <div class="bas_de_page"> 
 
         <ul class="les_modules">
-                <li><a class="bouton_jeune background" href="jeune.html">JEUNE</a> </li>
+                <li><a class="bouton_jeune background" href="jeune.php">JEUNE</a> </li>
                 <li><a class="bouton_referent" href="referent.html">REFERENT</a> </li>
                 <li><a class="bouton_consultant" href="consultant.html">CONSULTANT</a>  </li> 
                 <li><a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
@@ -39,9 +39,7 @@
             <div class="texte_jeune">
                     Decrivez votre experience et mettez en avant ce que vous avez retire.
             </div>
-            <div class="arriere_plan_jeune">
-                <img src="image/Capture_numero_3-removebg-preview.png" > 
-            </div>
+            
             
             <div class="carre_jeune">
                 <form action="jeune.php" method="post" class="texte_carre_jeune">
@@ -57,10 +55,12 @@
                         <input type="text" name="prenom" id="prenom" required><br>
                         <label for="e-mail">E-mail :</label>
                         <input type="e-mail" name="e-mail" id="e-mail" required><br><br>
-                        <input type="submit" id="submit">
+                        <button type="submit" id="submit">Envoyer</button>
                 </form>
             </div>
-
+            <div class="arriere_plan_jeune">
+                <img src="image/Capture_numero_3-removebg-preview.png" > 
+            </div>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres">
                     MES SAVOIRS ETRE

@@ -5,26 +5,33 @@
     <title>Jeunes 6.4 - Inscription</title>
 
     <?php
-    function find($tab,$email) {
-        foreach($tab as $i) {
+    function getmdp($tab,$email) {
+        foreach($tab as $jeune) {
+            if($jeune["mail"] == $email) {
+                return $jeune["mdp"];
+            }
         }
-        echo $email;
+        return null;
     }
-
     $url = "test.json";
     $file = file_get_contents($url);
     $arr = json_decode($file,true);
     
     $err = "";
     $nom = $prenom = $mail = $date = $mdp = "";
-        
-    $mail = $_POST["mail"];
-    $mdp = $_POST["mdp"];
+    
+
+    if(isset($_POST["e-mail"])){
+        $mail = $_POST["e-mail"];
+    }
+    if(isset($_POST["mdp"])){
+        $mdp = $_POST["mdp"];
+    }
+
     if (empty($mail) or empty($mdp) or getmdp($arr,$mail)!=$mdp) {
-        $err = "E-Mail ou mot de passe invalide";
+        $err = "E-Mail ou mot de passe invalide.";
     } else {
-        echo "Bonjour".$mail;
-        getmdp($arr,$mail);
+        echo "Bonjour ".$mail;
         //header("home.html");
     }
 ?>
@@ -34,7 +41,7 @@
 <body>
     
     <div class="haut_de_page">
-        <a href="presentation.html"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
+        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
 
         <div class="titre_inscription">
                 CONNEXION

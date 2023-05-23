@@ -6,6 +6,7 @@ body{
 
 
 .haut_de_page{
+    display: grid;
     position: fixed;
     height: 28vh;
     width: 100vw;
@@ -332,7 +333,7 @@ div.images {
     margin-top: -5vh;
 }
 
-div.images > * {
+div.images > a > * {
     margin-right: 90px;
     margin-top: 5vh;
     height:180px;
@@ -345,8 +346,7 @@ div.images > * {
     letter-spacing: 2px;
     font-size: 6vw;
     top: 5vh;
-    left:54vh;
-    text-align: center;
+    text-align: right;
     width: 100vw;
     min-height: 0px;
     
@@ -392,8 +392,7 @@ div.images > * {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     top: 5vh;
-    left:77vh;
-    text-align: center;
+    text-align: right;
     font-size: 6vw;
 }
 
@@ -406,8 +405,7 @@ div.images > * {
     letter-spacing: 4px;
     font-size: 3vw;
     top: 18vh;
-    left:32vh;
-    text-align: center;
+    text-align: right;
 }
 
 
@@ -429,7 +427,8 @@ div.images > * {
     /*display: block;*/
     justify-content: center;
     border: 3px solid #e5239b;
-    top: -25vh;
+    /*top: -20vh;*/
+    top: 80px;
     margin-left: auto;
     margin-right: auto;
     width: 40vw;
@@ -474,10 +473,15 @@ div.images > * {
     width: 5vw;
     z-index: 1;
     position: relative;
-    border: none;
-    border-bottom: none;
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     color:black;
-    bottom: 0.5vh;
+    top: 1vh;
+    left: 17vw;
+    font-weight: bold;
 }
 
 .texte_carre_jeune > label{
@@ -516,8 +520,7 @@ div.images > * {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     top: 5vh;
-    left:64vh;
-    text-align: center;
+    text-align: right;
     font-size: 6vw;
 }
 
@@ -553,7 +556,7 @@ div.images > * {
     /*display: block;*/
     justify-content: center;
     border: 4px solid #14A74B;
-    top: -25vh;
+    top: -22vh;
     margin-left: auto;
     margin-right: auto;
     width: 40vw;
@@ -634,8 +637,9 @@ div.images > * {
 .petit_rectangle_referent{
     position: relative;
     background-color: #9ef80c;
+    top: -38vh;
     width: 14vw;
-    left: 9vw;
+    left: 10vw;
 }
 
 .liste_checkbox_referent{
@@ -719,8 +723,7 @@ textarea{
     letter-spacing: 4px;
     
     top: 5vh;
-    left:56vh;
-    text-align: center;
+    text-align: right;
     font-size: 6vw;
 }
 
@@ -746,8 +749,7 @@ textarea{
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     top: 5vh;
-    left:55vh;
-    text-align: center;
+    text-align: right;
     font-size: 6vw;
 }
 
@@ -884,8 +886,8 @@ textarea{
     position: relative;
     background-color: pink;
     width: 14vw;
-    left: 9vw;
-    top: 3vh;
+    left: 10vw;
+    top: 20vh;
 }
 
 .liste_checkbox_jeune{
@@ -917,8 +919,7 @@ textarea{
     letter-spacing: 4px;
     font-size: 3vw;
     top: 5vh;
-    left:64vh;
-    text-align: center;
+    text-align: right;
     font-size: 6vw;
 }
 
