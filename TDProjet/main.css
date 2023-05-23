@@ -470,6 +470,15 @@ div.images > * {
 #duree{
     width: 33vw;
 }
+#submit{
+    width: 5vw;
+    z-index: 1;
+    position: relative;
+    border: none;
+    border-bottom: none;
+    color:black;
+    bottom: 0.5vh;
+}
 
 .texte_carre_jeune > label{
     z-index: 2;
