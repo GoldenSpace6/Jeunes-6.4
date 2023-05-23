@@ -41,6 +41,9 @@
             </div>
             
             
+            <div class="arriere_plan_jeune">
+                <img src="image/Capture_numero_3-removebg-preview.png" > 
+            </div>
             <div class="carre_jeune">
                 <form action="jeune.php" method="post" class="texte_carre_jeune">
                         <h3>Experience :</h3>
@@ -116,9 +119,6 @@
                     
                 </div>
                 
-            </div>
-            <div class="arriere_plan_jeune">
-                <img src="image/Capture_numero_3-removebg-preview.png" > 
             </div>
         </div> 
     </div>
