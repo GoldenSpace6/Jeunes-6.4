@@ -19,10 +19,9 @@ body{
 
 
 .logo_home {
-    position: relative;
+    position: absolute;
     left: 5vh;
-    width:42.881vh;
-    min-height: 100px;
+    height:100%;
 }
 
 .logo_home > * {
@@ -34,29 +33,24 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     font-size: 6vw;
-    top: 5vh;
+    top: 18%;
     text-align: right;
-    width: 100vw;
+    width: 100%;
     pointer-events: none;
-    min-height: 0px;
 }
 
 .soustitre{
     position: absolute;
-    width: 100vw;
-    min-width: 600px;
+    width: 100%;
     
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
     font-size: 3vw;
-    top: 18vh;
+    top: 65%;
     text-align: right;
     pointer-events: none;
 }
-
-
-
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
