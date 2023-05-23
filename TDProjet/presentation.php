@@ -9,26 +9,12 @@
 
     $acces = $session_id();
     
-    
-    
-    
-    
-    
     ?>
 </head>
 
-
 <body>
-    
-    
-        
-    
     <div class="haut_de_page">
-        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
-
-        <div class="titre">
-                Pour faire de l'engagement une valeur
-        </div>
+        <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="les_boutons">
             <a href="connexion.html" class="connexion">
@@ -38,7 +24,10 @@
 
             <a href="inscription.php" class="inscription"> Inscription </a>
         </div>
-
+        
+        <div class="soustitre">
+                Pour faire de l'engagement une valeur
+        </div>
     </div>
 
     <div class="haut_de_page_vide"></div>
