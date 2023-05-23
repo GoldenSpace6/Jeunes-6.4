@@ -488,70 +488,6 @@ div.images > * {
     font-weight: bold;
 }
 
-.savoir_etre{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    float: right;
-    top: -70vh;
-    right: 3vw;
-}
-
-.mes_savoir_etres{
-    position: relative;
-    color: #e5239b;
-    padding-left: 2vw;
-    font-weight: bold;
-    font-size: 18px;
-    word-spacing: -2px;
-    left: 22vw;
-    top: -1vw;
-}
-
-.rectangle_texte_1{
-    background: linear-gradient(to right, white, #e5239b);
-    padding-left: 6vw;
-    font-size: 32px;
-    color: white;
-    
-}
-
-
-.petit_rectangle_jeune{
-    position: relative;
-    background-color: pink;
-    width: 14vw;
-    left: 9vw;
-    top: 3vh;
-}
-
-.liste_checkbox_jeune{
-    position: relative;
-}
-
-.respect_choix{
-    position: relative;
-    font-size: 16;
-    text-align: center;
-    color: #e5239b;
-    font-weight: bold;
-    top: 38vh;
-    right: 3vw;
-}
-
-.bouton_valider_jeune{
-    position: relative;
-    color: white;
-    font-size: 24px;
-    background-color: #e5239b;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    top: -26vh;
-    left: 87vw;
-}
-
 .arriere_plan_jeune{
     position: relative;
     display: flex;
@@ -802,23 +738,18 @@ textarea{
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
 .titre_inscription{
     position: absolute;
     width: 100vw;
-    min-width: 0px;
-    color: #70707b;
+    min-height: 0px;
+    color:  #e5239b;;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 4px;
-    font-size: 3vw;
     top: 5vh;
-    left:64vh;
+    left:55vh;
     text-align: center;
     font-size: 6vw;
 }
-
 
 .texte_inscription{
     position: relative;
@@ -827,31 +758,86 @@ textarea{
     text-align: center;
     justify-content: center;
     top: 3vh;
-    color:  #70707b;
-    font-size: 24px;
+    color:  #e5239b;
+    font-size: 28px;
 }
 
 .carre_inscription{
+    z-index: 1;
     position: relative;
-    border: 3px solid #70707b;
-    top: 9vh;
-    width: 40vw;
-    padding: 18px;
-    color:#70707b;
+    flex-wrap: wrap;
+    /*display: block;*/
+    justify-content: center;
+    border: 3px solid #e5239b;
+    top: 7vh;
     margin-left: auto;
     margin-right: auto;
-    text-align: justify;
+    width: 40vw;
+    padding: 18px;
+    color:#e5239b;
+    background: white;
+    
 }
 
 .texte_carre_inscription > input{
+    z-index: 1;
     position: relative;
     border: none;
-    border-bottom: 2px dotted #70707b;
+    border-bottom: 3px dotted #e5239b;
     color:black;
     bottom: 0.5vh;
-    text-align: justify;
-    width: 4vw;
 }
+
+
+#nom{
+    width: 34vw;
+}
+#prenom{
+    width: 32vw;
+}
+#date_naissance{
+    width: 25vw;
+}
+#e-mail{
+    width: 32vw;
+}
+#reseau_social{
+    width: 28vw;
+}
+#mon_engagement{
+    width: 26vw;
+}
+#duree{
+    width: 33vw;
+}
+#submit{
+    width: 5vw;
+    z-index: 1;
+    position: relative;
+    border: none;
+    border-bottom: none;
+    color:black;
+    bottom: 0.5vh;
+}
+
+.texte_carre_inscription > label{
+    z-index: 2;
+    display: inline-block;
+    padding: 3px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.arriere_plan_jeune{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top:25vh;
+    left: 1vw;
+}
+
 
 .deja_un_compte{
     position: relative;
@@ -859,9 +845,61 @@ textarea{
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    top: 15vh;
-    color:  #70707b;
+    top: 40vh;
+    color:  #e5239b;
     font-size: 24px;
+}
+
+
+.savoir_etre{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    top: -20vh;
+    right: 3vw;
+}
+
+.mes_savoir_etres{
+    position: relative;
+    color: #e5239b;
+    padding-left: 2vw;
+    font-weight: bold;
+    font-size: 18px;
+    word-spacing: -2px;
+    left: 22vw;
+    top: -1vw;
+}
+
+.rectangle_texte_1{
+    background: linear-gradient(to right, white, #e5239b);
+    padding-left: 6vw;
+    font-size: 32px;
+    color: white;
+    
+}
+
+
+.petit_rectangle_jeune{
+    position: relative;
+    background-color: pink;
+    width: 14vw;
+    left: 9vw;
+    top: 3vh;
+}
+
+.liste_checkbox_jeune{
+    position: relative;
+}
+
+.respect_choix{
+    position: relative;
+    font-size: 16;
+    text-align: center;
+    color: #e5239b;
+    font-weight: bold;
+    top: 35vh;
+    right: 3vw;
 }
 
 
@@ -922,10 +960,6 @@ textarea{
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-
 
 
 

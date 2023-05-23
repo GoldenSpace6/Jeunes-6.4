@@ -37,7 +37,7 @@
         <a href="presentation.html"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
 
         <div class="titre_inscription">
-                INSCRIPTION
+                CONNEXION
         </div>
     </div>
     <div class="haut_de_page_vide"></div>
