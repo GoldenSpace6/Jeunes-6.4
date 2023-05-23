@@ -58,9 +58,6 @@
                         <button type="submit" id="submit">Envoyer</button>
                 </form>
             </div>
-            <div class="arriere_plan_jeune">
-                <img src="image/Capture_numero_3-removebg-preview.png" > 
-            </div>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres">
                     MES SAVOIRS ETRE
@@ -118,6 +115,10 @@
                     *Faire 4 choix maximum
                     
                 </div>
+                
+            </div>
+            <div class="arriere_plan_jeune">
+                <img src="image/Capture_numero_3-removebg-preview.png" > 
             </div>
         </div> 
     </div>
