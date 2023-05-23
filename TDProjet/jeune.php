@@ -15,13 +15,13 @@
    <script src="checkbox_verification.js" type="text/javascript"></script>
 
     <div class="haut_de_page">
-        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
+        <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_jeune">
+        <div class="titre_jeune titre">
                 JEUNE
         </div>
 
-        <div class="petit_texte">
+        <div class="soustitre">
             Je donne de la valeur a mon engagement
         </div>
     </div>
