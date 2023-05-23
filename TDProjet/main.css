@@ -493,7 +493,7 @@ div.images > a > * {
 }
 
 .arriere_plan_jeune{
-    position: relative;
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
