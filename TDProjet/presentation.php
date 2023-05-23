@@ -24,7 +24,7 @@
         
     
     <div class="haut_de_page">
-        <a href="presentation.html"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
+        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
 
         <div class="titre">
                 Pour faire de l'engagement une valeur
