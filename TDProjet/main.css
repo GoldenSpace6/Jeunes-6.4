@@ -33,7 +33,7 @@ body{
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
-    font-size: 6vw;
+    font-size: calc(40px + 2vw);
     top: 18%;
     text-align: right;
     width: 100%;
@@ -46,7 +46,7 @@ body{
     
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 4px;
+    letter-spacing: calc(20px + 1vw);
     font-size: 3vw;
     top: 65%;
     text-align: right;
