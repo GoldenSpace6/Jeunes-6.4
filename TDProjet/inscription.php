@@ -73,9 +73,9 @@
 <body>
     
     <div class="haut_de_page">
-        <a href="presentation.php"><img class="logo_home" src="image/logohome-removebg-preview.png"></a>
+        <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_inscription">
+        <div class="titre_inscription titre">
                 INSCRIPTION
         </div>
     </div>
