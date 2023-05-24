@@ -6,13 +6,12 @@
 
     <?php
     function getid($tab,$email) {
-        for ($i = 0; $i <= count($tab; $i++) {
-        foreach($tab as $jeune) {
+        for ($i = 0; $i <= count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
                 return $i;
             }
         }
-        return null;
+        return -1;
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = "jeunedata.json";
@@ -31,7 +30,7 @@
     }
     $id=getid($data,$mail);
     
-    if (empty($id) or $data[$id]["mdp"]!=$mdp) {
+    if ($id==-1 or $data[$id]["mdp"]!=$mdp) {
         $err = "E-Mail ou mot de passe invalide.";
     } else {
         echo "Bonjour ".$mail;
@@ -69,7 +68,7 @@
                     <legend>Connecte ton compte</legend>
                     <?php echo $err?><br>
                     <label for="e-mail">E-mail</label>
-                    <input type="e-mail" name="mail" id="e-mail" required><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><br>
                     <label for="mdp">Mot de passe</label>
                     <input type="passeword" name="mdp" id="mdp" required>
                     <button type="submit">Connexion</button>
