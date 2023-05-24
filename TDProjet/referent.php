@@ -23,8 +23,8 @@
     <div class="bas_de_page"> 
         <ul class="les_modules">
             <li><a class="bouton_jeune" href="jeune.php">JEUNE</a> </li>
-            <li><a class="bouton_referent background" href="referent.html">REFERENT</a> </li>
-            <li><a class="bouton_consultant" href="consultant.html">CONSULTANT</a>  </li> 
+            <li><a class="bouton_referent background" href="referent.php">REFERENT</a> </li>
+            <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
             <li><a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
         </ul>
         <div class="confirmation_referent">
