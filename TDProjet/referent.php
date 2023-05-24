@@ -3,6 +3,13 @@
 
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
+    <?php
+        $urlid = $_GET("id");
+        $dataid = getid($data,$urlid);
+        if($dataid != -1) {
+            $demande = $data[$temp];
+        }
+    ?>
 </head>
 
 
