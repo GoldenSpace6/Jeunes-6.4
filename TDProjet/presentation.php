@@ -17,7 +17,7 @@
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="les_boutons">
-            <a href="connexion.html" class="connexion">
+            <a href="connexion.php" class="connexion">
                 <span>Connexion</span>
                 <img src="image/avatar_profil.png" alt="avatar_profil">
             </a>
