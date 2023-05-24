@@ -4,10 +4,25 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
     <?php
-        $urlid = $_GET("id");
-        $dataid = getid($data,$urlid);
-        if($dataid != -1) {
-            $demande = $data[$temp];
+        function getid($tab,$email) {
+            for ($i = 0; $i <= count($tab); $i++) {
+                if($tab[$i]["mail"] == $email) {
+                    return $i;
+                }
+            }
+            return -1;
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $url = "jeunedata.json";
+            $file = file_get_contents($url);
+            $arr = json_decode($file,true);
+  
+            $urlid = $_GET("id");
+            $dataid = getid($data,$urlid);
+            if($dataid != -1) {
+                $demande = $data[$temp];
+            }
         }
     ?>
 </head>
