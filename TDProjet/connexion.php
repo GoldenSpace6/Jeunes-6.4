@@ -29,7 +29,7 @@
     if(isset($_POST["mdp"])){
         $mdp = $_POST["mdp"];
     }
-    $id=getid($data,$mail)
+    $id=getid($data,$mail);
     
     if (empty($id) or $data[$id]["mdp"]!=$mdp) {
         $err = "E-Mail ou mot de passe invalide.";
@@ -37,7 +37,7 @@
         echo "Bonjour ".$mail;
         session_start();
         $_SESSION["id"] = $id;
-        $_SESSION["info"] = $data
+        $_SESSION["info"] = $data[$id];
         //header("home.html");
     }
     }
