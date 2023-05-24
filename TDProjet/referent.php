@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
     <?php
-        function getid($tab,$email) {
+        function getrefid($tab,$code) {
             for ($i = 0; $i <= count($tab); $i++) {
-                if($tab[$i]["mail"] == $email) {
+                if($tab[$i]["id"] == $code) {
                     return $i;
                 }
             }
@@ -19,7 +19,7 @@
             $arr = json_decode($file,true);
   
             $urlid = $_GET("id");
-            $dataid = getid($data,$urlid);
+            $dataid = getrefid($data,$urlid);
             if($dataid != -1) {
                 $demande = $data[$temp];
             }
