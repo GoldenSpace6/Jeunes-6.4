@@ -111,6 +111,11 @@ li{
     padding-left: 20px;
     padding-right: 15px;
 }
+@media only screen and (max-width: 768px) {
+     li{
+         width :100%;
+     }
+}
 
 a{
     text-decoration: none;
