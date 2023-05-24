@@ -13,7 +13,8 @@
         }
         return null;
     }
-    $url = "test.json";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $url = "jeunedata.json";
     $file = file_get_contents($url);
     $arr = json_decode($file,true);
     
@@ -32,7 +33,11 @@
         $err = "E-Mail ou mot de passe invalide.";
     } else {
         echo "Bonjour ".$mail;
+        session_start();
+        $_SESSION["id"] = $mail;
+        $_SESSION["info"] = $arr
         //header("home.html");
+    }
     }
 ?>
 </head>
@@ -62,9 +67,9 @@
                     <legend>Connecte ton compte</legend>
                     <?php echo $err?><br>
                     <label for="e-mail">E-mail</label>
-                    <input type="e-mail" name="mail" id="e-mail"><br>
+                    <input type="e-mail" name="mail" id="e-mail" required><br>
                     <label for="mdp">Mot de passe</label>
-                    <input type="passeword" name="mdp" id="mdp">
+                    <input type="passeword" name="mdp" id="mdp" required>
                     <button type="submit">Connexion</button>
                 </fieldset> 
             </form>
