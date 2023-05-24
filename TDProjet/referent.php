@@ -63,7 +63,7 @@
                     </div>
                     <form class="liste_checkbox" method="post" action="referent.php">
                         <div>
-                            <input type="checkbox" id="confiance" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="confiance" name="competence" value="<?php echo "test"?>" onclick="limitCheckboxSelection(this)">
                             <label for="confiance">Confiance</label>
                         </div>
                         <div>
