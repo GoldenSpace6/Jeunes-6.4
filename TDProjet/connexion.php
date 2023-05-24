@@ -5,10 +5,11 @@
     <title>Jeunes 6.4 - Inscription</title>
 
     <?php
-    function getmdp($tab,$email) {
+    function getid($tab,$email) {
+        for ($i = 0; $i <= count($tab; $i++) {
         foreach($tab as $jeune) {
-            if($jeune["mail"] == $email) {
-                return $jeune["mdp"];
+            if($tab[$i]["mail"] == $email) {
+                return $i;
             }
         }
         return null;
@@ -16,7 +17,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = "jeunedata.json";
     $file = file_get_contents($url);
-    $arr = json_decode($file,true);
+    $data = json_decode($file,true);
     
     $err = "";
     $nom = $prenom = $mail = $date = $mdp = "";
@@ -28,14 +29,15 @@
     if(isset($_POST["mdp"])){
         $mdp = $_POST["mdp"];
     }
-
-    if (empty($mail) or empty($mdp) or getmdp($arr,$mail)!=$mdp) {
+    $id=getid($data,$mail)
+    
+    if (empty($id) or $data[$id]["mdp"]!=$mdp) {
         $err = "E-Mail ou mot de passe invalide.";
     } else {
         echo "Bonjour ".$mail;
         session_start();
-        $_SESSION["id"] = $mail;
-        $_SESSION["info"] = $arr
+        $_SESSION["id"] = $id;
+        $_SESSION["info"] = $data
         //header("home.html");
     }
     }
