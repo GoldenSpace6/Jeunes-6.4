@@ -5,14 +5,14 @@
     <title>Jeunes 6.4 - Inscription</title>
     <script src="checkbox_verification.js" type="text/javascript"></script>
     <?php
-        function getmdp($tab,$email) {
-            foreach($tab as $jeune) {
-                if($jeune["mail"] == $email) {
-                    return $jeune["mdp"];
-                }
+    function getid($tab,$email) {
+        for ($i = 0; $i <= count($tab); $i++) {
+            if($tab[$i]["mail"] == $email) {
+                return $i;
             }
-            return null;
         }
+        return -1;
+    }
 
         function error() {
             return false;
@@ -42,11 +42,11 @@
                 $mdp = $_POST["mdp"];
             }
 
-            $exist=getmdp($arr,$mail);
+            $exist=getid($arr,$mail);
 
             if(error()) {
                 die("ERR0R");
-            }elseif (!(empty($exist))) {
+            }elseif ($exist!=-1) {
                 $errmail="e-mail deja inscrit.";
             } else {
                 $errmail="";
