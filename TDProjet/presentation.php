@@ -35,8 +35,8 @@
         
         <ul class="les_modules ">
                 <li> <a class="bouton_jeune" href="inscription.php">JEUNE</a> </li>
-                <li> <a class="bouton_referent" href="referent.html">REFERENT</a> </li>
-                <li> <a class="bouton_consultant" href="consultant.html">CONSULTANT</a>  </li> 
+                <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
+                <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
         </ul>
 
