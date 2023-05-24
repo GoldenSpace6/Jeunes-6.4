@@ -14,9 +14,9 @@
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $url = "jeunedata.json";
+            $url = "demande.json";
             $file = file_get_contents($url);
-            $arr = json_decode($file,true);
+            $data = json_decode($file,true);
   
             $urlid = $_GET("id");
             $dataid = getrefid($data,$urlid);
