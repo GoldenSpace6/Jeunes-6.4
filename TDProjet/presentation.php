@@ -6,9 +6,8 @@
     <title>Jeunes 6.4</title>
     <?php 
     session_start();
+    $_SESSION['statut'] = 'inviter'; 
 
-    $acces = $session_id();
-    
     ?>
 </head>
 
