@@ -10,9 +10,6 @@
             header("Location: presentation.php");
             exit;
         }
-        else{
-            echo("hello world");
-        }
     
         function getrefid($tab,$code) {
             for ($i = 0; $i <= count($tab); $i++) {
@@ -32,6 +29,8 @@
             $dataid = getrefid($data,$urlid);
             if($dataid != -1) {
                 $demande = $data[$temp];
+                $jeune = $demande["jeune"];
+                $info = $demande["info"];
             }
         }
     ?>
@@ -70,19 +69,19 @@
             <div class="carre_referent">
                 <form action="referent.php" method="post" class="texte_carre_referent">
                     <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="nom"><br>
+                    <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>"><br>
                     <label for="prenom">Prénom :</label>
-                    <input type="text" name="prenom" id="prenom"><br>
+                    <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
                     <label for="date">Date de naissance :</label>
-                    <input type="date" name="date" id="date_naissance"><br>
+                    <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["data"]?>"><br>
                     <label for="mail">Mail :</label>
-                    <input type="e-mail" name="mail" id="e-mail"><br>
+                    <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>"><br>
                     <label for="reseau">Réseau social :</label>
-                    <input type="text" name="reseau" id="reseau_social"><br><br><br>
+                    <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
                     <label for="presentation">Présentation :</label>
-                    <input type="text" name="presentation" id="presentation"><br>
+                    <input type="text" name="presentation" id="presentation" value="<?php echo $info["engagement"]?>"><br>
                     <label for="duree">Durée :</label>
-                    <input type="text" name="duree" id="duree"><br>
+                    <input type="text" name="duree" id="duree" value="<?php echo $info["durée"]?>"><br>
                 </form>
             </div>
             <div class="savoir_etre">
