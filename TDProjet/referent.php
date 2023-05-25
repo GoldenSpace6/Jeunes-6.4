@@ -4,6 +4,16 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
     <?php
+            session_start();
+        if($_SESSION['statut'] == inviter){
+            echo("bien jouer");
+            header("Location: presentation.php");
+            exit;
+        }
+        else{
+            echo("hello world");
+        }
+    
         function getrefid($tab,$code) {
             for ($i = 0; $i <= count($tab); $i++) {
                 if($tab[$i]["id"] == $code) {
