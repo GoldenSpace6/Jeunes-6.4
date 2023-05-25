@@ -37,7 +37,7 @@
         session_start();
         $_SESSION["id"] = $id;
         $_SESSION["info"] = $data[$id];
-        //header("home.html");
+        header("Location: presentation.php");
     }
     }
 ?>
