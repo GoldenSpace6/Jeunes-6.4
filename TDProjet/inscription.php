@@ -22,7 +22,7 @@
 
             $url = "jeunedata.json";
             $file = file_get_contents($url);
-            $arr = json_decode($file,true);
+            $data = json_decode($file,true);
                 
             $nom = $prenom = $mail = $date = $mdp = "";
 
@@ -42,28 +42,29 @@
                 $mdp = $_POST["mdp"];
             }
 
-            $exist=getid($arr,$mail);
+            $id=getid($data,$mail);
 
             if(error()) {
                 die("ERR0R");
-            }elseif ($exist!=-1) {
+            }elseif ($id!=-1) {
                 $errmail="e-mail deja inscrit.";
             } else {
                 $errmail="";
-                array_push($arr,array(
+                $new=array(
                     "nom"=>$nom,
                     "prenom"=>$prenom,
                     "mail"=>$mail,
                     "date"=>$date,
                     "mdp"=>$mdp
-                ));
-                file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
+                );
+                array_push($data,$new);
+                file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));
 
-                echo 'Bonjour ' . htmlspecialchars($_POST["prenom"]) . '!';
+                session_start();
+                $_SESSION["id"] = $id;
+                $_SESSION["info"] = $new;
+                header("Location: presentation.php");
                 
-                //session_start();
-
-                //header("home.html");
             }
         }
     ?>
