@@ -1,63 +1,151 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 
-    <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/presentation.css" type="text/css">
-    <title>Jeunes 6.4 - Partenaires</title>
-    <?php
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <title>Jeunes 6.4</title>
+    <?php 
     session_start();
+    $_SESSION['page_actuelle'] = 'presentation.php';
+    if (isset($_POST['deconnexion'])) { 
+        session_destroy();
+        header('Location: presentation.php');
+        exit;
+    }
     if (isset($_SESSION['statut'])) {
         $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
     } else {
         $lien = 'inscription.php'; // Lien vers la page de connexion
     }
-    
     ?>
 </head>
 
-
-<body>
-    
+<body >
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
-
-        <div class="titre_partenaire titre">
-                PARTENAIRES
+        <div class="les_boutons">
+            <form action="presentation.php" method="post">
+                <button 
+                <?php 
+                if(!isset($_SESSION['statut'])){  
+                  echo "style='display:none;'";
+                }
+                ?>
+                 name="deconnexion" type="submit" class="deconnexion">Deconnexion
+                </button> 
+            </form>
+        </div>
+        <div class="soustitre">
+                Pour faire de l'engagement une valeur
         </div>
     </div>
+
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
         
-        <div class="les_modules">
+        <ul class="les_modules ">
                 <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
                 <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
                 <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
-                <li> <a class="bouton_partenaire background" href="partenaire.php">PARTENAIRES</a> </li>
-        </div>
-        <div class="les_ecritures2">
+                <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
+        </ul>
+
+        
+        <div class="les_ecritures boite">
             <div>
-                    <p class="text_partenaire">
-                        JEUNES 6.4 est un dispositif issu de la <a href="charte2013.pdf">chartre de l'engagement</a> pour la
-                        jeunesse signée en 2013 par des partenaires institutionnels...
-                    </p>
+                <h2 class="titre_paragraphe">De quoi s'agit-il ?</h2>
+                <p  class="paragraphe"> 
+                        D'une opportunite: celle qu'un engagement quel qu'il soit puisse etre
+                        considerer a sa juste valeur ! <br>
+                        Toute experience est source d'enrichissement et doit d'etre reconnu
+                        largement. <br>
+                        Elle revele un potentiel, l'expression d'un savoir-etre a concretiser.
+                </p>
             </div>
-            <div class="images">
-                <a href="https://www.service-public.fr/" target="_blank"><img class="logo-rep" src="image/logo-rep.png"></a>
-                <a href="https://www.nouvelle-aquitaine.fr/" target="_blank"><img class="logo-aqu" src="image/logo-aqu.png"></a>
-                <a href="https://www.le64.fr/" target="_blank"><img class="logo-pyr" src="image/logo-pyr.png"></a>
-                <a href="https://www.ameli.fr/" target="_blank"><img class="logo-ame" src="image/logo-ame.png"></a>
-                <a href="https://le64.fr/guide-jeunes-64" target="_blank"><img class="logo_home" src="image/logo-adj.png"></a>
-                <a href="https://annuaire.action-sociale.org/CAF/CAF-64445-01-caf-de-bearn-et-soule---siege-de-pau.html" target="_blank"><img class="logo-caf" src="image/logo-caf.png"></a>
-                <a href="https://annuaire.action-sociale.org/CAF/CAF-64102-01-caf-du-pays-basque-et-du-seignanx---siege-de-bayonne.html" target="_blank"><img class="logo-caf2" src="image/logo-caf2.png"></a>
-                <a href="https://www.msa.fr/lfp" target="_blank"><img class="logo-msa" src="image/logo-msa.png"></a>
-                <a href="https://www.univ-pau.fr/fr/index.html" target="_blank"><img class="logo-pau" src="image/logo-pau.png"></a>
+            <div>
+                <h2 class="titre_paragraphe">A qui s'addresse-t'il ?</h2>
+                <p  class="paragraphe">
+                    
+                        A vous, jeunes entre 16 et 30 ans, qui vous etes investis spontanement 
+                        dans une association ou dans tout type d'action formelle ou informelle, et   
+                        qui avez partage de votre temps, de votre energie, pour apporter un 
+                        soutien, une aide, une competence. <br>
+                    
+                </p>
+                <p  class="paragraphe">
+                    
+                        A vous, responsables de structures ou referents d'un jour, qui avez 
+                        croise la route de ces jeunes et avez beneficie meme ponctuellement de 
+                        cette implication citoyenne ! <br>
+                        C'est l'occasion de vous engager a votre tour pour ces jeunes en confirmant leur richesse pour en avoir ete un temps les temoins mais aussi les
+                        beneficiares !
+                </p>
             </div>
-            <div> 
-                <p class="text_partenaire2">...qui ont décidé de mettre en commun leurs actions pour les jeunes<br>
-                des Pyrénées-Atlantiques</p>
+            <div>
+                <p class="paragraphe">
+                    
+                        A vous, employeurs, recruteurs en ressources humaines, repre-
+                        sentants d'organismes de fonction, qui recevez ces jeunes, pour un 
+                        emploi, un stage, un cursus de qualification, pour qui le savoir-etre consti-
+                        tue le premier fondement de toute capacite humaine. <br> 
+                    
+                </p>
+
+                <h3 class="titre_paragraphe"> Cet engagement est une ressources a valoriser au fil d'un parcours en 3 etapes :</h3>
+            </div>
         </div>
+
+        <div class="les_carees">
+
+            <div class="premier_carre carre">
+                <p class="carre_texte_1">
+                    1<sup>ere</sup> etape <br>
+                    la valorisation
+                </p>
+                    
+                <p class="carre_texte_2">
+                    Decrivez votre expe- 
+                    rience et mettez en 
+                    avant ce que vous en 
+                    avez retire.
+                </p>
+            
+            </div>
+
+
+            <div class="deuxieme_carre carre">
+                <p class="carre_texte_1">
+                    2<sup>eme</sup> etape <br>
+                    la confirmation
+                </p>
+                    
+                <p class="carre_texte_2">
+                    Confirmez cette expe-
+                    rience et ce que vous
+                    avez pu constater au
+                    contact de ce jeune
+                </p>
+            </div>
+
+
+
+            <div class="troisieme_carre carre">
+                <p class="carre_texte_1">
+                    3<sup>eme</sup> etape <br>
+                    la consultation
+                </p>
+                    
+                <p class="carre_texte_2">
+                    Valider cet engagement
+                    en prenant en compte sa
+                    valeur.
+                </p>
+            </div>
+
         </div>
     </div>
+
+
+
 </body>
 </html>
-
