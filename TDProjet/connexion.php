@@ -2,20 +2,14 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/connexion.css" type="text/css">
+    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Connexion</title>
 
     <?php
+    require("script/phpfonction.php");
     session_start();
-    function getid($tab,$email) {
-        for ($i = 0; $i <= count($tab); $i++) {
-            if($tab[$i]["mail"] == $email) {
-                return $i;
-            }
-        }
-        return -1;
-    }
-    $err = "";
+    
+    $error = "";
     
     if(isset($_SESSION['page_actuelle'])){
         $_SESSION['page_actuelle'] = 'connexion.php';
@@ -38,7 +32,7 @@
     $id=getid($data,$mail);
     
     if ($id===-1 or $data[$id]["mdp"]!=$mdp){
-        $err = "E-Mail ou mot de passe invalide.";
+        $error = "E-Mail ou mot de passe invalide.";
     } else {
         echo "Bonjour ".$mail;
         $_SESSION["id"] = $id;
@@ -75,7 +69,7 @@
             </div>
             <div class="carre_connexion">
                 <form action="connexion.php" method="POST" class="texte_carre_connexion">
-                        <?php echo $err?><br>
+                        <?php echo $error?><br>
                         <label for="e-mail">E-mail:</label>
                         <input type="e-mail" name="e-mail" id="e-mail" required><br>
                         <label for="mdp">Mot de passe:</label>
