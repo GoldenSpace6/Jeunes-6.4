@@ -4,17 +4,30 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
     <?php
-            session_start();
-        if($_SESSION['statut'] == inviter){
-            echo("bien jouer");
+        session_start();
+        if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
+            header("Location: inscription.php");
+            exit;
+        }
+        if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
             header("Location: presentation.php");
             exit;
         }
-    
+        if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
+            header("Location: connexion.php");
+            exit;
+        }
+        if (isset($_SESSION['statut'])) {
+            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+        } else {
+            $lien = 'inscription.php'; // Lien vers la page de connexion
+        }
         function getrefid($tab,$code) {
-            for ($i = 0; $i <= count($tab); $i++) {
-                if($tab[$i]["id"] == $code) {
-                    return $i;
+            if(is_countable($tab) > 0){ 
+                for ($i = 0; $i <= count($tab); $i++) {
+                    if($tab[$i]["id"] == $code) {
+                        return $i;
+                    }
                 }
             }
             return -1;
@@ -24,8 +37,10 @@
             $url = "demande.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
-  
-            $urlid = $_GET("id");
+            $urlid = '';
+            if(isset($_GET["id"])){ 
+                $urlid = $_GET["id"];
+            }
             $dataid = getrefid($data,$urlid);
             if($dataid != -1) {
                 $demande = $data[$temp];
@@ -53,10 +68,10 @@
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
         <ul class="les_modules">
-            <li><a class="bouton_jeune" href="jeune.php">JEUNE</a> </li>
+            <li><a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
             <li><a class="bouton_referent background" href="referent.php">REFERENT</a> </li>
             <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
-            <li><a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
+            <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
         <div class="confirmation_referent">
             <div class="texte_referent">
