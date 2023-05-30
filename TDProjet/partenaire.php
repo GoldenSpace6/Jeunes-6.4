@@ -1,7 +1,8 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/partenaire.css" type="text/css">
     <title>Jeunes 6.4 - Partenaires</title>
     <?php
     session_start();
