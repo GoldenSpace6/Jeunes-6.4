@@ -1,8 +1,8 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="main.css" type="text/css">
-    <title>Jeunes 6.4 - Inscription</title>
+    <link rel="stylesheet" href="CSS/main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/connexion.css" type="text/css">    <title>Jeunes 6.4 - Inscription</title>
     <script src="checkbox_verification.js" type="text/javascript"></script>
     <?php
     
@@ -26,7 +26,7 @@
         }
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $url = "jeunedata.json";
+            $url = "data/jeunedata.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
                 
