@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <?php
+    session_start();
     /*if($_POST["message"]) {
     mail("mail@ezg.com", "entete");
     }*/
@@ -43,17 +44,17 @@
             </div>
             <div class="carre_profil">
                 <form action="profil.php" method="POST" class="texte_carre_profil">
-                        <!--<//?php echo $err?><br>-->
+                    <!--<//?php echo $err?><br>-->
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" required><br>
+                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["info"]["nom"];?>" required><br>
                     <label for="prenom">Prénom:</label>
-                    <input type="text" name="prenom" id="prenom" required><br>
+                    <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION["info"]["prenom"];?>" required><br>
                     <label for="date">Date de naissance:</label>
-                    <input type="Date" name="date" id="date" required><br>
+                    <input type="Date" name="date" id="date" value="<?php echo $_SESSION["info"]["date"];?>" required><br>
                     <label for="e-mail">E-mail:</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $_SESSION["info"]["mail"];?>" required><br>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="password" name="mdp" id="mdp" required><br>
+                    <input type="password" name="mdp" id="mdp" value="<?php echo $_SESSION["info"]["mdp"];?>" required><br>
                     <button type="submit" id="submit">Modifier</button>
                 </form>
             </div>
