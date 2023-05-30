@@ -10,7 +10,7 @@
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
 
-    function mail($destinataire,$lien,$nom,$prenom) {
+    function sendmail($destinataire,$lien,$nom,$prenom) {
         
         $mail = new PHPMailer(true); //intitialise un élément PHPMailer
         try {
@@ -37,7 +37,7 @@
         }
     }
     if($_POST["message"]) {
-        mail("mail@ezg.com", "entete");
+        sendmail("mail@ezg.com", "entete");
         
     }
     ?>
