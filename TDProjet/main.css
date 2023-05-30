@@ -135,6 +135,16 @@ a.bouton_jeune.background{
     padding: 7px 20px;
 }
 
+a.bouton_connexion{
+    font-size: 24px;
+    color:  #70707b;
+}
+
+a.bouton_connexion.background{
+    background-color: #70707b;
+    color: white;
+    padding: 7px 20px;
+}
 
 a.bouton_referent{
    font-size: 24px;
@@ -294,43 +304,28 @@ a.bouton_partenaire.background{
     color: black;
 }
 
+
 /*========================================================================================================================*/
 
 
 .les_boutons{
-    position: absolute;
-    width: 270px;           /* METTRE EN VW COMME UNITER */
+    position: absolute;      /* METTRE EN VW COMME UNITER */
     min-width: 200px;
-    top: 6vh;
-    right: 0vw;
+    top: 27vh;
+    right: 4vw;
     font-size: 24px;
     display: inline-block;
 }
 
-
-a.connexion{
+.deconnexion{
     color: lightgrey;
     background-color: rgb(61, 56, 56);
-    
+    z-index: 1;
+    place-items: center;
+    width: 12vw;    
+    height: 5vh;  
 }
 
-
-a.connexion img{
-    border: none;
-    max-width: 27px;
-    max-height: 27px;
-    margin: -5px 0;
-    padding-left: 3px;
-    border-left: 1px solid;
-    border-left-color: rgb(185, 183, 183);
-}
-
-a.inscription{
-    color: lightgrey;
-    background-color: rgb(61, 56, 56);
-    border-left: 5px solid;
-    border-left-color:  rgb(185, 183, 183);
-}
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -737,7 +732,7 @@ textarea{
 #prenom{
     width: 32vw;
 }
-#date_naissance{
+#date{
     width: 25vw;
 }
 #e-mail{
@@ -787,7 +782,7 @@ textarea{
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    top: 40vh;
+    top: 48vh;
     color:  #e5239b;
     font-size: 24px;
 }
@@ -842,6 +837,12 @@ textarea{
     right: 3vw;
 }
 
+.information_inscription{
+    position: fixed;
+    width: 100%;
+    
+}
+
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .titre_connexion{
@@ -863,7 +864,7 @@ textarea{
 .carre_connexion{
     position: relative;
     border: 3px solid #70707b;
-    top: 11vh;
+    top: 8vh;
     width: 40vw;
     padding: 18px;
     color:#70707b;
@@ -875,11 +876,103 @@ textarea{
 .texte_carre_connexion > input{
     position: relative;
     border: none;
-    border-bottom: 2px dotted #70707b;
+    border-bottom: 3px dotted #70707b;
     color:black;
     bottom: 0.5vh;
     text-align: justify;
     width: 4vw;
 }
 
+
+#mdp{
+    width: 28vw;
+}
+#e-mail{
+    width: 32vw;
+}
+#submit{
+    width: 8vw;
+    z-index: 1;
+    place-items: center;
+    position: relative;
+    border: none;
+    border-bottom: none;
+    color:black;
+    bottom: 0.5vh;
+}
+
+.texte_carre_connexion > label{
+    z-index: 2;
+    display: inline-block;
+    padding: 3px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.jai_pas_compte{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 38vh;
+    color:  #70707b;
+    font-size: 24px;
+}
+
+.information_connexion{
+    position: fixed;
+    width: 100%;
+}
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.titre_profil{
+    color: #70707b;
+}
+
+
+.texte_profil{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #70707b;
+    font-size: 24px;
+}
+
+.carre_profil{
+    position: relative;
+    border: 3px solid #70707b;
+    top: 8vh;
+    width: 40vw;
+    padding: 18px;
+    color:#70707b;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+
+.nouvelle_reference{
+    color: lightgrey;
+    background-color: rgb(5, 5, 182);
+    z-index: 1;
+    place-items: center;
+    width: 12vw;    
+    height: 5vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 38vh;
+    font-size: 24px;
+}
+
+
+.information_profil{
+    position: fixed;
+    width: 100%;
+}
