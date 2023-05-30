@@ -5,6 +5,7 @@
     <title>Jeunes 6.4 - Inscription</title>
     <script src="checkbox_verification.js" type="text/javascript"></script>
     <?php
+    
     function getid($tab,$email) {
         for ($i = 0; $i <= count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
@@ -17,12 +18,17 @@
         function error() {
             return false;
         }
-
+        $errmail = "";
+        
+        session_start();
+        if(isset($_SESSION['page_actuelle'])){
+            $_SESSION['page_actuelle'] = 'inscription.php';
+        }
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $url = "jeunedata.json";
             $file = file_get_contents($url);
-            $arr = json_decode($file,true);
+            $data = json_decode($file,true);
                 
             $nom = $prenom = $mail = $date = $mdp = "";
 
@@ -42,31 +48,35 @@
                 $mdp = $_POST["mdp"];
             }
 
-            $exist=getid($arr,$mail);
+            $id=getid($data,$mail);
 
             if(error()) {
                 die("ERR0R");
-            }elseif ($exist===-1) {
+            }elseif ($id===-1) {
                 $errmail="e-mail deja inscrit.";
             } else {
-                $errmail="";
-                array_push($arr,array(
+                $new=array(
                     "nom"=>$nom,
                     "prenom"=>$prenom,
                     "mail"=>$mail,
                     "date"=>$date,
                     "mdp"=>$mdp
-                ));
-                file_put_contents($url,json_encode($arr,JSON_PRETTY_PRINT));
-
-                echo 'Bonjour ' . htmlspecialchars($_POST["prenom"]) . '!';
+                );
+                array_push($data,$new);
+                file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));
                 
-                //session_start();
-
-                //header("home.html");
+               
+                $_SESSION["id"] = $id;
+                $_SESSION["info"] = $new;
+                $_SESSION['statut'] = 'connecter';
+                
+                header("Location: presentation.php");
+                
             }
         }
+        
     ?>
+
 </head>
 
 
@@ -82,27 +92,27 @@
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page">  
         <ul class="les_modules">
-                <li> <a class="bouton_jeune" href="jeune.php">JEUNE</a> </li>
+                <li> <a class="bouton_jeune background" href="inscription.php">JEUNE</a> </li>
                 <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
                 <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
-                <li> <a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
+                <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
-        <div class="information_jeune">    
+        <div class="information_inscription">    
             <div class="texte_inscription">
                 Créer ton compte
             </div>
 
             <div class="carre_inscription">
                 <form action="inscription.php" method="post" class="texte_carre_inscription">
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom" required><br>
-                    <label for="prenom">Prénom</label>
+                    <label for="nom">Nom:</label>
+                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["id"][];?>" required><br>
+                    <label for="prenom">Prénom:</label>
                     <input type="text" name="prenom" id="prenom" required><br>
-                    <label for="date">Date de naissance</label>
+                    <label for="date">Date de naissance:</label>
                     <input type="Date" name="date" id="date" required><br>
-                    <label for="e-mail">E-mail</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required><?php echo $errmail;?><br>
-                    <label for="mdp">Mot de passe</label>
+                    <label for="e-mail">E-mail:</label>
+                    <input type="e-mail" name="e-mail" id="e-mail" required> <br><?php echo $errmail; ?><br>
+                    <label for="mdp">Mot de passe:</label>
                     <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
                     <button type="submit" id="submit">Login</button>
                 </form>
@@ -168,7 +178,7 @@
             </div> 
         </div>
     </div> 
-        <a class="deja_un_compte" href="connexion.html">J'ai déjà un compte</a>
+        <a class="deja_un_compte" href="connexion.php">J'ai déjà un compte</a>
 </body>
 </html>
 
