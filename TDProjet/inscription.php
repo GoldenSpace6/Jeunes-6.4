@@ -2,22 +2,10 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/connexion.css" type="text/css">    <title>Jeunes 6.4 - Inscription</title>
+    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">    <title>Jeunes 6.4 - Inscription</title>
     <script src="checkbox_verification.js" type="text/javascript"></script>
     <?php
-    
-    function getid($tab,$email) {
-        for ($i = 0; $i <= count($tab); $i++) {
-            if($tab[$i]["mail"] == $email) {
-                return $i;
-            }
-        }
-        return -1;
-    }
-
-        function error() {
-            return false;
-        }
+        require("script/phpfonction.php");
         $errmail = "";
         
         session_start();
