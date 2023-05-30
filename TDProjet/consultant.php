@@ -3,6 +3,28 @@
 
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
+
+    <?php 
+        session_start();
+        if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
+            header("Location: inscription.php");
+            exit;
+        }
+        if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
+            header("Location: presentation.php");
+            exit;
+        }
+        if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
+            header("Location: connexion.php");
+            exit;
+        }
+        if (isset($_SESSION['statut'])) {
+            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+        } else {
+            $lien = 'inscription.php'; // Lien vers la page de connexion
+        }
+    ?>
+
 </head>
 
 
@@ -23,10 +45,10 @@
     <div class="bas_de_page"> 
         
         <div class="les_modules">
-                <li> <a class="bouton_jeune" href="jeune.php">JEUNE</a> </li>
+                <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
                 <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
                 <li> <a class="bouton_consultant background" href="consultant.php">CONSULTANT</a>  </li> 
-                <li> <a class="bouton_partenaire " href="partenaire.html">PARTENAIRES</a> </li>
+                <li> <a class="bouton_partenaire " href="partenaire.php">PARTENAIRES</a> </li>
         </div>
     </div>
 
