@@ -176,3 +176,101 @@
     font-size: 22px;
     font-weight: bold;
 }
+
+
+
+
+.savoir_etre{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    top: -60vh;
+    right: 3vw;
+}
+
+.mes_savoir_etres_2{
+    position: relative;
+    color: #9ef80c;
+    padding-left: 2vw;
+    font-weight: bold;
+    font-size: 18px;
+    word-spacing: -2px;
+    left: 22vw;
+    top: -2vw;
+}
+
+.rectangle_texte_2{
+    background: linear-gradient(to right, #c3ff1c -50%, #14A74B);
+    padding-left: 1vw;
+    font-size: 24px;
+    color: white;
+    
+}
+
+
+.petit_rectangle_referent{
+    position: relative;
+    background-color: #9ef80c;
+    top: -38vh;
+    width: 14vw;
+    left: 10vw;
+}
+
+.liste_checkbox_referent{
+    position: relative;
+}
+
+.respect_choix_2{
+    position: relative;
+    font-size: 16;
+    text-align: center;
+    color: #c3ff1c;
+    font-weight: bold;
+    top: 28vh;
+    right: 3vw;
+}
+
+.bouton_valider_referent{
+    position: relative;
+    color: white;
+    font-size: 24px;
+    background-color: #14A74B;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    top: -26vh;
+    left: 87vw;
+}
+
+.arriere_plan_referent{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top:25vh;
+    left: 1vw;
+}
+
+.confirmation_referent{
+    position: fixed;
+    width: 100%;
+    
+}
+
+.boite_commentaire{
+    position: relative;
+    float: left;
+    top: 8vh;
+    left: 3vw;
+}
+
+.titre_commentaire{
+    text-align: center;
+    color: white;
+    background:#90c00a;
+    font-size: 28px;
+    
+}
