@@ -1,4 +1,12 @@
 
+.les_ecritures2{
+    position: initial;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+   
+}
 
 div.images {
     width:80vw;
