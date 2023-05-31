@@ -1,0 +1,104 @@
+/*----- JEUNE -----*/
+
+.titre_jeune{
+    color:  #e5239b;
+}
+
+.texte_jeune{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #e5239b;
+    font-size: 28px;
+}
+
+.carre_jeune{
+    z-index: 1;
+    position: relative;
+    flex-wrap: wrap;
+    /*display: block;*/
+    justify-content: center;
+    border: 3px solid #e5239b;
+    /*top: -20vh;*/
+    top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+    padding: 18px;
+    color:#e5239b;
+    background: white;
+    
+}
+
+.texte_carre_jeune > input{
+    z-index: 1;
+    position: relative;
+    border: none;
+    border-bottom: 3px dotted #e5239b;
+    color:black;
+    bottom: 0.5vh;
+}
+
+
+#nom{
+    width: 34vw;
+}
+#prenom{
+    width: 32vw;
+}
+#date_naissance{
+    width: 25vw;
+}
+#e-mail{
+    width: 32vw;
+}
+#reseau_social{
+    width: 28vw;
+}
+#mon_engagement{
+    width: 26vw;
+}
+#duree{
+    width: 33vw;
+}
+#submit{
+    width: 5vw;
+    z-index: 1;
+    position: relative;
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color:black;
+    top: 1vh;
+    left: 17vw;
+    font-weight: bold;
+}
+
+.texte_carre_jeune > label{
+    z-index: 2;
+    display: inline-block;
+    padding: 3px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.arriere_plan_jeune{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top:25vh;
+    left: 1vw;
+}
+
+.information_jeune{
+    position: fixed;
+    width: 100%;
+    
+}
