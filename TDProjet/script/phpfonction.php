@@ -1,5 +1,11 @@
 <?php
-   function getid($tab,$email) {
+    /*use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+    */
+    function getid($tab,$email) {
         for ($i = 0; $i <= count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
                 return $i;
@@ -7,12 +13,17 @@
         }
         return -1;
     }
+    function getrefid($tab,$code) {
+        if(is_countable($tab) > 0){ 
+            for ($i = 0; $i <= count($tab); $i++) {
+                if($tab[$i]["id"] == $code) {
+                    return $i;
+                }
+            }
+        }
+        return -1;
+    }
     function sendmail($destinataire,$lien,$nom,$prenom) {
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\Exception;
-        require 'PHPMailer/src/Exception.php';
-        require 'PHPMailer/src/PHPMailer.php';
-        require 'PHPMailer/src/SMTP.php';
         
         $mail = new PHPMailer(true); //intitialise un élément PHPMailer
         try {
