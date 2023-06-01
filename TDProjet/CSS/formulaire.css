@@ -102,7 +102,79 @@
     width: 100%;
     
 }
+/*----------------------//---------*/
 
+.arriere_plan_jeune{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top:25vh;
+    left: 1vw;
+}
+
+
+.deja_un_compte{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 48vh;
+    color:  #e5239b;
+    font-size: 24px;
+}
+
+
+.savoir_etre{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    top: -20vh;
+    right: 3vw;
+}
+
+.mes_savoir_etres{
+    position: relative;
+    color: #e5239b;
+    padding-left: 2vw;
+    font-weight: bold;
+    font-size: 18px;
+    word-spacing: -2px;
+    left: 22vw;
+    top: -1vw;
+}
+
+.rectangle_texte_1{
+    background: linear-gradient(to right, white, #e5239b);
+    padding-left: 6vw;
+    font-size: 32px;
+    color: white;
+}
+
+.petit_rectangle_jeune{
+    position: relative;
+    background-color: pink;
+    width: 14vw;
+    left: 10vw;
+    top: 20vh;
+}
+
+.liste_checkbox_jeune{
+    position: relative;
+}
+
+.respect_choix{
+    position: relative;
+    font-size: 16;
+    text-align: center;
+    color: #e5239b;
+    font-weight: bold;
+    top: 35vh;
+    right: 3vw;
+}
 
 /*----- REFERANT -----*/
 
@@ -273,4 +345,10 @@
     background:#90c00a;
     font-size: 28px;
     
+}
+
+/*----- CONSULTANT -----*/
+
+.titre_consultant{
+    color: #17a4e1;
 }
