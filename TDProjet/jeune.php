@@ -121,7 +121,7 @@
                         <button type="submit" id="submit">Envoyer</button>
                     </div>
                 </div>
-                <div class="savoir_etre">
+               <!-- <div class="savoir_etre">
                     <div class="mes_savoir_etres">
                         MES SAVOIRS ETRE
                     </div>
@@ -179,7 +179,7 @@
                         
                     </div>
                     
-                </div>
+                </div>-->
             </form>
         </div> 
     </div>
