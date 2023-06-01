@@ -6,8 +6,65 @@
     <title>Jeunes 6.4 - Jeune</title>
     <?php
         require("script/phpfonction.php");
-        if($_POST["message"]) {
-            sendmail("mail@ezg.com", "entete");
+        session_start();
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            //Recupère referantdata.json
+            $r_url = "data/referantdata.json";
+            $r_file = file_get_contents($r_url);
+            $r_data = json_decode($r_file,true);
+
+            //Recupère demande.json
+            $d_url = "data/demande.json";
+            $d_file = file_get_contents($d_url);
+            $d_data = json_decode($d_file,true);
+
+                
+            $nom = $prenom = $mail = $duree = $eng = "";
+
+            if(isset($_POST["duree"])){
+                $duree = $_POST["duree"];
+            }
+            if(isset($_POST["mon_engagement"])){
+                $eng = $_POST["mon_engagement"];
+            }
+
+            //Referant
+            if(isset($_POST["nom"])){
+                $nom = $_POST["nom"];
+            }
+            if(isset($_POST["prenom"])){
+                $prenom = $_POST["prenom"];
+            }
+            if(isset($_POST["e-mail"])){
+                $mail = $_POST["e-mail"];
+            }
+
+            //$id=getid($refdata,$mail);
+            if(false) {
+                die("ERR0R");
+            //}elseif ($id ===-1) {
+            //    $errmail="e-mail deja inscrit.";
+            } else {
+                $new=array(
+                    "id"=>123456 /*generate random id*/,
+                    "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
+                    "jeune"=>$_SESSION["info"],
+                    "duree"=>$duree,
+                    "engagement"=>$eng
+                );
+                array_push($d_data,$new);
+                echo json_encode($d_data,JSON_PRETTY_PRINT);
+                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
+                
+                //if($_POST["message"]) {
+                //    sendmail("mail@ezg.com", "entete");
+                //}
+
+                //header("Location: presentation.php");
+                
+            }
         }
     ?>
 </head>
