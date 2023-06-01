@@ -2,7 +2,7 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/profil.css" type="text/css">
+    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <?php
     session_start();
