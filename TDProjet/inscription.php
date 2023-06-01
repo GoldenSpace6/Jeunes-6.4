@@ -93,7 +93,7 @@
             <div class="carre_inscription">
                 <form action="inscription.php" method="post" class="texte_carre_inscription">
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["id"][];?>" required><br>
+                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["id"];?>" required><br>
                     <label for="prenom">Prénom:</label>
                     <input type="text" name="prenom" id="prenom" required><br>
                     <label for="date">Date de naissance:</label>
