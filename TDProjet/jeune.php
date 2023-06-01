@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
     <title>Jeunes 6.4 - Jeune</title>
     <?php
-         require("script/phpfonction.php");
-         if($_POST["message"]) {
-             sendmail("mail@ezg.com", "entete");
-         }
+        require("script/phpfonction.php");
+        if($_POST["message"]) {
+            sendmail("mail@ezg.com", "entete");
+        }
     ?>
 </head>
 
@@ -46,8 +46,10 @@
             <div class="arriere_plan_jeune">
                 <img src="image/Capture_numero_3-removebg-preview.png" > 
             </div>
-            <div class="carre_jeune">
-                <form action="jeune.php" method="post" class="texte_carre_jeune">
+            <form action="jeune.php" method="post">
+            
+                <div class="carre_jeune">
+                    <div class="texte_carre_jeune">
                         <h3>Experience :</h3>
                         <label for="mon_engagement">Mon engagement :</label>
                         <input type="text" name="mon_engagement" id="mon_engagement" required><br>
@@ -61,8 +63,8 @@
                         <label for="e-mail">E-mail :</label>
                         <input type="e-mail" name="e-mail" id="e-mail" required><br><br>
                         <button type="submit" id="submit">Envoyer</button>
-                </form>
-            </div>
+                    </div>
+                </div>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres">
                     MES SAVOIRS ETRE
@@ -72,7 +74,7 @@
                     <div class="rectangle_texte_1">
                         Je suis*
                     </div>
-                    <form class="liste_checkbox" method="post" action="jeune.php">
+                    <div class="liste_checkbox">
                         <div>
                             <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
                             <label for="autonome">Autonome</label>
@@ -113,7 +115,7 @@
                             <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
                             <label for="optimiste">Optimiste</label>
                         </div>
-                    </form>   
+                    </div>   
                 </div>
                 
                 <div class="respect_choix">
@@ -122,6 +124,7 @@
                 </div>
                 
             </div>
+            </form>
         </div> 
     </div>
 
