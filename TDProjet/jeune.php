@@ -41,11 +41,11 @@
                 $mail = $_POST["e-mail"];
             }
 
-            //$id=getid($refdata,$mail);
+            $id=getid($r_data,$mail);
             if(false) {
                 die("ERR0R");
-            //}elseif ($id ===-1) {
-            //    $errmail="e-mail deja inscrit.";
+            }elseif ($id ===-1) {
+                $errmail="e-mail non reconnu.";
             } else {
                 $new=array(
                     "id"=>123456 /*generate random id*/,
@@ -111,7 +111,7 @@
                         <input type="text" name="mon_engagement" id="mon_engagement" required><br>
                         <label for="duree">Duree :</label>
                         <input type="text" name="duree" id="duree" required>  
-                        <h3>Référent :</h3>
+                        <h3>Référent :</h3><?php echo $errmail ?>
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" required><br>
                         <label for="prenom">Prenom :</label>
