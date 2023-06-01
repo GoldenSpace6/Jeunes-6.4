@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
     <title>Jeunes 6.4 - Référent</title>
     <?php
+        require("script/phpfonction.php");
         session_start();
+        
         if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
             header("Location: inscription.php");
             exit;
@@ -23,19 +25,9 @@
         } else {
             $lien = 'inscription.php'; // Lien vers la page de connexion
         }
-        function getrefid($tab,$code) {
-            if(is_countable($tab) > 0){ 
-                for ($i = 0; $i <= count($tab); $i++) {
-                    if($tab[$i]["id"] == $code) {
-                        return $i;
-                    }
-                }
-            }
-            return -1;
-        }
 
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $url = "demande.json";
+            $url = "data/demande.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
             $urlid = '';
@@ -159,8 +151,6 @@
             <textarea name="commentaires" id="commentaires" cols="14" rows="13">Martin s’est très rapidement intégré à notre équipe !</textarea>
         </div>   
     </div>
-
-    
 
 </body>
 </html>
