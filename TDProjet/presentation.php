@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 
-    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/presentation.css" type="text/css">
     <title>Jeunes 6.4</title>
     <?php 
     session_start();
