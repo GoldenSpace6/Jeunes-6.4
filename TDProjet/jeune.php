@@ -55,7 +55,6 @@
                     "engagement"=>$eng
                 );
                 array_push($d_data,$new);
-                echo json_encode($d_data,JSON_PRETTY_PRINT);
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 //if($_POST["message"]) {
