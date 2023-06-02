@@ -47,6 +47,9 @@
             }elseif ($id ===-1) {
                 $errmail="e-mail non reconnu.";
             } else {
+                do {
+                    $url_id=rand(0,100000);
+                } while(getrefid($url_id) != -1);
                 $new=array(
                     "id"=>123456 /*generate random id*/,
                     "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
@@ -58,7 +61,7 @@
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 //if($_POST["message"]) {
-                //    sendmail($mail, "localhost:8080",$_SESSION["nom"],$_SESSION["prenom"]);
+                //    sendmail($mail, "localhost:8080/",$_SESSION["nom"],$_SESSION["prenom"]);
                 //}
 
                 //header("Location: presentation.php");
