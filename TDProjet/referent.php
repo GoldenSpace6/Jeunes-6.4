@@ -36,9 +36,9 @@
             }
             $dataid = getrefid($data,$urlid);
             if($dataid != -1) {
-                $demande = $data[$temp];
+                $demande = $data[$dataid];
+                $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
-                $info = $demande["info"];
             }
         }
     ?>
@@ -81,15 +81,15 @@
                     <label for="prenom">Prénom :</label>
                     <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
                     <label for="date">Date de naissance :</label>
-                    <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["data"]?>"><br>
+                    <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>"><br>
                     <label for="mail">Mail :</label>
                     <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>"><br>
                     <label for="reseau">Réseau social :</label>
                     <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
                     <label for="presentation">Présentation :</label>
-                    <input type="text" name="presentation" id="presentation" value="<?php echo $info["engagement"]?>"><br>
+                    <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"?>"><br>
                     <label for="duree">Durée :</label>
-                    <input type="text" name="duree" id="duree" value="<?php echo $info["durée"]?>"><br>
+                    <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
                 </form>
             </div>
             <div class="savoir_etre">
