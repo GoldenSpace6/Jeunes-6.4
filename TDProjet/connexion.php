@@ -78,7 +78,7 @@
                 </form>
             </div>
         </div>
+        <a class="jai_pas_compte" href="inscription.php">Je n'ai pas de compte</a>
     </div>  
-    <a class="jai_pas_compte" href="inscription.php">Je n'ai pas de compte</a>
 </body>
 </html>

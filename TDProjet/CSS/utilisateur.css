@@ -19,7 +19,6 @@
     z-index: 1;
     position: relative;
     flex-wrap: wrap;
-    /*display: block;*/
     justify-content: center;
     border: 3px solid #e5239b;
     margin: 4vh auto 4vh auto;
@@ -130,11 +129,8 @@
 
 .texte_connexion{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
-    justify-content: center;
-    top: 3vh;
+    margin-top: 3vh;
     color:  #70707b;
     font-size: 24px;
 }
@@ -142,12 +138,10 @@
 .carre_connexion{
     position: relative;
     border: 3px solid #70707b;
-    top: 8vh;
     width: 40vw;
     padding: 18px;
     color:#70707b;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 4vh auto 4vh auto;
     text-align: justify;
 }
 
