@@ -61,7 +61,7 @@
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 //if($_POST["message"]) {
-                //    sendmail($mail, "localhost:8080/",$_SESSION["nom"],$_SESSION["prenom"]);
+                //    sendmail($mail, "localhost:8080/referent.php?id=".$url_id,$_SESSION["nom"],$_SESSION["prenom"]);
                 //}
 
                 //header("Location: presentation.php");
