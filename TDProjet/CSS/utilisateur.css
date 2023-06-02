@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    top: 3vh;
+    margin-top: 3vh;
     color:  #e5239b;
     font-size: 28px;
 }
@@ -22,9 +22,7 @@
     /*display: block;*/
     justify-content: center;
     border: 3px solid #e5239b;
-    top: 7vh;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 4vh auto 4vh auto;
     width: 40vw;
     padding: 18px;
     color:#e5239b;
@@ -62,21 +60,64 @@
 #duree{
     width: 33vw;
 }
+.boutton_submit{
+    width: 5vw;
+    margin: auto;
+}
 #submit{
     width: 5vw;
-    z-index: 1;
     position: relative;
     border: none;
-    border-bottom: none;
     color:black;
-    bottom: 0.5vh;
 }
 
 .texte_carre_inscription > label{
-    z-index: 2;
     display: inline-block;
     padding: 3px;
     font-size: 22px;
+    font-weight: bold;
+}
+/*----------------------*/
+
+.deja_un_compte{
+    position: relative;
+    margin: auto;
+    width: max-content;
+    font-size: 24px;
+}
+
+.deja_un_compte>*{
+    color:  #e5239b;
+}
+.savoir_etre{
+    position: absolute;
+    top: 15vh;
+    right: 3vw;
+}
+
+.mes_savoir_etres{
+    position: relative;
+    color: #e5239b;
+    padding-left: 2vw;
+    font-weight: bold;
+    font-size: 18px;
+    word-spacing: -2px;
+}
+
+.rectangle_texte_1{
+    background: linear-gradient(to right, white, #e5239b);
+    text-align:right;
+    font-size: 32px;
+    color: white;
+}
+
+.petit_rectangle_jeune{
+    background-color: pink;
+}
+.respect_choix{
+    font-size: 16px;
+    text-align: center;
+    color: #e5239b;
     font-weight: bold;
 }
 
@@ -123,19 +164,6 @@
 
 #mdp{
     width: 28vw;
-}
-#e-mail{
-    width: 32vw;
-}
-#submit{
-    width: 8vw;
-    z-index: 1;
-    place-items: center;
-    position: relative;
-    border: none;
-    border-bottom: none;
-    color:black;
-    bottom: 0.5vh;
 }
 
 .texte_carre_connexion > label{

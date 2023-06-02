@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">    <title>Jeunes 6.4 - Inscription</title>
-    <script src="checkbox_verification.js" type="text/javascript"></script>
+    <script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
         require("script/phpfonction.php");
         $errmail = "";
@@ -37,8 +38,8 @@
             }
 
             $id=getid($data,$mail);
-
-            if(error()) {
+            $j=false;
+            if($j) {
                 die("ERR0R");
             }elseif ($id===-1) {
                 $errmail="e-mail deja inscrit.";
@@ -93,7 +94,7 @@
             <div class="carre_inscription">
                 <form action="inscription.php" method="post" class="texte_carre_inscription">
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["id"];?>" required><br>
+                    <input type="text" name="nom" id="nom" required><br>
                     <label for="prenom">Prénom:</label>
                     <input type="text" name="prenom" id="prenom" required><br>
                     <label for="date">Date de naissance:</label>
@@ -102,7 +103,7 @@
                     <input type="e-mail" name="e-mail" id="e-mail" required> <br><?php echo $errmail; ?><br>
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
-                    <button type="submit" id="submit">Login</button>
+                    <div class="boutton_submit"><button type="submit" id="submit">Login</button></div>
                 </form>
             </div>
 
@@ -111,62 +112,60 @@
                         MES SAVOIRS ETRE
                     </div>
                     
-                    <div class="petit_rectangle_jeune">
+                    <form class="petit_rectangle_jeune liste_checkbox" method="post" action="jeune.php">
                         <div class="rectangle_texte_1">
                             Je suis*
                         </div>
-                        <form class="liste_checkbox" method="post" action="jeune.php">
-                            <div>
-                                <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="autonome">Autonome</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="passionne" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="passionne">Passionne</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="reflechi" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="reflechi">Reflechi</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="a_l_ecoute" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="a_l_ecoute">A l'ecoute</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="organise" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="organise">Organise</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="fiable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="fiable">Fiable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="patient" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="patient">Patient</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="responsable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="responsable">Responsable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="sociable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="sociable">Sociable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="optimiste">Optimiste</label>
-                            </div>
-                        </form>   
-                    </div>
+                        <div>
+                            <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="autonome">Autonome</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="passionne" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="passionne">Passionne</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="reflechi" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="reflechi">Reflechi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="a_l_ecoute" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="a_l_ecoute">A l'ecoute</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="organise" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="organise">Organise</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="fiable" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="fiable">Fiable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="patient" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="patient">Patient</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="responsable" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="responsable">Responsable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="sociable" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="sociable">Sociable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
+                            <label for="optimiste">Optimiste</label>
+                        </div>
+                    </form>   
                     
                     <div class="respect_choix">
                         *Faire 4 choix maximum
                         
                     </div>
             </div> 
+            <div class="deja_un_compte"><a href="connexion.php">J'ai déjà un compte</a></div>
         </div>
     </div> 
-        <a class="deja_un_compte" href="connexion.php">J'ai déjà un compte</a>
 </body>
 </html>
 
