@@ -43,13 +43,13 @@
 
             $id=getid($r_data,$mail);
             if(false) {
-                die("ERR0R");
+                //die("ERR0R");
             }elseif ($id ===-1) {
                 $errmail="e-mail non reconnu.";
             } else {
                 do {
                     $url_id=rand(0,100000);
-                } while(getrefid($url_id) != -1);
+                } while(getrefid($d_data,$url_id) != -1);
                 $new=array(
                     "id"=>123456 /*generate random id*/,
                     "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),

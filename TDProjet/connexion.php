@@ -74,11 +74,11 @@
                         <input type="e-mail" name="e-mail" id="e-mail" required><br>
                         <label for="mdp">Mot de passe:</label>
                         <input type="password" name="mdp" id="mdp" required> <br> <br>
-                        <button type="submit" id="submit">Connexion</button>
+                        <div class="boutton_submit"><button type="submit" id="submit">Connexion</button></div>
                 </form>
             </div>
+            <div class="jai_pas_compte"><a href="inscription.php">Je n'ai pas de compte</a></div>
         </div>
-        <a class="jai_pas_compte" href="inscription.php">Je n'ai pas de compte</a>
     </div>  
 </body>
 </html>

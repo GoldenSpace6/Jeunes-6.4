@@ -87,7 +87,7 @@
                     <label for="reseau">Réseau social :</label>
                     <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
                     <label for="presentation">Présentation :</label>
-                    <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"?>"><br>
+                    <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>"><br>
                     <label for="duree">Durée :</label>
                     <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
                 </form>

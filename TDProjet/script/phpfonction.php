@@ -1,10 +1,9 @@
 <?php
-    /*use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require 'PHPMailer/src/Exception.php';
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
-    */
     function getid($tab,$email) {
         for ($i = 0; $i <= count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
@@ -14,7 +13,7 @@
         return -1;
     }
     function getrefid($tab,$code) {
-        if(is_countable($tab) > 0){ 
+        if(is_array($tab)){ 
             for ($i = 0; $i <= count($tab); $i++) {
                 if($tab[$i]["id"] == $code) {
                     return $i;
