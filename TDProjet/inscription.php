@@ -3,7 +3,8 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">    
+    <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
+    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Inscription</title>
     <meta charset="utf-8">
     <script src="script/checkbox_verification.js" type="text/javascript"></script>
@@ -76,7 +77,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_inscription titre">
+        <div class="couleur_jeune titre">
                 INSCRIPTION
         </div>
     </div>
@@ -88,26 +89,24 @@
                 <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
-        <div class="information_inscription">    
-            <div class="texte_inscription">
+        <div class="information_jeune">    
+            <div class="couleur_jeune texte_formulaire">
                 Créer ton compte
             </div>
 
-            <div class="carre_inscription">
-                <form action="inscription.php" method="post" class="texte_carre_inscription">
-                    <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" required><br>
-                    <label for="prenom">Prénom:</label>
-                    <input type="text" name="prenom" id="prenom" required><br>
-                    <label for="date">Date de naissance:</label>
-                    <input type="Date" name="date" id="date" required><br>
-                    <label for="e-mail">E-mail:</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required> <br><?php echo $errmail; ?><br>
-                    <label for="mdp">Mot de passe:</label>
-                    <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
-                    <div class="boutton_submit"><button type="submit" id="submit">Login</button></div>
-                </form>
-            </div>
+            <form action="inscription.php" method="post" class="texte_carre_inscription couleur_jeune carre_formulaire">
+                <label for="nom">Nom:</label>
+                <input type="text" name="nom" id="nom" required><br>
+                <label for="prenom">Prénom:</label>
+                <input type="text" name="prenom" id="prenom" required><br>
+                <label for="date">Date de naissance:</label>
+                <input type="Date" name="date" id="date" required><br>
+                <label for="e-mail">E-mail:</label>
+                <input type="e-mail" name="e-mail" id="e-mail" required> <br><?php echo $errmail; ?><br>
+                <label for="mdp">Mot de passe:</label>
+                <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
+                <div class="boutton_submit"><button type="submit" id="submit">Login</button></div>
+            </form>
 
             <div class="savoir_etre">
                     <div class="mes_savoir_etres">

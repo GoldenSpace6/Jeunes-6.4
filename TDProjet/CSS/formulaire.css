@@ -1,187 +1,139 @@
-/*----- JEUNE -----*/
+/*----- Formulaire -----*/
 
-.titre_jeune{
-    color:  #e5239b;
-}
-
-.texte_jeune{
+.texte_formulaire{ /* Texte de presentation du formulaire*/
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
-    justify-content: center;
-    top: 3vh;
-    color:  #e5239b;
+    margin-top: 3vh;
     font-size: 28px;
 }
 
-.carre_jeune{
-    z-index: 1;
+.carre_formulaire{ /* boite contenannt les formularie*/
     position: relative;
-    flex-wrap: wrap;
-    /*display: block;*/
-    justify-content: center;
-    border: 3px solid #e5239b;
-    /*top: -20vh;*/
-    top: 80px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 4vh auto;
     width: 40vw;
     padding: 18px;
-    color:#e5239b;
+    border: 3px solid;
     background: white;
-    
 }
 
-.texte_carre_jeune > input{
-    z-index: 1;
+.carre_formulaire > * > input{ /* Trait de remplissage */
     position: relative;
     border: none;
-    border-bottom: 3px dotted #e5239b;
     color:black;
     bottom: 0.5vh;
+    border-bottom: 3px dotted;
+}
+
+.carre_formulaire > input{ /* Trait de remplissage */
+    position: relative;
+    border: none;
+    color:black;
+    bottom: 0.5vh;
+    border-bottom: 3px dotted;
+}
+
+/*----- Arrière plan -----*/
+
+.arriere_plan{
+    position: absolute;
+    display: grid;
+    width: 100%;
+    top:25vh;
+}
+
+.arriere_plan>*{
+    margin: auto;
+    width: 60vw;
+}
+
+/*----- JEUNE -----*/
+.couleur_jeune{
+    color: #e5239b;
+    border-color: #e5239b;
+}
+
+.carre_jeune > input{
+    border-color: #e5239b;
 }
 
 
-#nom{
+.carre_jeune > #nom{
     width: 34vw;
 }
-#prenom{
+.carre_jeune > #prenom{
     width: 32vw;
 }
-#date_naissance{
+.carre_jeune > #date_naissance{
     width: 25vw;
 }
-#e-mail{
+.carre_jeune > #e-mail{
     width: 32vw;
 }
-#reseau_social{
+.carre_jeune > #reseau_social{
     width: 28vw;
 }
-#mon_engagement{
+.carre_jeune > #mon_engagement{
     width: 26vw;
 }
-#duree{
+.carre_jeune > #duree{
     width: 33vw;
 }
-#submit{
-    width: 5vw;
-    z-index: 1;
+.carre_jeune > #submit{
+    width: 100px;
     position: relative;
     border-radius: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px;
     color:black;
-    top: 1vh;
     left: 17vw;
     font-weight: bold;
 }
 
-.texte_carre_jeune > label{
-    z-index: 2;
+.carre_jeune > label{
     display: inline-block;
     padding: 3px;
     font-size: 22px;
     font-weight: bold;
-}
-
-.arriere_plan_jeune{
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top:25vh;
-    left: 1vw;
 }
 
 .information_jeune{
     position: fixed;
     width: 100%;
-    
 }
-/*----------------------//---------*/
-
-.arriere_plan_jeune{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top:25vh;
-    left: 1vw;
-}
-
-
 
 /*----- REFERANT -----*/
 
-.titre_referent{
+.couleur_referent{
+    border-color: #14A74B;
     color: #14A74B;
 }
 
-.texte_referent{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top: 3vh;
-    color:  #14A74B;
-    font-size: 28px;
+.carre_referent > input{
+    border-color: #14A74B;
 }
 
-.carre_referent{
-    z-index: 1;
-    position: relative;
-    flex-wrap: wrap;
-    /*display: block;*/
-    justify-content: center;
-    border: 4px solid #14A74B;
-    top: -22vh;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40vw;
-    padding: 18px;
-    background: white;
-    color: #14A74B
-}
-
-.texte_carre_referent > input{
-    position: relative;
-    border: none;
-    border-bottom: 2px dotted #14A74B;
-    color:black;
-    bottom: 0.5vh;
-    text-align: justify;
-    width: 4vw;
-}
-
-#nom{
+.carre_referent > #nom{
     width: 34vw;
 }
-#prenom{
+.carre_referent > #prenom{
     width: 32vw;
 }
-#date_naissance{
+.carre_referent > #date_naissance{
     width: 25vw;
 }
-#e-mail{
+.carre_referent > #e-mail{
     width: 32vw;
 }
-#reseau_social{
+.carre_referent > #reseau_social{
     width: 28vw;
 }
-#presentation{
+.carre_referent > #presentation{
     width: 26vw;
 }
-#duree{
+.carre_referent > #duree{
     width: 33vw;
 }
 
-.texte_carre_referent > label{
+.carre_referent > label{
     z-index: 2;
     display: inline-block;
     padding: 3px;
@@ -189,15 +141,9 @@
     font-weight: bold;
 }
 
-
-
-
 .savoir_etre{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    float: right;
-    top: -60vh;
+    position: absolute;
+    top: 15vh;
     right: 3vw;
 }
 
@@ -208,62 +154,34 @@
     font-weight: bold;
     font-size: 18px;
     word-spacing: -2px;
-    left: 22vw;
-    top: -2vw;
 }
 
 .rectangle_texte_2{
-    background: linear-gradient(to right, #c3ff1c -50%, #14A74B);
-    padding-left: 1vw;
+    background: linear-gradient(to right, #9ef80c -50%, #14A74B);
+    text-align: right;
     font-size: 24px;
     color: white;
-    
+    padding-left: 1vw;
 }
-
 
 .petit_rectangle_referent{
-    position: relative;
     background-color: #9ef80c;
-    top: -38vh;
-    width: 14vw;
-    left: 10vw;
 }
-
-.liste_checkbox_referent{
-    position: relative;
-}
-
 .respect_choix_2{
-    position: relative;
-    font-size: 16;
+    font-size: 16px;
     text-align: center;
-    color: #c3ff1c;
+    color: #9ef80c;
     font-weight: bold;
-    top: 28vh;
-    right: 3vw;
 }
-
+/*-----------------*/
 .bouton_valider_referent{
-    position: relative;
+    position: absolute;
     color: white;
     font-size: 24px;
     background-color: #14A74B;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    top: -26vh;
-    left: 87vw;
-}
-
-.arriere_plan_referent{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top:25vh;
-    left: 1vw;
+    padding: 10px 40px 10px 40px;
+    bottom: 6vh;
+    right: 3vw;
 }
 
 .confirmation_referent{
@@ -273,8 +191,7 @@
 }
 
 .boite_commentaire{
-    position: relative;
-    float: left;
+    position: absolute;
     top: 8vh;
     left: 3vw;
 }
@@ -282,13 +199,24 @@
 .titre_commentaire{
     text-align: center;
     color: white;
-    background:#90c00a;
+    background:#14A74B;
     font-size: 28px;
     
 }
 
+textarea{
+    position: relative;
+    font-size: 22px;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#9ef80c;
+    border: none;
+    resize: none;
+    padding: 20px;
+}
 /*----- CONSULTANT -----*/
 
-.titre_consultant{
+.couleur_consultant{
     color: #17a4e1;
+    border-color: #17a4e1;
 }

@@ -63,7 +63,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_referent titre">
+        <div class="couleur_referent titre">
                 REFERENT
         </div>
 
@@ -80,31 +80,34 @@
             <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
         <div class="confirmation_referent">
-            <div class="texte_referent">
+            <div class="couleur_referent texte_formulaire">
                 Confirmez cette experience et ce que vous avez pu constater au contact de ce jeune.
             </div>
-            <div class="arriere_plan_referent">
-                <img src="image/Capture_numero_3-removebg-preview.png" > 
+            <div class="arriere_plan">
+                <img src="image/6.4 Vert.png" >
             </div>
 
-            <div class="carre_referent">
-                <form action="referent.php" method="post" class="texte_carre_referent">
-                    <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>"><br>
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
-                    <label for="date">Date de naissance :</label>
-                    <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>"><br>
-                    <label for="mail">Mail :</label>
-                    <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>"><br>
-                    <label for="reseau">Réseau social :</label>
-                    <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
-                    <label for="presentation">Présentation :</label>
-                    <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>"><br>
-                    <label for="duree">Durée :</label>
-                    <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
-                </form>
+            <div class="boite_commentaire">
+                <div class="titre_commentaire">
+                    COMMENTAIRES
+                </div>
+                <textarea name="commentaires" id="commentaires" cols="14" rows="13">Martin s’est très rapidement intégré à notre équipe !</textarea>
             </div>
+            <form action="referent.php" method="post" class="carre_referent couleur_referent carre_formulaire">                    <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>"><br>
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
+                <label for="date">Date de naissance :</label>
+                <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>"><br>
+                <label for="mail">Mail :</label>
+                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>"><br>
+                <label for="reseau">Réseau social :</label>
+                <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
+                <label for="presentation">Présentation :</label>
+                <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>"><br>
+                <label for="duree">Durée :</label>
+                <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
+            </form>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres_2">
                     SES SAVOIRS ETRE
@@ -115,7 +118,7 @@
                     </div>
                     <form class="liste_checkbox" method="post" action="referent.php">
                         <div>
-                            <input type="checkbox" id="confiance" name="competence" value="<?php echo "test"?>" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="confiance" name="competence" value="" onclick="limitCheckboxSelection(this)">
                             <label for="confiance">Confiance</label>
                         </div>
                         <div>
@@ -157,12 +160,7 @@
             </div>
             <a href="" class="bouton_valider_referent">Valider</a>
         </div> 
-        <div class="boite_commentaire">
-            <div class="titre_commentaire">
-                COMMENTAIRES
-            </div>
-            <textarea name="commentaires" id="commentaires" cols="14" rows="13">Martin s’est très rapidement intégré à notre équipe !</textarea>
-        </div>   
+        
     </div>
 
 </body>

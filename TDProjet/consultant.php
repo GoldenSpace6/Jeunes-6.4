@@ -35,7 +35,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_consultant titre">
+        <div class="couleur_consultant titre">
                 CONSULTANT
         </div>
 
@@ -54,10 +54,6 @@
                 <li> <a class="bouton_partenaire " href="partenaire.php">PARTENAIRES</a> </li>
         </div>
     </div>
-
-
-
-
 
 </body>
 </html>

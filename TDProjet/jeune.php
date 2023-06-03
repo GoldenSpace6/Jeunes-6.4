@@ -80,7 +80,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_jeune titre">
+        <div class="couleur_jeune titre">
                 JEUNE
         </div>
 
@@ -99,32 +99,30 @@
         </ul>
         
         <div class="information_jeune">
-            <div class="texte_jeune">
+            <div class="couleur_jeune texte_formulaire">
                     Decrivez votre experience et mettez en avant ce que vous avez retire.
             </div>
             
-            
-            <div class="arriere_plan_jeune">
-                <img src="image/Capture_numero_3-removebg-preview.png" > 
+            <div class="arriere_plan">
+                <img src="image/6.4 Rouge.png" >
             </div>
+
             <form action="jeune.php" method="post">
             
-                <div class="carre_jeune">
-                    <div class="texte_carre_jeune">
-                        <h3>Experience :</h3>
-                        <label for="mon_engagement">Mon engagement :</label>
-                        <input type="text" name="mon_engagement" id="mon_engagement" required><br>
-                        <label for="duree">Duree :</label>
-                        <input type="text" name="duree" id="duree" required>  
-                        <h3>Référent :</h3><?php echo $errmail ?>
-                        <label for="nom">Nom :</label>
-                        <input type="text" name="nom" id="nom" required><br>
-                        <label for="prenom">Prenom :</label>
-                        <input type="text" name="prenom" id="prenom" required><br>
-                        <label for="e-mail">E-mail :</label>
-                        <input type="e-mail" name="e-mail" id="e-mail" required><br><br>
-                        <button type="submit" id="submit">Envoyer</button>
-                    </div>
+                <div class="carre_jeune couleur_jeune carre_formulaire">
+                    <h3>Experience :</h3>
+                    <label for="mon_engagement">Mon engagement :</label>
+                    <input type="text" name="mon_engagement" id="mon_engagement" required><br>
+                    <label for="duree">Duree :</label>
+                    <input type="text" name="duree" id="duree" required>  
+                    <h3>Référent :</h3><?php echo $errmail ?>
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom" required><br>
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" name="prenom" id="prenom" required><br>
+                    <label for="e-mail">E-mail :</label>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><br><br>
+                    <button type="submit" id="submit">Envoyer</button>
                 </div>
                <!-- <div class="savoir_etre">
                     <div class="mes_savoir_etres">

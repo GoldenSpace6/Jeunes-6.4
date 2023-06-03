@@ -3,6 +3,7 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Connexion</title>
     <meta charset="utf-8">
@@ -52,7 +53,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_connexion titre">
+        <div class="couleur_connexion titre">
                 CONNEXION
         </div>
     </div>
@@ -66,19 +67,17 @@
         </div>
 
         <div class="information_connexion">
-            <div class="texte_connexion">
+            <div class="couleur_connexion texte_formulaire">
                 Connecte ton compte
             </div>
-            <div class="carre_connexion">
-                <form action="connexion.php" method="POST" class="texte_carre_connexion">
-                        <?php echo $error?><br>
-                        <label for="e-mail">E-mail:</label>
-                        <input type="e-mail" name="e-mail" id="e-mail" required><br>
-                        <label for="mdp">Mot de passe:</label>
-                        <input type="password" name="mdp" id="mdp" required> <br> <br>
-                        <div class="boutton_submit"><button type="submit" id="submit">Connexion</button></div>
-                </form>
-            </div>
+            <form action="connexion.php" method="POST" class="carre_connexion couleur_connexion carre_formulaire">
+                    <?php echo $error?><br>
+                    <label for="e-mail">E-mail:</label>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><br>
+                    <label for="mdp">Mot de passe:</label>
+                    <input type="password" name="mdp" id="mdp" required> <br> <br>
+                    <div class="boutton_submit"><button type="submit" id="submit">Connexion</button></div>
+            </form>
             <div class="jai_pas_compte"><a href="inscription.php">Je n'ai pas de compte</a></div>
         </div>
     </div>  
