@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
-    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">    <title>Jeunes 6.4 - Inscription</title>
+    <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">    
+    <title>Jeunes 6.4 - Inscription</title>
+    <meta charset="utf-8">
     <script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
         require("script/phpfonction.php");

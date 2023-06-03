@@ -1,47 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Connexion</title>
+    <meta charset="utf-8">
 
     <?php
-    require("script/phpfonction.php");
-    session_start();
-    
-    $error = "";
-    
-    if(isset($_SESSION['page_actuelle'])){
-        $_SESSION['page_actuelle'] = 'connexion.php';
-    }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $url = "data/jeunedata.json";
-    $file = file_get_contents($url);
-    $data = json_decode($file,true);
-    
-    
-    $nom = $prenom = $mail = $date = $mdp = "";
-    
+        require("script/phpfonction.php");
+        session_start();
+        
+        $error = "";
+        
+        if(isset($_SESSION['page_actuelle'])){
+            $_SESSION['page_actuelle'] = 'connexion.php';
+        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $url = "data/jeunedata.json";
+            $file = file_get_contents($url);
+            $data = json_decode($file,true);
+            
+            
+            $nom = $prenom = $mail = $date = $mdp = "";
+            
 
-    if(isset($_POST["e-mail"])){
-        $mail = $_POST["e-mail"];
+            if(isset($_POST["e-mail"])){
+                $mail = $_POST["e-mail"];
+            }
+            if(isset($_POST["mdp"])){
+                $mdp = $_POST["mdp"];
+            }
+            $id=getid($data,$mail);
+            
+            if ($id===-1 or $data[$id]["mdp"]!=$mdp){
+                $error = "E-Mail ou mot de passe invalide.";
+            } else {
+                echo "Bonjour ".$mail;
+                $_SESSION["id"] = $id;
+                $_SESSION["info"] = $data[$id];
+                $_SESSION['statut'] = 'connecter';
+                header("Location: presentation.php");
+        }
     }
-    if(isset($_POST["mdp"])){
-        $mdp = $_POST["mdp"];
-    }
-    $id=getid($data,$mail);
-    
-    if ($id===-1 or $data[$id]["mdp"]!=$mdp){
-        $error = "E-Mail ou mot de passe invalide.";
-    } else {
-        echo "Bonjour ".$mail;
-        $_SESSION["id"] = $id;
-        $_SESSION["info"] = $data[$id];
-        $_SESSION['statut'] = 'connecter';
-        header("Location: presentation.php");
-    }
-    }
-?>
+    ?>
 </head>
 
 

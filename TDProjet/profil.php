@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
+    <meta charset="utf-8">
     <?php
     session_start();
     /*if($_POST["message"]) {

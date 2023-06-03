@@ -1,32 +1,21 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
     <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
+    <meta charset="utf-8">
     <title>Jeunes 6.4 - Référent</title>
     <?php
         require("script/phpfonction.php");
-        session_start();
         
-        if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
-            header("Location: inscription.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
-            header("Location: presentation.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
-            header("Location: connexion.php");
-            exit;
-        }
-        if (isset($_SESSION['statut'])) {
-            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
-        } else {
-            $lien = 'inscription.php'; // Lien vers la page de connexion
-        }
+        $demande = array("engagement"=>"","duree"=>"");
+        $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
+        $referent = array("");
 
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $lien = 'inscription.php'; // Lien vers la page de connexion
+
             $url = "data/demande.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
@@ -34,19 +23,43 @@
             if(isset($_GET["id"])){ 
                 $urlid = $_GET["id"];
             }
+            
             $dataid = getrefid($data,$urlid);
             if($dataid != -1) {
                 $demande = $data[$dataid];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
             }
+
+        } else {
+
+
+            //session_start();
+            if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
+                header("Location: inscription.php");
+                exit;
+            }
+            if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
+                header("Location: presentation.php");
+                exit;
+            }
+            if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
+                header("Location: connexion.php");
+                exit;
+            }
+            if (isset($_SESSION['statut'])) {
+                $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+            } else {
+                $lien = 'inscription.php'; // Lien vers la page de connexion
+            }
         }
+        
     ?>
 </head>
 
 
 <body>
-    <script src="checkbox_verification.js" type="text/javascript"></script>
+    <script src="script/checkbox_verification.js" type="text/javascript"></script>
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
