@@ -16,14 +16,6 @@
     background: white;
 }
 
-.carre_formulaire > * > input{ /* Trait de remplissage */
-    position: relative;
-    border: none;
-    color:black;
-    bottom: 0.5vh;
-    border-bottom: 3px dotted;
-}
-
 .carre_formulaire > input{ /* Trait de remplissage */
     position: relative;
     border: none;
