@@ -34,7 +34,7 @@
             }
             $id=getid($data,$mail);
             
-            if ($id===-1 or $data[$id]["mdp"]!=$mdp){
+            if ($id===-1 or $data[$id]["mdp"]!=password_hash($mdp)){
                 $error = "E-Mail ou mot de passe invalide.";
             } else {
                 echo "Bonjour ".$mail;
