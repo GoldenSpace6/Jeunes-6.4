@@ -52,7 +52,7 @@
                     "prenom"=>$prenom,
                     "mail"=>$mail,
                     "date"=>$date,
-                    "mdp"=>$mdp
+                    "mdp"=>password_hash($mdp)
                 );
                 array_push($data,$new);
                 file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));
