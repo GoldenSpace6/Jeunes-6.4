@@ -60,7 +60,7 @@
 
                 /*L'ajoute au fichier*/
                 array_push($d_data,$new);
-                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
+                file_put_contents("data/demande.json",json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 /*Envoie un email de demande*/
                 sendmail($mail, "localhost:8080/referent.php?id=".$url_id,$_SESSION["info"]["nom"],$_SESSION["info"]["prenom"]);
