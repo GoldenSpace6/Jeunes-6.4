@@ -63,7 +63,9 @@
                 file_put_contents("data/demande.json",json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 /*Envoie un email de demande*/
-                sendmail($mail, "localhost:8080/referent.php?id=".$url_id,$_SESSION["info"]["nom"],$_SESSION["info"]["prenom"]);
+				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				$url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
+                sendmail($mail, $url,$_SESSION["info"]["nom"],$_SESSION["info"]["prenom"]);
                 
                 /*Redirige vers la page d'accueil*/
                 header("Location: presentation.php");
