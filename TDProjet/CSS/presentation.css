@@ -1,4 +1,5 @@
 
+/* LES CARRES */
 .les_carees{
     position: relative;
     display: flex;
@@ -6,17 +7,12 @@
     justify-content: center;
 }
 
-
-
-/* LE PREMIER CARRE */
-
 .carre{
     position: relative;
     top: 10%;
     width: 213px;
     margin: 0px;
 }
-
 .carre_texte_1{
     position: relative;
     text-align: center;
@@ -40,6 +36,8 @@
     line-height: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* LE PREMIER CARRE */
 
 .premier_carre{
     color: white;
@@ -79,3 +77,20 @@
     color: black;
 }
 
+/* BOUTON DECONNEXION */
+
+.les_boutons{
+    position: absolute;
+    top: 2vh;
+    right: 4vw;
+    font-size: 24px;
+    display: inline-block;
+}
+
+.deconnexion{
+    color: lightgrey;
+    background-color: rgb(61, 56, 56);
+    min-width: 200px;
+    width: 12vw;
+    height: 45px;
+}

@@ -211,24 +211,3 @@ a.bouton_partenaire.background{
     word-spacing: 1px;
 }
 /*========================================================================================================================*/
-
-
-.les_boutons{
-    position: absolute;      /* METTRE EN VW COMME UNITER */
-    min-width: 200px;
-    top: 27vh;
-    right: 4vw;
-    font-size: 24px;
-    display: inline-block;
-}
-
-.deconnexion{
-    color: lightgrey;
-    background-color: rgb(61, 56, 56);
-    z-index: 1;
-    place-items: center;
-    width: 12vw;    
-    height: 5vh;  
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
