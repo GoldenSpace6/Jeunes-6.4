@@ -60,7 +60,7 @@
             Validez cet engagement en prenant en compte sa valeur
         </div>
         <div class="arriere_plan">
-            <img src="image/6.4 Bleu.png" >
+            <img src="image/6.4_Bleu.png" >
         </div>
         <div class="carre_consultant">
                 <div class="carre_jeune">
