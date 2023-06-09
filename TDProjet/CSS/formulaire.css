@@ -212,3 +212,21 @@ textarea{
     color: #17a4e1;
     border-color: #17a4e1;
 }
+
+.nom{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 0px;
+    font-size: 35px;
+    border: none;
+}
+
+.carre_consultant{
+    position:relative;
+    display:flex;
+    justify-content: center;
+}
+
+.carre_consultant >div{
+    margin-right: 25px;
+    margin-left: 25px;
+}
