@@ -34,10 +34,9 @@
             }
             $id=getid($data,$mail);
             
-            if ($id===-1 or $data[$id]["mdp"]!=password_hash($mdp)){
+            if ($id===-1 or !password_verify($mdp,$data[$id]["mdp"])){
                 $error = "E-Mail ou mot de passe invalide.";
             } else {
-                echo "Bonjour ".$mail;
                 $_SESSION["id"] = $id;
                 $_SESSION["info"] = $data[$id];
                 $_SESSION['statut'] = 'connecter';

@@ -1,23 +1,16 @@
 [
     {
+        "nom": "A",
+        "prenom": "A",
+        "mail": "A",
+        "date": "2023-06-07",
+        "mdp": "$2y$10$irctCywRXobLiMAkHGfbe.Thy68933jjVuD\/f1Gcvml\/eoh.7q8ue"
+    },
+    {
         "nom": "1",
         "prenom": "1",
         "mail": "1",
-        "date": "2023-05-01",
-        "mdp": "1"
-    },
-    {
-        "nom": "2",
-        "prenom": "2",
-        "mail": "2",
-        "date": "2023-05-01",
-        "mdp": "2"
-    },
-    {
-        "nom": "3",
-        "prenom": "3",
-        "mail": "3",
-        "date": "2023-05-06",
-        "mdp": "3"
+        "date": "2023-06-01",
+        "mdp": "$2y$10$w3JsQjL2ntV13tMZeYPlTO\/TQPc3G0b8MmAgBmTihnMh4l8GPjsyO"
     }
 ]

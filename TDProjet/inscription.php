@@ -44,7 +44,7 @@
             $j=false;
             if($j) {
                 die("ERR0R");
-            }elseif ($id===-1) {
+            }elseif ($id!=-1) {
                 $errmail="e-mail deja inscrit.";
             } else {
                 $new=array(
@@ -52,7 +52,7 @@
                     "prenom"=>$prenom,
                     "mail"=>$mail,
                     "date"=>$date,
-                    "mdp"=>password_hash($mdp)
+                    "mdp"=>password_hash($mdp,PASSWORD_DEFAULT)
                 );
                 array_push($data,$new);
                 file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));

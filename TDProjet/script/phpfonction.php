@@ -5,7 +5,7 @@
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
     function getid($tab,$email) {
-        for ($i = 0; $i <= count($tab); $i++) {
+        for ($i = 0; $i < count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
                 return $i;
             }
@@ -14,7 +14,7 @@
     }
     function getrefid($tab,$code) {
         if(is_array($tab)){ 
-            for ($i = 0; $i <= count($tab); $i++) {
+            for ($i = 0; $i < count($tab); $i++) {
                 if($tab[$i]["id"] == $code) {
                     return $i;
                 }
