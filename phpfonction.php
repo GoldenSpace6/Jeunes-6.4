@@ -1,0 +1,85 @@
+<?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+
+// Cherche un mail dans $tab correspondant à celui passé en paramètre, retourne son index, et -1 sinon.
+    function getid($tab,$email) {
+        for ($i = 0; $i < count($tab); $i++) {
+            if($tab[$i]["mail"] == $email) {
+                return $i;
+            }
+        }
+        return -1;
+    }
+
+//Ouvre un fichier puis retourne son contenu
+    function read_json($url){
+    $r_file = file_get_contents($url);
+    return json_decode($r_file,true);
+    }
+
+// Cherche un élément dans $tab correspondant à celui passé en paramètre, retourne son index, et -1 sinon.
+    function getrefid($tab,$code) {
+        if(is_array($tab)){ 
+            for ($i = 0; $i < count($tab); $i++) {
+                if($tab[$i]["id"] == $code) {
+                    return $i;
+                }
+            }
+        }
+        return -1;
+    }
+
+//renvoie à la page précédente en utilisant la session
+    function previousPage() {
+    session_start();
+    if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
+        header("Location: inscription.php");
+        exit;
+    }
+    if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
+        header("Location: presentation.php");
+        exit;
+    }
+    if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
+        header("Location: connexion.php");
+        exit;
+    }
+    if (isset($_SESSION['statut'])) {
+        $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+    } else {
+        $lien = 'inscription.php'; // Lien vers la page de connexion
+    }
+    }
+
+//Envoi un e-mail
+    function sendmail($destinataire,$lien,$nom,$prenom) {
+        
+        $mail = new PHPMailer(true); //intitialise un élément PHPMailer
+        try {
+            $mail->SMTPDebug = 0; //désactive les messages d'erreurs
+            $mail->isSMTP(); //configure la connection en SMTP
+            $mail->Host = 'smtp.laposte.net;'; //Configure l'adresse du serveur
+            $mail->SMTPAuth = true; //Configure la connection comme authentifié
+            $mail->Username = 'jeune-6.4'; //Configure le nom d'utilisateur de l'adresse mail
+            $mail->Password = '20/20Minimum'; //Configure le mot de passe de l'adresse mail
+            $mail->SMTPSecure = 'ssl'; //Configure la connection avec le protocole 'ssl'
+            $mail->Port = 465; //Configure le port à 465. (le port 587 peut être utilisé avec le protocole tls)
+            
+            $mail->setFrom('jeune-6.4@laposte.net', 'Jeune-6.4'); //Configure l'adresse mail de l'expéditeur
+            $mail->addAddress($destinataire); //Configure l'adresse mail du destinataire
+            
+            $mail->isHTML(true); //Configure le message du mail comme étant en html
+            $mail->Subject = 'Demande de réferencement'; //Définie le l'objet du mail
+            $mail->Body = "<p>Bonjour,<br>$nom $prenom a effectué une demande de référencement.<br> Pour plus d'informations, visitez: $lien<br>Si vous n'êtes pas concerné par ce mail, vous pouvez l'ignorer.</p> "; //Définie le message du mail en html
+            $mail->AltBody = "Bonjour,   $nom $prenom a effectué une demande de référencement.  Pour plus d'informations, visitez: $lien Si vous n'êtes pas concerné par ce mail, veuillez l'ignorer."; //Définie le message du mail affiché si l'HTML n'est pas supporté.
+            $mail->send(); //Envoie le mail
+            echo "Mail has been sent successfully!"; //DEBUG
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; //DEBUG
+        }
+    }
+?>
