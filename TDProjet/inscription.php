@@ -16,7 +16,7 @@
             $_SESSION['page_actuelle'] = 'inscription.php';
         }
         
-        $errmail = $nom = $prenom = $mail = $date = $mdp = $commentaires = "";
+        $errmail = $nom = $prenom = $mail = $date = $mdp = $competences = "";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
