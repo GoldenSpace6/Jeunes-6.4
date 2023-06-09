@@ -13,18 +13,20 @@
         $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
         $referent = array("");
 
-        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        if(isset($_GET["id"])){ 
             $lien = 'inscription.php'; // Lien vers la page de connexion
 
+            //Recupère les données de referantdata.json
             $url = "data/demande.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
-            $urlid = '';
-            if(isset($_GET["id"])){ 
-                $urlid = $_GET["id"];
-            }
             
+            //Recupère l'id dans l'url
+            $urlid = $_GET["id"];
+            
+            /*Recupère les données de la demande*/
             $dataid = getrefid($data,$urlid);
+
             if($dataid != -1) {
                 $demande = $data[$dataid];
                 $referent = $demande["referent"];
@@ -33,8 +35,7 @@
 
         } else {
 
-
-            //session_start();
+            session_start();
             if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
                 header("Location: inscription.php");
                 exit;

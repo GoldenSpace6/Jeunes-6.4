@@ -10,20 +10,22 @@
     <script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
         require("script/phpfonction.php");
-        $errmail = "";
-        
+
         session_start();
         if(isset($_SESSION['page_actuelle'])){
             $_SESSION['page_actuelle'] = 'inscription.php';
         }
+        
+        $errmail = $nom = $prenom = $mail = $date = $mdp = "";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+            //Recupère les données de jeunedata.json
             $url = "data/jeunedata.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
                 
-            $nom = $prenom = $mail = $date = $mdp = "";
-
+            //Recupère les données du formulaire
             if(isset($_POST["nom"])){
                 $nom = $_POST["nom"];
             }
@@ -40,28 +42,33 @@
                 $mdp = $_POST["mdp"];
             }
 
+            /*Verifie l'existance du compte jeune*/
             $id=getid($data,$mail);
-            $j=false;
-            if($j) {
-                die("ERR0R");
-            }elseif ($id!=-1) {
+
+            if ($id!=-1) {
                 $errmail="e-mail deja inscrit.";
             } else {
+                
+                /*Créé un nouveau compte jeune*/
                 $new=array(
                     "nom"=>$nom,
                     "prenom"=>$prenom,
                     "mail"=>$mail,
                     "date"=>$date,
-                    "mdp"=>password_hash($mdp,PASSWORD_DEFAULT)
+                    "mdp"=>password_hash($mdp,PASSWORD_DEFAULT) /*Hash le mot de passe*/
                 );
+                
+                /*L'ajoute au fichier*/
                 array_push($data,$new);
                 file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));
                 
                
+                /*Créé un session*/
                 $_SESSION["id"] = $id;
                 $_SESSION["info"] = $new;
                 $_SESSION['statut'] = 'connecter';
                 
+                /*redirige vers la page d'accueil*/
                 header("Location: presentation.php");
                 
             }

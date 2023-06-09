@@ -167,7 +167,7 @@
 }
 /*-----------------*/
 .bouton_valider_referent{
-    position: absolute;
+    position: fixed;
     color: white;
     font-size: 24px;
     background-color: #14A74B;
@@ -177,9 +177,8 @@
 }
 
 .confirmation_referent{
-    position: fixed;
+    position: relative;
     width: 100%;
-    
 }
 
 .boite_commentaire{

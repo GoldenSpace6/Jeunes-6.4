@@ -12,37 +12,42 @@
         require("script/phpfonction.php");
         session_start();
         
-        $error = "";
+        $error = $nom = $prenom = $mail = $date = $mdp = "";
         
         if(isset($_SESSION['page_actuelle'])){
             $_SESSION['page_actuelle'] = 'connexion.php';
         }
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            //Recupère les données de jeunedata.json
             $url = "data/jeunedata.json";
             $file = file_get_contents($url);
             $data = json_decode($file,true);
             
-            
-            $nom = $prenom = $mail = $date = $mdp = "";
-            
-
+            //Recupère les données du formulaire
             if(isset($_POST["e-mail"])){
                 $mail = $_POST["e-mail"];
             }
             if(isset($_POST["mdp"])){
                 $mdp = $_POST["mdp"];
             }
+
+            /*Verifie l'existance du compte jeune*/
             $id=getid($data,$mail);
             
+            /*Verifie le mot de passe*/
             if ($id===-1 or !password_verify($mdp,$data[$id]["mdp"])){
                 $error = "E-Mail ou mot de passe invalide.";
             } else {
+                /*Créé un session*/
                 $_SESSION["id"] = $id;
                 $_SESSION["info"] = $data[$id];
                 $_SESSION['statut'] = 'connecter';
+                
+                /*redirige vers la page d'accueil*/
                 header("Location: presentation.php");
+            }
         }
-    }
     ?>
 </head>
 
