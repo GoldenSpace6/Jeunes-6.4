@@ -9,24 +9,8 @@
     <meta charset="utf-8">
 
     <?php 
-        session_start();
-        if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
-            header("Location: inscription.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
-            header("Location: presentation.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
-            header("Location: connexion.php");
-            exit;
-        }
-        if (isset($_SESSION['statut'])) {
-            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
-        } else {
-            $lien = 'inscription.php'; // Lien vers la page de connexion
-        }
+	require("script/phpfonction.php");
+        previousPage();
     ?>
 
 </head>

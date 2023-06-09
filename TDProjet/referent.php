@@ -13,13 +13,12 @@
         $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
         $referent = array("");
 
-        if(isset($_GET["id"])){ 
+        if(isset($_GET["id"])){
+	    
             $lien = 'inscription.php'; // Lien vers la page de connexion
 
             //Recupère les données de referantdata.json
-            $url = "data/demande.json";
-            $file = file_get_contents($url);
-            $data = json_decode($file,true);
+            $data = read_json("data/demande.json");
             
             //Recupère l'id dans l'url
             $urlid = $_GET["id"];
@@ -31,28 +30,11 @@
                 $demande = $data[$dataid];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
-            }
-
-        } else {
-
-            session_start();
-            if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
-                header("Location: inscription.php");
-                exit;
-            }
-            if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
-                header("Location: presentation.php");
-                exit;
-            }
-            if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
-                header("Location: connexion.php");
-                exit;
-            }
-            if (isset($_SESSION['statut'])) {
-                $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
             } else {
-                $lien = 'inscription.php'; // Lien vers la page de connexion
-            }
+		previousPage();
+	    }
+        } else {
+	    previousPage();
         }
         
     ?>

@@ -4,6 +4,8 @@
     require 'PHPMailer/src/Exception.php';
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
+
+// Cherche un mail dans $tab correspondant à celui passé en paramètre, retourne son index, et -1 sinon.
     function getid($tab,$email) {
         for ($i = 0; $i < count($tab); $i++) {
             if($tab[$i]["mail"] == $email) {
@@ -12,6 +14,14 @@
         }
         return -1;
     }
+
+//Ouvre un fichier puis retourne son contenu
+    function read_json($url){
+    $r_file = file_get_contents($url);
+    return json_decode($r_file,true);
+    }
+
+// Cherche un élément dans $tab correspondant à celui passé en paramètre, retourne son index, et -1 sinon.
     function getrefid($tab,$code) {
         if(is_array($tab)){ 
             for ($i = 0; $i < count($tab); $i++) {
@@ -22,6 +32,30 @@
         }
         return -1;
     }
+
+//renvoie à la page précédente en utilisant la session
+    function previousPage() {
+    session_start();
+    if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
+        header("Location: inscription.php");
+        exit;
+    }
+    if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
+        header("Location: presentation.php");
+        exit;
+    }
+    if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
+        header("Location: connexion.php");
+        exit;
+    }
+    if (isset($_SESSION['statut'])) {
+        $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+    } else {
+        $lien = 'inscription.php'; // Lien vers la page de connexion
+    }
+    }
+
+//Envoi un e-mail
     function sendmail($destinataire,$lien,$nom,$prenom) {
         
         $mail = new PHPMailer(true); //intitialise un élément PHPMailer

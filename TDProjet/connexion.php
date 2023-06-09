@@ -20,9 +20,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             //Recupère les données de jeunedata.json
-            $url = "data/jeunedata.json";
-            $file = file_get_contents($url);
-            $data = json_decode($file,true);
+            $data = read_json("data/jeunedata.json");
             
             //Recupère les données du formulaire
             if(isset($_POST["e-mail"])){

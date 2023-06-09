@@ -12,5 +12,13 @@
         "mail": "1",
         "date": "2023-06-01",
         "mdp": "$2y$10$w3JsQjL2ntV13tMZeYPlTO\/TQPc3G0b8MmAgBmTihnMh4l8GPjsyO"
+    },
+    {
+        "nom": "name",
+        "prenom": "fname",
+        "mail": "email@mailz.com",
+        "date": "2023-06-21",
+        "mdp": "$2y$10$47yGGGzXM6Ewkz7iMfY8FOrx5c.1q6os776xWKia28cs85DLcAdbO",
+        "competences": ""
     }
 ]

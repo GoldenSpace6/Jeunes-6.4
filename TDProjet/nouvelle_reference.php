@@ -15,14 +15,10 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Recupère les données de referantdata.json
-            $r_url = "data/referantdata.json";
-            $r_file = file_get_contents($r_url);
-            $r_data = json_decode($r_file,true);
+            $r_data = read_json("data/referantdata.json");
 
             //Recupère les données de demande.json
-            $d_url = "data/demande.json";
-            $d_file = file_get_contents($d_url);
-            $d_data = json_decode($d_file,true);
+            $d_data = read_json("data/demande.json");
 
             //Recupère les données du formulaire
             if(isset($_POST["duree"])){
