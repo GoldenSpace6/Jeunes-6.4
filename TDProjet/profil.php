@@ -56,13 +56,166 @@
                     <button type="submit" id="submit">Modifier</button>
                 </form>
             </div>
+             <div class="savoir_etre">
+                    <div class="mes_savoir_etres">
+                        MES SAVOIRS ETRE
+                    </div>
+                    
+                    <form class="petit_rectangle_jeune liste_checkbox" method="post" action="profil.php">
+                        <div class="rectangle_texte_1">
+                            Je suis*
+                        </div>
+                        <div>
+                            <input type="checkbox" id="autonome" name="competence" value="autonome" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("autonome", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                                }
+
+                            
+                            ?>
+                            ><label for="autonome">Autonome</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="passionne" name="competence" value="passionne" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("passionne", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="passionne">Passionne</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="reflechi" name="competence" value="reflechi" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                    if (in_array("reflechi", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                           ><label for="reflechi">Reflechi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="a_l_ecoute" name="competence" value="a_l_ecoute" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("a_l_ecoute", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="a_l_ecoute">A l'ecoute</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="organise" name="competence" value="organise" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("organise", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="organise">Organise</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="fiable" name="competence" value="fiable" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                             
+                                    if (in_array("fiable", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="fiable">Fiable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="patient" name="competence" value="patient" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("patient", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="patient">Patient</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="responsable" name="competence" value="responsable" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                               
+                                    if (in_array("responsable", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="responsable">Responsable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="sociable" name="competence" value="sociable" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                            
+                                    if (in_array("sociable", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="sociable">Sociable</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="optimiste" name="competence" value="optimiste" onclick="limitCheckboxSelection(this)"
+                            <?php if(isset($_SESSION["info"]["competences"])){
+                                
+                                    if (in_array("optimiste", $_SESSION["info"]["competences"])){
+                                        echo "checked";
+                                    }
+                                    else{
+                                        echo"disabled";
+                                    }
+                            }
+                            ?>
+                            ><label for="optimiste">Optimiste</label>
+                        </div>
+                    </form>   
+                    
+            </div>
+
         </div>
     </div>  
     <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
 
 </body>
 </html>
-
 
 
 
