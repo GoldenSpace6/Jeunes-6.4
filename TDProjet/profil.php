@@ -8,11 +8,6 @@
     <meta charset="utf-8">
     <?php
     session_start();
-    /*if($_POST["message"]) {
-    mail("mail@ezg.com", "entete");
-    }*/
-
-    
     ?>
 </head>
 
@@ -57,7 +52,7 @@
                     <label for="e-mail">E-mail:</label>
                     <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $_SESSION["info"]["mail"];?>" required><br>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="password" name="mdp" id="mdp" value="<?php echo $_SESSION["info"]["mdp"];?>" required><br>
+                    <input type="password" name="mdp" id="mdp" value="" required><br>
                     <button type="submit" id="submit">Modifier</button>
                 </form>
             </div>

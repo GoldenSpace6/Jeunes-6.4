@@ -10,6 +10,7 @@
         require("script/phpfonction.php");
         session_start();
 
+        $errmail = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Recupère referantdata.json
@@ -92,7 +93,7 @@
     <div class="bas_de_page"> 
 
         <ul class="les_modules">
-                <li><a class="bouton_jeune background" href="jeune.php">JEUNE</a> </li>
+                <li><a class="bouton_jeune background" href="nouvelle_reference.php">JEUNE</a> </li>
                 <li><a class="bouton_referent" href="referent.php">REFERENT</a> </li>
                 <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
                 <li><a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
@@ -107,21 +108,21 @@
                 <img src="image/6.4 Rouge.png" >
             </div>
 
-            <form action="jeune.php" method="post">
+            <form action="nouvelle_reference.php" method="post">
             
                 <div class="carre_jeune couleur_jeune carre_formulaire">
                     <h3>Experience :</h3>
                     <label for="mon_engagement">Mon engagement :</label>
                     <input type="text" name="mon_engagement" id="mon_engagement" required><br>
                     <label for="duree">Duree :</label>
-                    <input type="text" name="duree" id="duree" required>  
-                    <h3>Référent :</h3><?php echo $errmail ?>
+                    <input type="text" name="duree" id="duree" required>
+                    <h3>Référent :</h3>
                     <label for="nom">Nom :</label>
                     <input type="text" name="nom" id="nom" required><br>
                     <label for="prenom">Prenom :</label>
                     <input type="text" name="prenom" id="prenom" required><br>
                     <label for="e-mail">E-mail :</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required><br><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><br><?php echo $errmail ?><br>
                     <button type="submit" id="submit">Envoyer</button>
                 </div>
                <!-- <div class="savoir_etre">

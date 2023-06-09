@@ -109,60 +109,60 @@
             </form>
 
             <div class="savoir_etre">
-                    <div class="mes_savoir_etres">
-                        MES SAVOIRS ETRE
-                    </div>
+                <div class="mes_savoir_etres">
+                    MES SAVOIRS ETRE
+                </div>
                     
-                    <form class="petit_rectangle_jeune liste_checkbox" method="post" action="jeune.php">
-                        <div class="rectangle_texte_1">
-                            Je suis*
-                        </div>
-                        <div>
-                            <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="autonome">Autonome</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="passionne" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="passionne">Passionne</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="reflechi" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="reflechi">Reflechi</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="a_l_ecoute" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="a_l_ecoute">A l'ecoute</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="organise" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="organise">Organise</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="fiable" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="fiable">Fiable</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="patient" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="patient">Patient</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="responsable" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="responsable">Responsable</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="sociable" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="sociable">Sociable</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
-                            <label for="optimiste">Optimiste</label>
-                        </div>
-                    </form>   
-                    
-                    <div class="respect_choix">
-                        *Faire 4 choix maximum
-                        
+                <div class="petit_rectangle_jeune liste_checkbox">
+                    <div class="rectangle_texte_1">
+                        Je suis*
                     </div>
+                    <div>
+                        <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="autonome">Autonome</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="passionne" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="passionne">Passionne</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="reflechi" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="reflechi">Reflechi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="a_l_ecoute" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="a_l_ecoute">A l'ecoute</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="organise" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="organise">Organise</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fiable" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="fiable">Fiable</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="patient" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="patient">Patient</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="responsable" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="responsable">Responsable</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="sociable" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="sociable">Sociable</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
+                        <label for="optimiste">Optimiste</label>
+                    </div>
+                </div>   
+                
+                <div class="respect_choix">
+                    *Faire 4 choix maximum
+                    
+                </div>
             </div> 
             <div class="deja_un_compte"><a href="connexion.php">J'ai déjà un compte</a></div>
         </div>
