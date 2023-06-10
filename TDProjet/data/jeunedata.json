@@ -20,5 +20,13 @@
         "date": "2023-06-21",
         "mdp": "$2y$10$47yGGGzXM6Ewkz7iMfY8FOrx5c.1q6os776xWKia28cs85DLcAdbO",
         "competences": ""
+    },
+    {
+        "nom": "test",
+        "prenom": "fnom1",
+        "mail": "temp@mail.com",
+        "date": "2023-06-11",
+        "mdp": "$2y$10$2Tff6s8UB7E8zXq7e5JXZuQqVnqbVpazSunaOe.aRjevjkzOyYCo6",
+        "competences": "optimiste"
     }
 ]

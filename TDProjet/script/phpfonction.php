@@ -15,6 +15,24 @@
         return -1;
     }
 
+//cherche une compétence parmis les infos, si elles existent
+function get_comp($comp) {
+		if(isset($_SESSION["info"]["competences"])){
+			if ($_SESSION["info"]["competences"]!=""){
+				if (is_array($_SESSION["info"]["competences"])){
+					if (in_array($comp, $_SESSION["info"]["competences"])){
+						return "checked";
+					}
+				}else {
+					if ($_SESSION["info"]["competences"]===$comp){
+						return "checked";
+					}
+				}
+			}
+		}
+		return "unchecked";
+		}
+
 //Ouvre un fichier puis retourne son contenu
     function read_json($url){
         $r_file = file_get_contents($url);

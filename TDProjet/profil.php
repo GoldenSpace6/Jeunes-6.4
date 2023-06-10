@@ -6,24 +6,52 @@
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <meta charset="utf-8">
+	<script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
+	require("script/phpfonction.php");
         session_start();
-	function get_comp($comp) {
-		if(isset($_SESSION["info"]["competences"])){
-			if ($_SESSION["info"]["competences"]!=""){
-                if (in_array($comp, $_SESSION["info"]["competences"])){
-					return "checked";
-					}
-				}
-		}
-		return "disabled";
-		}
+		$error = "";
+		$nom = $_SESSION["info"]["nom"];
+		$prenom = $_SESSION["info"]["prenom"];
+		$mail = $_SESSION["info"]["mail"];
+		$date = $_SESSION["info"]["date"];
+		$mdp = $_SESSION["info"]["mdp"];
+		$competence = $_SESSION["info"]["competences"];
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if(isset($_POST["mdp"])){
+                if (!password_verify($_POST["mdp"],$mdp)){
+					$error = "Mot de passe invalide.";
+				} else {
+			//Recupère les données de jeunedata.json
+            $j_url = "data/jeunedata.json";
+            $j_data = read_json($j_url);
+			$id=$_SESSION["id"];
+                
+            //Recupère les données du formulaire
+            if(isset($_POST["nom"])){
+				$j_data[$id]["nom"]=$_POST["nom"];
+            }
+            if(isset($_POST["prenom"])){
+                $j_data[$id]["prenom"]=$_POST["prenom"];
+            }
+            if(isset($_POST["e-mail"])){
+                $j_data[$id]["mail"]=$_POST["e-mail"];
+            }
+            if(isset($_POST["date"])){
+                $j_data[$id]["date"]=$_POST["date"];
+            }
+            if(isset($_POST["competence"])){
+                $j_data[$id]["competences"]=$_POST["competence"];
+            }
+			file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
+			$_SESSION["info"] = $j_data[$id];
+			
+		}}}
     ?>
 </head>
 
 
 <body>
-   <script src="checkbox_verification.js" type="text/javascript"></script>
 
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
@@ -50,8 +78,8 @@
             <div class="texte_profil">
                 Votre Profil
             </div>
-            <div class="carre_profil">
-                <form action="profil.php" method="POST" class="texte_carre_profil">
+			<form action="profil.php" method="POST" class="texte_carre_profil">
+				<div class="carre_profil">
                     <!--<//?php echo $err?><br>-->
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["info"]["nom"];?>" required><br>
@@ -64,14 +92,13 @@
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" name="mdp" id="mdp" value="" required><br>
                     <button type="submit" id="submit">Modifier</button>
-                </form>
             </div>
              <div class="savoir_etre">
                     <div class="mes_savoir_etres">
                         MES SAVOIRS ETRE
                     </div>
                     
-                    <form class="petit_rectangle_jeune liste_checkbox" method="post" action="profil.php">
+                    <div class="petit_rectangle_jeune liste_checkbox" method="post" action="profil.php">
                         <div class="rectangle_texte_1">
                             Je suis*
                         </div>
@@ -145,6 +172,7 @@
                             ?>
                             ><label for="optimiste">Optimiste</label>
                         </div>
+					</div>
                     </form>   
                     
             </div>
