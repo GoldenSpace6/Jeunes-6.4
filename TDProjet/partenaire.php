@@ -7,13 +7,12 @@
     <title>Jeunes 6.4 - Partenaires</title>
     <meta charset="utf-8">
     <?php
-    session_start();
-    if (isset($_SESSION['statut'])) {
-        $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
-    } else {
-        $lien = 'inscription.php'; // Lien vers la page de connexion
-    }
-    
+        session_start();
+        if (isset($_SESSION['statut'])) {
+            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+        } else {
+            $lien = 'inscription.php'; // Lien vers la page de connexion
+        }
     ?>
 </head>
 

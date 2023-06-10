@@ -6,13 +6,16 @@
         require("phpfonction.php");
 
         //Recupère les données de jeunedata.json
-        $j_data = read_json("../data/jeunedata.json");
+        $j_url = "../data/jeunedata.json";
+        $j_data = read_json($j_url);
         
         //Recupère les données de referantdata.json
-        $r_data = read_json("../data/referantdata.json");
+        $r_url = "../data/referantdata.json";
+        $r_data = read_json($r_url);
 
         //Recupère les données de demande.json
-        $d_data = read_json("../data/demande.json");
+        $d_url = "../data/demande.json";
+        $d_data = read_json($d_url);
 
 
         $act="";
@@ -23,7 +26,7 @@
         if($act == "J+" ) {
             echo $act;
 
-            $new=array(
+            $new = array(
                 "nom"=>$_POST["nom"],
                 "prenom"=>$_POST["prenom"],
                 "mail"=>$_POST["e-mail"],
@@ -36,11 +39,13 @@
 
 
         } elseif($act == "J-" ) {
-            echo $act;
 
-            $mail=$_POST["e-mail"];
-            $id=getid($j_data,$mail);
-            array_splice($j_data,$id,1);
+            $mail = $_POST["e-mail"];
+            $id = getid($j_data,$mail);
+            if($id != -1) {
+                echo $act;
+                array_splice($j_data,$id,1);
+            }
 
             file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
 
@@ -48,7 +53,7 @@
         } elseif($act == "R+" ) {
             echo $act;
 
-            $new=array(
+            $new = array(
                 "nom"=>$_POST["nom"],
                 "prenom"=>$_POST["prenom"],
                 "mail"=>$_POST["e-mail"]
@@ -59,11 +64,13 @@
 
 
         } elseif($act == "R-" ) {
-            echo $act;
 
-            $mail=$_POST["e-mail"];
-            $id=getid($r_data,$mail);
-            array_splice($r_data,$id,1);
+            $mail = $_POST["e-mail"];
+            $id = getid($r_data,$mail);
+            if($id != -1) {
+                echo $act;
+                array_splice($r_data,$id,1);
+            }
 
             file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
 
@@ -71,10 +78,10 @@
         } elseif($act == "D+" ) {
             echo $act;
             
-            $j_id=getid($j_data,$_POST["jeune"]);
-            $r_id=getid($r_data,$_POST["referent"]);
+            $j_id = getid($j_data,$_POST["jeune"]);
+            $r_id = getid($r_data,$_POST["referent"]);
 
-            $new=array(
+            $new = array(
                 "id"=>intval($_POST["url_id"]),
                 "referant"=>$r_data[$r_id],
                 "jeune"=>$j_data[$j_id],
@@ -87,19 +94,21 @@
 
 
         } elseif($act == "D-" ) {
-            echo $act;
 
-            $url_id=$_POST["id"];
-            $id=getrefid($d_data,$url_id);
-            array_splice($d_data,$id,1);
+            $url_id = intval($_POST["id"]);
+            $id = getrefid($d_data,$url_id);
+            if($id != -1) {
+                echo $act;
+                array_splice($d_data,$id,1);
+            }
 
             file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
         }
     ?>
 </head>
 <body>
-    <fieldset><form action="admin.php" method="post">
-        <h3>Ajouter un compte Jeune :</h3>
+    <fieldset><legend>Ajouter un compte Jeune :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="J+" name="action" style="display:none;">
 
         <label for="nom">Nom:</label>
@@ -117,8 +126,8 @@
     </form></fieldset>
 
 
-    <fieldset><form action="admin.php" method="post">
-        <h3>Supprimer un compte Jeune :</h3>
+    <fieldset><legend>Supprimer un compte Jeune :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="J-" name="action" style="display:none;">
 
         <label for="e-mail">E-mail:</label>
@@ -128,8 +137,8 @@
     </form></fieldset>
 
 
-    <fieldset><form action="admin.php" method="post">
-        <h3>Ajouter un Référent :</h3>
+    <fieldset><legend>Ajouter un Référent :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="R+" name="action" style="display:none;">
 
         <label for="nom">Nom:</label>
@@ -143,8 +152,8 @@
     </form></fieldset>
 
 
-    <fieldset><form action="admin.php" method="post">
-        <h3>Supprimer un Référent :</h3>
+    <fieldset><legend>Supprimer un Référent :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="R-" name="action" style="display:none;">
         
         <label for="e-mail">E-mail:</label>
@@ -154,8 +163,8 @@
     </form></fieldset>
 
 
-    <fieldset><form action="admin.php" method="post">
-        <h3>Ajouter une demande :</h3>
+    <fieldset><legend>Ajouter une demande :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="D+" name="action" style="display:none;">
 
         <label for="url_id">Id:</label>
@@ -174,8 +183,8 @@
     </form></fieldset>
 
 
-    <fieldset><form action="admin.php" method="post">
-        <h3>Supprimer une demande :</h3>
+    <fieldset><legend>Supprimer une demande :</legend>
+    <form action="admin.php" method="post">
         <input type="text" value="D-" name="action" style="display:none;">
         
         <label for="id">Id:</label>

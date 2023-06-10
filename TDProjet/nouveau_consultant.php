@@ -10,7 +10,7 @@
 
     <?php 
     require("script/phpfonction.php");
-    previousPage();
+    $lien = previousPage();
     ?>
 
 </head>
@@ -33,7 +33,7 @@
     <div class="bas_de_page"> 
         
         <div class="les_modules">
-            <li><a class="bouton_jeune background" href="profil.php">PROFIL</a> </li>
+            <li><a class="bouton_jeune background" href="<?php echo $lien; ?>">PROFIL</a> </li>
             <li><a class="bouton_referent" href="referent.php">REFERENT</a> </li>
             <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
             <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>

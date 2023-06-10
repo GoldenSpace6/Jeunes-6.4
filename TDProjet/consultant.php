@@ -10,7 +10,7 @@
 
     <?php 
 	require("script/phpfonction.php");
-        previousPage();
+        $lien = previousPage();
     ?>
 
 </head>

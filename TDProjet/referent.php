@@ -18,25 +18,24 @@
             $lien = 'inscription.php'; // Lien vers la page de connexion
 
             //Recupère les données de referantdata.json
-            $data = read_json("data/demande.json");
+            $r_data = read_json("data/demande.json");
             
             //Recupère l'id dans l'url
             $urlid = $_GET["id"];
             
             /*Recupère les données de la demande*/
-            $dataid = getrefid($data,$urlid);
+            $dataid = getrefid($r_data,$urlid);
 
             if($dataid != -1) {
-                $demande = $data[$dataid];
+                $demande = $r_data[$dataid];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
             } else {
-		previousPage();
-	    }
+                $lien = previousPage();
+            }
         } else {
-	    previousPage();
+    	    $lien = previousPage();
         }
-        
     ?>
 </head>
 

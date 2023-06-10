@@ -7,7 +7,7 @@
     <title>Jeunes 6.4 - Profil</title>
     <meta charset="utf-8">
     <?php
-    session_start();
+        session_start();
     ?>
 </head>
 

@@ -21,7 +21,8 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Recupère les données de jeunedata.json
-            $data = read_json("data/jeunedata.json");
+            $j_url = "data/jeunedata.json";
+            $j_data = read_json($j_url);
                 
             //Recupère les données du formulaire
             if(isset($_POST["nom"])){
@@ -43,7 +44,7 @@
                 $competences = $_POST["competence"];
             }
             /*Verifie l'existance du compte jeune*/
-            $id=getid($data,$mail);
+            $id=getid($j_data,$mail);
 
             if ($id!=-1) {
                 $errmail="e-mail deja inscrit.";
@@ -60,8 +61,8 @@
                 );
                 
                 /*L'ajoute au fichier*/
-                array_push($data,$new);
-                file_put_contents($url,json_encode($data,JSON_PRETTY_PRINT));
+                array_push($j_data,$new);
+                file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
                 
                
                 /*Créé un session*/

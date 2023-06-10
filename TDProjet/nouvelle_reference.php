@@ -15,10 +15,12 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Recupère les données de referantdata.json
-            $r_data = read_json("data/referantdata.json");
+            $r_url = "data/referantdata.json";
+            $r_data = read_json($r_url);
 
             //Recupère les données de demande.json
-            $d_data = read_json("data/demande.json");
+            $d_url = "data/demande.json";
+            $d_data = read_json($d_url);
 
             //Recupère les données du formulaire
             if(isset($_POST["duree"])){
@@ -60,12 +62,12 @@
 
                 /*L'ajoute au fichier*/
                 array_push($d_data,$new);
-                file_put_contents("data/demande.json",json_encode($d_data,JSON_PRETTY_PRINT));
+                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
                 
                 /*Envoie un email de demande*/
 				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 				$url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
-                sendmail($mail, $url,$_SESSION["info"]["nom"],$_SESSION["info"]["prenom"]);
+                sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);
                 
                 /*Redirige vers la page d'accueil*/
                 header("Location: presentation.php");

@@ -20,7 +20,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             //Recupère les données de jeunedata.json
-            $data = read_json("data/jeunedata.json");
+            $j_data = read_json("data/jeunedata.json");
             
             //Recupère les données du formulaire
             if(isset($_POST["e-mail"])){
@@ -31,15 +31,15 @@
             }
 
             /*Verifie l'existance du compte jeune*/
-            $id=getid($data,$mail);
+            $id=getid($j_data,$mail);
             
             /*Verifie le mot de passe*/
-            if ($id===-1 or !password_verify($mdp,$data[$id]["mdp"])){
+            if ($id===-1 or !password_verify($mdp,$j_data[$id]["mdp"])){
                 $error = "E-Mail ou mot de passe invalide.";
             } else {
                 /*Créé un session*/
                 $_SESSION["id"] = $id;
-                $_SESSION["info"] = $data[$id];
+                $_SESSION["info"] = $j_data[$id];
                 $_SESSION['statut'] = 'connecter';
                 
                 /*redirige vers la page d'accueil*/
