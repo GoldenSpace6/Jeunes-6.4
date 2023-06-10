@@ -8,6 +8,16 @@
     <meta charset="utf-8">
     <?php
         session_start();
+	function get_comp($comp) {
+		if(isset($_SESSION["info"]["competences"])){
+			if ($_SESSION["info"]["competences"]!=""){
+                if (in_array($comp, $_SESSION["info"]["competences"])){
+					return "checked";
+					}
+				}
+		}
+		return "disabled";
+		}
     ?>
 </head>
 
@@ -67,142 +77,71 @@
                         </div>
                         <div>
                             <input type="checkbox" id="autonome" name="competence" value="autonome" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("autonome", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                                }
-
-                            
+                            <?php 
+							echo get_comp("autonome");
                             ?>
                             ><label for="autonome">Autonome</label>
                         </div>
                         <div>
                             <input type="checkbox" id="passionne" name="competence" value="passionne" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("passionne", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("passionne");
                             ?>
                             ><label for="passionne">Passionne</label>
                         </div>
                         <div>
                             <input type="checkbox" id="reflechi" name="competence" value="reflechi" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                    if (in_array("reflechi", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("reflechi");
                             ?>
                            ><label for="reflechi">Reflechi</label>
                         </div>
                         <div>
                             <input type="checkbox" id="a_l_ecoute" name="competence" value="a_l_ecoute" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("a_l_ecoute", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("a_l_ecoute");
                             ?>
                             ><label for="a_l_ecoute">A l'ecoute</label>
                         </div>
                         <div>
                             <input type="checkbox" id="organise" name="competence" value="organise" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("organise", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php
+							echo get_comp("organise");
                             ?>
                             ><label for="organise">Organise</label>
                         </div>
                         <div>
                             <input type="checkbox" id="fiable" name="competence" value="fiable" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                             
-                                    if (in_array("fiable", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("fiable");
                             ?>
                             ><label for="fiable">Fiable</label>
                         </div>
                         <div>
                             <input type="checkbox" id="patient" name="competence" value="patient" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("patient", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("patient");
                             ?>
                             ><label for="patient">Patient</label>
                         </div>
                         <div>
                             <input type="checkbox" id="responsable" name="competence" value="responsable" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                               
-                                    if (in_array("responsable", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("responsable");
                             ?>
                             ><label for="responsable">Responsable</label>
                         </div>
                         <div>
                             <input type="checkbox" id="sociable" name="competence" value="sociable" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                            
-                                    if (in_array("sociable", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php
+							echo get_comp("sociable");
                             ?>
                             ><label for="sociable">Sociable</label>
                         </div>
                         <div>
                             <input type="checkbox" id="optimiste" name="competence" value="optimiste" onclick="limitCheckboxSelection(this)"
-                            <?php if(isset($_SESSION["info"]["competences"])){
-                                
-                                    if (in_array("optimiste", $_SESSION["info"]["competences"])){
-                                        echo "checked";
-                                    }
-                                    else{
-                                        echo"disabled";
-                                    }
-                            }
+                            <?php 
+							echo get_comp("optimiste");
                             ?>
                             ><label for="optimiste">Optimiste</label>
                         </div>
