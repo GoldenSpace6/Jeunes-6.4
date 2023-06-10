@@ -39,41 +39,32 @@
             if(isset($_POST["e-mail"])){
                 $mail = $_POST["e-mail"];
             }
-
-            /*Verifie l'existance du référent*/
-            $id=getid($r_data,$mail);
-
-            if ($id ===-1) {
-                $errmail="e-mail non reconnu.";
-            } else {
-                /*Genère un id random*/
-                do {
-                    $url_id=rand(0,100000);
-                } while(getrefid($d_data,$url_id) != -1);
-
-                /*Créé une nouvelle demande*/
-                $new=array(
-                    "id"=>$url_id,
-                    "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
-                    "jeune"=>$_SESSION["info"],
-                    "duree"=>$duree,
-                    "engagement"=>$eng
-                );
-
-                /*L'ajoute au fichier*/
-                array_push($d_data,$new);
-                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
+			/*Genère un id random*/
+            do {
+				$url_id=rand(0,100000);
+			} while(getrefid($d_data,$url_id) != -1);
+			
+			/*Créé une nouvelle demande*/
+			$new=array(
+			"id"=>$url_id,
+			"referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
+			"jeune"=>$_SESSION["info"],
+			"duree"=>$duree,
+			"engagement"=>$eng
+			);
+			
+			/*L'ajoute au fichier*/
+			array_push($d_data,$new);
+			file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
+			
+			/*Envoie un email de demande*/
+			$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			$url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
+			sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);
                 
-                /*Envoie un email de demande*/
-				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-				$url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
-                sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);
-                
-                /*Redirige vers la page d'accueil*/
-                header("Location: presentation.php");
-                
+			/*Redirige vers la page d'accueil*/
+			header("Location: presentation.php");   
             }
-        }
     ?>
 </head>
 
