@@ -36,17 +36,19 @@
 //renvoie à la page précédente en utilisant la session
     function previousPage() {
         session_start();
-        if($_SESSION['page_actuelle'] == 'inscription.php' && !isset($_SESSION['statut'])){
-            header("Location: inscription.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'presentation.php' && !isset($_SESSION['statut'])){
-            header("Location: presentation.php");
-            exit;
-        }
-        if($_SESSION['page_actuelle'] == 'connexion.php' && !isset($_SESSION['statut'])){
-            header("Location: connexion.php");
-            exit;
+        if(isset($_SESSION['page_actuelle']) && !isset($_SESSION['statut'])) {
+            if($_SESSION['page_actuelle'] == 'inscription.php'){
+                header("Location: inscription.php");
+                exit;
+            }
+            if($_SESSION['page_actuelle'] == 'presentation.php'){
+                header("Location: presentation.php");
+                exit;
+            }
+            if($_SESSION['page_actuelle'] == 'connexion.php'){
+                header("Location: connexion.php");
+                exit;
+            }
         }
         if (isset($_SESSION['statut'])) {
             return 'profil.php'; // Lien vers le profil de l'utilisateur

@@ -98,12 +98,12 @@
                 <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
-        <div class="information_jeune">    
+        <form action="inscription.php" method="post" class="information_jeune">    
             <div class="couleur_jeune texte_formulaire">
                 Créer ton compte
             </div>
 
-            <form action="inscription.php" method="post" class="texte_carre_inscription couleur_jeune carre_formulaire">
+            <div class="texte_carre_inscription couleur_jeune carre_formulaire">
                 <label for="nom">Nom:</label>
                 <input type="text" name="nom" id="nom" required><br>
                 <label for="prenom">Prénom:</label>
@@ -115,7 +115,7 @@
                 <label for="mdp">Mot de passe:</label>
                 <input type="password" name="mdp" id="mdp" minlenght="8" required><br>
                 <div class="boutton_submit"><button type="submit" id="submit">Login</button></div>
-            
+            </div>
 
             <div class="savoir_etre">
                 <div class="mes_savoir_etres">
@@ -167,7 +167,6 @@
                             <label for="optimiste">Optimiste</label>
                         </div>
                     </div>
-                    </form>
                 
                 <div class="respect_choix">
                     *Faire 4 choix maximum
@@ -175,7 +174,7 @@
                 </div>
             </div> 
             <div class="deja_un_compte"><a href="connexion.php">J'ai déjà un compte</a></div>
-        </div>
+    </form>
     </div> 
 </body>
 </html>

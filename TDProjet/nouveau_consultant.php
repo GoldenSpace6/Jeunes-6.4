@@ -9,8 +9,8 @@
     <meta charset="utf-8">
 
     <?php 
-    require("script/phpfonction.php");
-    $lien = previousPage();
+        require("script/phpfonction.php");
+        $lien = previousPage();
     ?>
 
 </head>
