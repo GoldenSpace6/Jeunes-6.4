@@ -10,7 +10,7 @@
     <?php
 	require("script/phpfonction.php");
         session_start();
-		$error = "";
+		$message = "";
 		$nom = $_SESSION["info"]["nom"];
 		$prenom = $_SESSION["info"]["prenom"];
 		$mail = $_SESSION["info"]["mail"];
@@ -20,7 +20,7 @@
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if(isset($_POST["mdp"])){
                 if (!password_verify($_POST["mdp"],$mdp)){
-					$error = "Mot de passe invalide.";
+					$message = "Mot de passe invalide.";
 				} else {
 			//Recupère les données de jeunedata.json
             $j_url = "data/jeunedata.json";
@@ -45,6 +45,7 @@
             }
 			file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
 			$_SESSION["info"] = $j_data[$id];
+			$message="Profil modifié";
 			
 		}}}
     ?>
@@ -80,7 +81,7 @@
             </div>
 			<form action="profil.php" method="POST" class="texte_carre_profil">
 				<div class="carre_profil">
-                    <!--<//?php echo $err?><br>-->
+					<?php echo $message?><br>
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["info"]["nom"];?>" required><br>
                     <label for="prenom">Prénom:</label>
@@ -91,6 +92,7 @@
                     <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $_SESSION["info"]["mail"];?>" required><br>
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" name="mdp" id="mdp" value="" required><br>
+					
                     <button type="submit" id="submit">Modifier</button>
             </div>
              <div class="savoir_etre">
