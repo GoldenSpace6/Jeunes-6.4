@@ -32,7 +32,7 @@ function get_comp_tab($comp,$tab) {
                         return "unchecked";
                     }
                 } else {
-                    if ($tab=$comp){
+                    if ($tab==$comp){
                     return "checked";
                 }
             }
