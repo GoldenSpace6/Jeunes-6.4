@@ -93,8 +93,8 @@
     <div class="bas_de_page">  
         <ul class="les_modules">
                 <li> <a class="bouton_jeune background" href="inscription.php">JEUNE</a> </li>
-                <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
-                <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
+                <li> <a class="bouton_referent">REFERENT</a> </li>
+                <li> <a class="bouton_consultant">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
         <form action="inscription.php" method="post" class="information_jeune">    
