@@ -85,6 +85,8 @@
     right: 4vw;
     font-size: 24px;
     display: inline-block;
+    text-align: center;
+    color: rgb(82, 78, 78);
 }
 
 .deconnexion{

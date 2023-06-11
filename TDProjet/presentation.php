@@ -43,17 +43,17 @@
                 ?>
                  name="deconnexion" type="submit" class="deconnexion">Deconnexion
                 </button> 
+                <!-- Affiche le nom et le prénom du Jeune, si il est connecté-->
+                <div class="texte-nom">
+                    <?php
+                    if(isset($_SESSION['statut'])){  
+                        echo $_SESSION["info"]["nom"]." - ".$_SESSION["info"]["prenom"];
+                        }
+                    ?>
+                </div>
 				
             </form>
         </div>
-		<!-- Affiche le nom et le prénom du Jeune, si il est connecté-->
-		<div class="texte-nom">
-			<?php
-			 if(isset($_SESSION['statut'])){  
-                  echo $_SESSION["info"]["nom"]." - ".$_SESSION["info"]["prenom"];
-                }
-            ?>
-		</div>
         <div class="soustitre">
                 Pour faire de l'engagement une valeur
         </div>
