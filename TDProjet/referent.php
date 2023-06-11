@@ -59,7 +59,7 @@
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
 
                 /*Redirige vers la page d'accueil*/
-                header("Location: presentation.php");
+                header("Location: remerciement.html");
                 
             }
             
