@@ -133,7 +133,7 @@
                         }
                    ?>><br>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="password" name="mdp" id="mdp" value="<?php  echo $_SESSION["info"]["mdp"];?>" 
+                    <input type="password" name="mdp" id="mdp" value="" 
                     <?php
                         if( $modificationEncours === 1){
                             echo ' ';
