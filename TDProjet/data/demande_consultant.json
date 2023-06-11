@@ -1,0 +1,24 @@
+[
+    {
+        "id": 123,
+        "jeune": {
+            "nom": "2",
+            "prenom": "2",
+            "mail": "2",
+            "date": "2023-05-01"
+        },
+		"referencent":
+		[
+			{
+				"nom": "1",
+				"prenom": "1",
+				"mail": "1"
+			},
+			{
+				"nom": "2",
+				"prenom": "2",
+				"mail": "2"
+			}
+		]
+    }
+]
