@@ -123,9 +123,9 @@
 
 /*----- Profil -----*/
 
-.nouvelle_reference{
+.button_profil{
     color: lightgrey;
-    background-color: rgb(5, 5, 182);
+    background-color:  #e5239b;
     display: block;
     width: 400px;
     margin: auto;
