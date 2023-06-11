@@ -97,6 +97,20 @@
                     /*L'ajoute au fichier*/
                     array_push($c_data,$new);
                     file_put_contents($c_url,json_encode($c_data,JSON_PRETTY_PRINT));
+					$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+					$url=rtrim($url, "profil.php")."consultant.php?id=".$url_id;
+					$prenom=$_SESSION["info"]["prenom"];
+					$nom=$_SESSION["info"]["nom"];
+					echo "here:".$_POST["c_email"];
+					$msg="<p>Bonjour,<br><br>
+					Le projet Jeunes-6.4 est un dispositif de valorisation de l&#39;engagement des jeunes en Pyr&#233;n&#233;es<br>
+					Atlantiques soutenu par l&#39;Etat, le Conseil G&#233;n&#233;ral, le Conseil R&#233;gional, les CAF B&#233;arn<br>
+					Soule et Pays Basque, la MSA, la CPAM. Le projet, adress&#233; aux jeunes entre 16 et 30 ans, vise &#224; valoriser<br>
+					toute exp&#233;rience comme source d&#39;enrichissement qui puisse &#234;tre reconnue comme l&#39;expression d&#39;un savoir-faire ou savoir-&#234;tre.<br>
+					Afin de compl&#233;ter leur CV, les jeunes peuvent demander des r&#233;f&#233;rences qui confirment leur exp&#233;rience<br>
+					(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
+					Dans le cadre de ce dispositif, $nom $prenom vous propose de consulter ses r&#233;f&#233;rencement : <a href=$url>Jeune-6.4</a>";
+					sendmail($_POST["c_email"], $msg);
                 }
             }
         }    
@@ -365,8 +379,8 @@
                     }
                 ?>
                 <label>Consultant :</label><br>
-                <label for="e-mail">E-mail :</label>
-                <input type="e-mail" name="e-mail" id="e-mail" value=""> 
+                <label for="c_mail">E-mail :</label>
+                <input type="e-mail" name="c_mail" id="c_mail" value="" required> 
                 <button name='modifier' type='submit' id='submit'>demande consultant</button>
             </form>
             <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
