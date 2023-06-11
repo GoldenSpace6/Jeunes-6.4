@@ -18,12 +18,12 @@
             $lien = 'inscription.php'; // Lien vers la page de connexion
 
             //Recupère les données de referantdata.json
-            $r_data = read_json("data/demande.json");
+            $r_data = read_json("data/demande_reference.json");
             
             //Recupère l'id dans l'url
             $urlid = $_GET["id"];
             
-            /*Recupère les données de la demande*/
+            /*Recupère les données de la demande de référence*/
             $dataid = getrefid($r_data,$urlid);
 
             if($dataid != -1) {

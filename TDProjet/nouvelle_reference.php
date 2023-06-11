@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <?php
         require("script/phpfonction.php");
-        session_start();
 
         $errmail = $nom = $prenom = $mail = $duree = $eng = "";
         
@@ -18,8 +17,8 @@
             $r_url = "data/referantdata.json";
             $r_data = read_json($r_url);
 
-            //Recupère les données de demande.json
-            $d_url = "data/demande.json";
+            //Recupère les données de demande_reference.json
+            $d_url = "data/demande_reference.json";
             $d_data = read_json($d_url);
 
             //Recupère les données du formulaire
@@ -51,7 +50,7 @@
                     $url_id=rand(0,100000);
                 } while(getrefid($d_data,$url_id) != -1);
 
-                /*Créé une nouvelle demande*/
+                /*Créé une nouvelle référence*/
                 $new=array(
                     "id"=>$url_id,
                     "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
@@ -64,7 +63,7 @@
                 array_push($d_data,$new);
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
                 
-                /*Envoie un email de demande*/
+                /*Envoie un email de référence*/
 				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 				$url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
                 sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);

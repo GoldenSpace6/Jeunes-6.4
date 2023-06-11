@@ -15,7 +15,6 @@
     $message ="";
     
         require("script/phpfonction.php");
-            session_start();
             $message = "";
             $nom = $_SESSION["info"]["nom"];
             $prenom = $_SESSION["info"]["prenom"];
@@ -160,9 +159,8 @@
                     } 
                    ?>
                    > >Valider</button>    
-
-            </div>
-             <div class="savoir_etre">
+                </div>
+                <div class="savoir_etre">
                     <div class="mes_savoir_etres">
                         MES SAVOIRS ETRE
                     </div>
@@ -174,11 +172,11 @@
                         <div>
                             <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="limitCheckboxSelection(this)"
                             <?php
-                             if( $modificationEncours === 1 && !in_array("autonome", $_SESSION["info"]["competences"])){
+                                if( $modificationEncours === 1 && !in_array("autonome", $_SESSION["info"]["competences"])){
                                 echo "enabled";
                             } 
-							echo get_comp("autonome");
-                              
+                            echo get_comp("autonome");
+                                
                             ?>
                             ><label for="autonome">Autonome</label>
                         </div>
@@ -188,8 +186,8 @@
                             if( $modificationEncours === 1 && !in_array("passionne", $_SESSION["info"]["competences"])){
                                 echo "enabled";
                             } 
-							echo get_comp("passionne");
-                              
+                            echo get_comp("passionne");
+                                
                             ?>
                             ><label for="passionne">Passionne</label>
                         </div>
@@ -200,9 +198,9 @@
                                 echo "enabled";
                             } 
                             echo get_comp("reflechi");
-                               
+                                
                             ?>
-                           ><label for="reflechi">Reflechi</label>
+                            ><label for="reflechi">Reflechi</label>
                         </div>
                         <div>
                             <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="limitCheckboxSelection(this)"
@@ -211,7 +209,7 @@
                                 echo "enabled";
                             } 
                             echo get_comp("a_l_ecoute");
-                             
+                                
                             ?>
                             ><label for="a_l_ecoute">A l'ecoute</label>
                         </div>
@@ -222,7 +220,7 @@
                                 echo "enabled";
                             } 
                             echo get_comp("organise");
-                               
+                                
                             ?>
                             ><label for="organise">Organise</label>
                         </div>
@@ -233,7 +231,7 @@
                                 echo "enabled";
                             } 
                             echo get_comp("fiable");
-                               
+                                
                             ?>
                             ><label for="fiable">Fiable</label>
                         </div>
@@ -243,8 +241,8 @@
                             if( $modificationEncours === 1 && !in_array("patient", $_SESSION["info"]["competences"])){
                                 echo "enabled";
                             } 
-							echo get_comp("patient");
-                             
+                            echo get_comp("patient");
+                                
                             ?>
                             ><label for="patient">Patient</label>
                         </div>
@@ -281,14 +279,16 @@
                             ?>
                             ><label for="optimiste">Optimiste</label>
                         </div>
-					</div>
-                    </form>   
-                    
+                    </div>
+                </div>
+            </form>   
+            
+            <div class="carre_profil">Mes Reference
+                <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>  
             </div>
-
+            
         </div>
     </div>  
-    <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
 
 </body>
 </html>
