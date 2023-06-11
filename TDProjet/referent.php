@@ -152,13 +152,13 @@
                 <label for="mail">Mail :</label>
                 <input type="e-mail" name="mail" id="e-mail" value="<?php echo $referent["mail"]?>"><br>
                 <br><br>
-                <label>Demande du jeune :</label><br>
+                <label>Information du jeune :</label><br>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>" disabled><br>
+                <input type="text" name="j_nom" id="j_nom" value="<?php echo $jeune["nom"]?>" disabled><br>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>" disabled><br>
+                <input type="text" name="j_prenom" id="j_prenom" value="<?php echo $jeune["prenom"]?>" disabled><br>
                 <label for="mail">Mail :</label>
-                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>" disabled><br>
+                <input type="e-mail" name="j_e-mail" id="j_e-mail" value="<?php echo $jeune["mail"]?>" disabled><br>
                 <label for="date">Date de naissance :</label>
                 <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>" disabled><br>
                 <!-- <label for="reseau">Réseau social :</label>
