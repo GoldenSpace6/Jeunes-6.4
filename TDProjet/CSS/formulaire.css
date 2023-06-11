@@ -87,11 +87,6 @@
     font-weight: bold;
 }
 
-.information_jeune{
-    position: fixed;
-    width: 100%;
-}
-
 /*----- REFERANT -----*/
 
 .couleur_referent{
@@ -235,11 +230,6 @@
 .couleur_profil{
     color: #70707b;
     border-color: #70707b;
-}
-
-.information_profil{
-    position: relative;
-    width: 100%;
 }
 
 .carre_formulaire.couleur_profil > label{
