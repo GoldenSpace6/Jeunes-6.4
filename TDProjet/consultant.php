@@ -34,7 +34,7 @@
         
         <div class="les_modules">
                 <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
-                <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
+                <li> <a class="bouton_referent">REFERENT</a> </li>
                 <li> <a class="bouton_consultant background" href="consultant.php">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire " href="partenaire.php">PARTENAIRES</a> </li>
         </div>
