@@ -63,9 +63,6 @@
             <div class="texte_formulaire couleur_consultant">
                 Validez cet engagement en prenant en compte sa valeur
             </div>
-            <div class="arriere_plan" style="display:none">
-                <img src="image/6.4_Bleu.png" >
-            </div>
 			<!-- Informations du Jeune-->
             <div class="carre_consultant">
                 <div class="carre_jeune">

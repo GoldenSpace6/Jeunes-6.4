@@ -143,9 +143,6 @@
             <div class="couleur_referent texte_formulaire">
                 Confirmez cette experience et ce que vous avez pu constater au contact de ce jeune.
             </div>
-            <div class="arriere_plan">
-                <img src="image/6.4_Vert.png" >
-            </div>
 
             <div class="boite_commentaire">
                 <div class="titre_commentaire">
