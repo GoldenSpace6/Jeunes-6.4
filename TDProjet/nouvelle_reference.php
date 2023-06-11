@@ -58,7 +58,16 @@
             /*Envoie un email de référence*/
             $url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
             $url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
-            sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);
+			$msg="<p>Bonjour,<br><br>
+			Le projet Jeunes-6.4 est un dispositif de valorisation de l&#39;engagement des jeunes en Pyr&#233;n&#233;es<br>
+			Atlantiques soutenu par l&#39;Etat, le Conseil G&#233;n&#233;ral, le Conseil R&#233;gional, les CAF B&#233;arn<br>
+			Soule et Pays Basque, la MSA, la CPAM. Le projet, adress&#233; aux jeunes entre 16 et 30 ans, vise &#224; valoriser<br>
+			toute exp&#233;rience comme source d&#39;enrichissement qui puisse &#234;tre reconnue comme l&#39;expression d&#39;un savoir-faire ou savoir-&#234;tre.<br>
+			Afin de compl&#233;ter leur CV, les jeunes peuvent demander des r&#233;f&#233;rences qui confirment leur exp&#233;rience<br>
+			(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
+			Dans le cadre de ce dispositif, $nom $prenom a effectu&#233; une demande de r&#233;f&#233;rencement.<br>
+			Pour accepter cette demande en temps que r&#233;f&#233;rent, visitez: <a href=$url>Jeune-6.4</a><br>Si vous n&#39;&#234;tes pas concern&#233; par ce mail, vous pouvez l&#39;ignorer.</p>";
+            sendmail($mail, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"],$msg);
             
             /*Redirige vers la page d'accueil*/
             header("Location: presentation.php");
