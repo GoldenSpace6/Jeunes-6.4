@@ -10,9 +10,9 @@
         require("script/phpfonction.php");
         
 		//Initialise la demande
-        $demande = array("engagement"=>"","duree"=>"");
+        $demande = array("engagement"=>"","duree"=>"","commentaire"=>"","etat"=>"en attente","competence_ref"=>"");
 		
-        $jeune = $demande["jeune"];
+        $jeune = array("nom"=>"","prenom"=>"","mail"=>"","date"=>"","mdp"=>"");
         $referent = array("nom"=>"","prenom"=>"","mail"=>"");
         
 		//Initialise l'id contenu dans l'url
@@ -106,7 +106,7 @@
                 $jeune = $demande["jeune"];
 				
 			
-		//Sinon, si il n'y a pas d'id dans l'url ou qu'il n'est pas valide, l'utilisateur est renvoyé à la page d'accueil
+		    //Sinon, si il n'y a pas d'id dans l'url ou qu'il n'est pas valide, l'utilisateur est renvoyé à la page d'accueil
             } else {
                 header("Location: home.html");
             }
@@ -151,7 +151,7 @@
                 <div class="titre_commentaire">
                     COMMENTAIRES
                 </div>
-                <textarea name="commentaire" id="commentaire" cols="14" rows="13" ></textarea>
+                <textarea name="commentaire" id="commentaire" cols="14" rows="13" ><?php echo $demande["commentaire"]?></textarea>
             </div>
             <div class="carre_referent couleur_referent carre_formulaire">
                 <label>Référent (Vous) :</label><br>
