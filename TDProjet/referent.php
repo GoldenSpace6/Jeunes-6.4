@@ -54,12 +54,13 @@
                 $d_data[$d_id]["commentaire"] = $comm;
                 $d_data[$d_id]["referent"] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
                 $d_data[$d_id]["competence_ref"] = $competences;
+                $d_data[$d_id]["etat"] = "valide";
 
                 /*Sauvegarde les modification dans demande_reference.json*/
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
 
                 /*Redirige vers la page d'accueil*/
-                header("Location: presentation.php");
+                header("Location: remerciement.html");
                 
             }
             
