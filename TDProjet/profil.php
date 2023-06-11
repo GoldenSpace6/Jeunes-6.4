@@ -22,6 +22,7 @@
         $date = $_SESSION["info"]["date"];
         $mdp = $_SESSION["info"]["mdp"];
         $competence = $_SESSION["info"]["competences"];
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["action"])) {
                 if($_POST["action"] == "profil") {
@@ -52,7 +53,50 @@
                     file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
                     $_SESSION["info"] = $j_data[$id];
                     $message="Profil modifié";
+
+
+
                 } elseif($_POST["action"] == "consultant") {
+                    
+                    //Recupère les données de demande_consultant.json
+                    $c_url = "data/demande_consultant.json";
+                    $c_data = read_json($c_url);
+
+                    //Recupère les données de demande_reference.json
+                    $d_url = "data/demande_reference.json";
+                    $d_data = read_json($d_url);
+                    
+
+                    /*Genère un id random*/
+                    do {
+                        $url_id=rand(0,100000);
+                    } while(getrefid($c_data,$url_id) != -1);
+
+                    /*Ajoute toutes les references checked*/
+                    $reference=[];
+                    foreach($d_data as $i) {
+                        if(isset($_POST[$i["id"]])) {
+                            if( !empty($_POST[ $i["id"] ]) ) {
+                                array_push($reference,array(
+                                    "referent"=>$i["referent"],
+                                    "duree"=>$i["duree"],
+                                    "engagement"=>$i["engagement"],
+                                    "commentaire"=>$i["commentaire"]
+                                ));
+                            }
+                        }
+                    }
+                    
+                    /*Créé une nouvelle demande_consultant*/
+                    $new=array(
+                        "id"=>$url_id,
+                        "jeune"=>$_SESSION["info"],
+                        "referencent"=>$reference
+                    );
+
+                    /*L'ajoute au fichier*/
+                    array_push($c_data,$new);
+                    file_put_contents($c_url,json_encode($c_data,JSON_PRETTY_PRINT));
                 }
             }
         }    
@@ -303,12 +347,12 @@
                         if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
                             echo "<div class='mes_references'>";
 
-                            if($reference["etat"]=="validé") {
-                                echo "<input type='checkbox' id='".$reference["id"]."' name='reference'><hr>";
+                            if($reference["etat"]=="valide") {
+                                echo "<input type='checkbox' name='".$reference["id"]."' >";
                             }
                             echo "Demande ".$reference["etat"];
                             
-                            echo "<br>Mon engagement : ".$reference["engagement"]."<br>";
+                            echo "<hr>Mon engagement : ".$reference["engagement"]."<br>";
                             echo "Durée : ".$reference["duree"]."<br><br>";
                             
                             echo "Referent:<br>";
@@ -320,8 +364,8 @@
                         }
                     }
                 ?>
-                <label>Consultant:</label><br>
-                <label for="e-mail">E-mail:</label>
+                <label>Consultant :</label><br>
+                <label for="e-mail">E-mail :</label>
                 <input type="e-mail" name="e-mail" id="e-mail" value=""> 
                 <button name='modifier' type='submit' id='submit'>demande consultant</button>
             </form>
@@ -331,4 +375,3 @@
 
 </body>
 </html>
-

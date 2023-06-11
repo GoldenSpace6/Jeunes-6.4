@@ -28,7 +28,6 @@
 
         if($c_id != -1) {
             $demande = $c_data[$c_id];
-            $referent = $demande["referencent"][0];
             $jeune = $demande["jeune"];
         }
     }
@@ -82,21 +81,23 @@
                 </div>
                 <div class="carre_referent">
                     <?php
-                        foreach($demande["referencent"] as $referent) {
+                        foreach($demande["referencent"] as $reference) {
                             echo '<div action="profil.php" method="POST" class="texte_carre_referent couleur_referent carre_formulaire">
                                 <p class="couleur_referent nom"> REFERENT </p>
 
                                 <label for="nom">Nom :</label>
-                                <input type="text" name="nom" id="nom" value="'.$referent["nom"].'"><br>
+                                <input type="text" name="nom" id="nom" value="'.$reference["referent"]["nom"].'"><br>
                                 <label for="prenom">Prénom :</label>
-                                <input type="text" name="prenom" id="prenom" value="'.$referent["prenom"].'"><br>
+                                <input type="text" name="prenom" id="prenom" value="'.$reference["referent"]["prenom"].'"><br>
                                 <label for="mail">Mail :</label>
-                                <input type="e-mail" name="e-mail" id="e-mail" value="'.$referent["mail"].'"><br>
+                                <input type="e-mail" name="e-mail" id="e-mail" value="'.$reference["referent"]["mail"].'"><br>
                                 <br><br><br>
                                 <label for="presentation">Présentation :</label>
-                                <input type="text" name="presentation" id="presentation" value="'.$referent["engagement"].'"><br>
+                                <input type="text" name="presentation" id="presentation" value="'.$reference["engagement"].'"><br>
                                 <label for="duree">Durée :</label>
-                                <input type="text" name="duree" id="duree" value="'.$referent["duree"].'"><br>
+                                <input type="text" name="duree" id="duree" value="'.$reference["duree"].'"><br>
+                                <p> Commentaire </p>
+                                <p>'.$reference["commentaire"].'</p>
                             </div>';
                         }
                     ?>
