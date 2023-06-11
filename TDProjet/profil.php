@@ -81,7 +81,7 @@
                     $new=array(
                         "id"=>$url_id,
                         "jeune"=>$_SESSION["info"],
-                        "referencent"=>$reference
+                        "referencement"=>$reference
                     );
 
                     /*L'ajoute au fichier*/

@@ -84,7 +84,7 @@
                 <div class="carre_referent">
 				<!-- Informations des referencement et des référents correspondants-->
                     <?php
-                        foreach($demande["referencent"] as $reference) {
+                        foreach($demande["referencement"] as $reference) {
                             echo '<div action="profil.php" method="POST" class="texte_carre_referent couleur_referent carre_formulaire">
                                 <p class="couleur_referent nom"> REFERENT </p>
 
