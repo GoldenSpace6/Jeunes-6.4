@@ -8,10 +8,6 @@
         //Recupère les données de jeunedata.json
         $j_url = "../data/jeunedata.json";
         $j_data = read_json($j_url);
-        
-        //Recupère les données de referentdata.json
-        $r_url = "../data/referentdata.json";
-        $r_data = read_json($r_url);
 
         //Recupère les données de demande_reference.json
         $d_url = "../data/demande_reference.json";
@@ -48,31 +44,6 @@
             }
 
             file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
-
-
-        } elseif($act == "R+" ) {
-            echo $act;
-
-            $new = array(
-                "nom"=>$_POST["nom"],
-                "prenom"=>$_POST["prenom"],
-                "mail"=>$_POST["e-mail"]
-            );
-
-            array_push($r_data,$new);
-            file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
-
-
-        } elseif($act == "R-" ) {
-
-            $mail = $_POST["e-mail"];
-            $id = getid($r_data,$mail);
-            if($id != -1) {
-                echo $act;
-                array_splice($r_data,$id,1);
-            }
-
-            file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
 
 
         } elseif($act == "D+" ) {
