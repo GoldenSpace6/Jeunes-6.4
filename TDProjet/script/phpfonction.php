@@ -1,4 +1,5 @@
 <?php
+session_start();
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require 'PHPMailer/src/Exception.php';
@@ -23,13 +24,17 @@ function get_comp($comp) {
 					if (in_array($comp, $_SESSION["info"]["competences"])){
 						return "checked";
 					}
-				}else {
-					if ($_SESSION["info"]["competences"]===$comp){
+                    			else{
+                        			return "disabled";
+                    			}
+					}else {
+						if ($_SESSION["info"]["competences"]=$comp){
 						return "checked";
 					}
 				}
 			}
 		}
+        
 		return "unchecked";
 		}
 

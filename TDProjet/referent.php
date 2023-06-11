@@ -12,7 +12,6 @@
         $demande = array("engagement"=>"","duree"=>"");
         $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
         $referent = array("nom"=>"","prenom"=>"","mail"=>"");
-        $urlid = "";
 
         $lien = 'inscription.php'; // Lien vers la page de connexion
 
@@ -20,20 +19,16 @@
         $d_url = "data/demande_reference.json";
         $d_data = read_json($d_url);
 
-        //Recupère les données de referentdata.json
-        $r_url = "data/referentdata.json";
-        $r_data = read_json($r_url);
-
         //Validation du référant 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             //Recupère les données du formulaire
             if(isset($_POST["id"])){
-                $urlid = $_POST["id"];
+                $url_id = $_POST["id"];
             }
             //Commentaire
             if(isset($_POST["commentaire"])){
-                $comm = $_POST["commentaire"];
+                $duree = $_POST["commentaire"];
             }
             //Referent
             if(isset($_POST["nom"])){
@@ -49,40 +44,8 @@
             if(isset($_POST["competence"])){
                 $competences = $_POST["competence"];
             }
-
-
-            /*Recupère les données de la demande de référence*/
-            $d_id = getrefid($d_data,$urlid);
             
-            /*Recupère les données du référent*/
-            $r_id = getid($r_data,$mail);
-
-            if($d_id != -1) {
-                /*Modifie la référence*/
-                $d_data[$d_id]["commentaire"] = $comm;
-                $d_data[$d_id]["referent"] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
-                $d_data[$d_id]["competence_ref"] = $competences;
-
-                /*Sauvegarde les modification dans demande_reference.json*/
-                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
-
-                if($r_id != -1) {
-                    /*Modifie le référent*/
-                    $r_data[$r_id] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
-                    
-                } else {
-                    $new = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
-                    array_push($r_data,$new);
-                }
-                
-                /*Sauvegarde les modification dans referentdata.json*/
-                file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
-
-                /*Redirige vers la page d'accueil*/
-                header("Location: presentation.php");
-                
-            }
-            
+            $dataid = getrefid($d_data,$urlid);
         }
         //Remplissage automatique des champs 
         if(isset($_GET["id"])){
@@ -91,10 +54,10 @@
             $urlid = $_GET["id"];
             
             /*Recupère les données de la demande de référence*/
-            $d_id = getrefid($d_data,$urlid);
+            $dataid = getrefid($d_data,$urlid);
 
-            if($d_id != -1) {
-                $demande = $d_data[$d_id];
+            if($dataid != -1) {
+                $demande = $d_data[$dataid];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
             } else {
@@ -129,7 +92,7 @@
             <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
         <form action="referent.php" method="post" class="confirmation_referent">
-            <input type="hidden" name="id" value="<?php echo $urlid?>">    
+            <input type="hidden" name="id" value=" $demande">    
             <div class="couleur_referent texte_formulaire">
                 Confirmez cette experience et ce que vous avez pu constater au contact de ce jeune.
             </div>

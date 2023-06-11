@@ -11,7 +11,6 @@
     <?php
         require("script/phpfonction.php");
 
-        session_start();
         if(isset($_SESSION['page_actuelle'])){
             $_SESSION['page_actuelle'] = 'inscription.php';
         }

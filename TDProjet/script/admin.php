@@ -9,12 +9,12 @@
         $j_url = "../data/jeunedata.json";
         $j_data = read_json($j_url);
         
-        //Recupère les données de referantdata.json
-        $r_url = "../data/referantdata.json";
+        //Recupère les données de referentdata.json
+        $r_url = "../data/referentdata.json";
         $r_data = read_json($r_url);
 
-        //Recupère les données de demande.json
-        $d_url = "../data/demande.json";
+        //Recupère les données de demande_reference.json
+        $d_url = "../data/demande_reference.json";
         $d_data = read_json($d_url);
 
 
@@ -83,7 +83,7 @@
 
             $new = array(
                 "id"=>intval($_POST["url_id"]),
-                "referant"=>$r_data[$r_id],
+                "referent"=>$r_data[$r_id],
                 "jeune"=>$j_data[$j_id],
                 "duree"=>$_POST["duree"],
                 "engagement"=>$_POST["mon_engagement"]
@@ -163,7 +163,7 @@
     </form></fieldset>
 
 
-    <fieldset><legend>Ajouter une demande :</legend>
+    <fieldset><legend>Ajouter une demande de référence :</legend>
     <form action="admin.php" method="post">
         <input type="text" value="D+" name="action" style="display:none;">
 
@@ -183,7 +183,7 @@
     </form></fieldset>
 
 
-    <fieldset><legend>Supprimer une demande :</legend>
+    <fieldset><legend>Supprimer une demande de référence :</legend>
     <form action="admin.php" method="post">
         <input type="text" value="D-" name="action" style="display:none;">
         

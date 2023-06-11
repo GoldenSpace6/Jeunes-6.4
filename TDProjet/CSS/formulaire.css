@@ -195,7 +195,7 @@
     
 }
 
-textarea{
+#commentaire{
     position: relative;
     font-size: 22px;
     color: blue;
@@ -228,4 +228,23 @@ textarea{
 .carre_consultant >div{
     margin-right: 25px;
     margin-left: 25px;
+}
+
+/*----- PROFIL -----*/
+
+.couleur_profil{
+    color: #70707b;
+    border-color: #70707b;
+}
+
+.information_profil{
+    position: relative;
+    width: 100%;
+}
+
+.carre_formulaire.couleur_profil > label{
+    display: inline-block;
+    padding: 3px;
+    font-size: 22px;
+    font-weight: bold;
 }
