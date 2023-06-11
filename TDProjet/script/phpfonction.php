@@ -18,24 +18,29 @@ session_start();
 
 //cherche une compétence parmis les infos, si elles existent
 function get_comp($comp) {
-		if(isset($_SESSION["info"]["competences"])){
-			if ($_SESSION["info"]["competences"]!=""){
-				if (is_array($_SESSION["info"]["competences"])){
-					if (in_array($comp, $_SESSION["info"]["competences"])){
-						return "checked";
-					} else {
-                        	return "unchecked";
-                    	}
-					} else {
-						if ($_SESSION["info"]["competences"]=$comp){
-						return "checked";
-					}
-				}
-			}
-		}
-        
-		return "unchecked";
-		}
+    return get_comp_tab($comp, $_SESSION["info"]["competences"] );
+}
+
+//cherche une compétence dans $tab, si elles existent
+function get_comp_tab($comp,$tab) {
+    if(isset($tab)){
+        if ($tab!=""){
+            if (is_array($tab)){
+                if (in_array($comp, $tab)){
+                    return "checked";
+                } else {
+                        return "unchecked";
+                    }
+                } else {
+                    if ($tab=$comp){
+                    return "checked";
+                }
+            }
+        }
+    }
+    return "unchecked";
+}
+
 
 //Ouvre un fichier puis retourne son contenu
     function read_json($url){

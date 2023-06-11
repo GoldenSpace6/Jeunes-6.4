@@ -179,11 +179,11 @@
                             <label for="respect">Respect</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="honnetete" name="competence[]" value="honnete" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="honnetete" name="competence[]" value="honnetete" onclick="limitCheckboxSelection(this)">
                             <label for="honnetete">Honnetete</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="tolerance" name="competence[]" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="tolerance" name="competence[]" value="tolerance" onclick="limitCheckboxSelection(this)">
                             <label for="tolerance">Tolerance</label>
                         </div>
                         <div>

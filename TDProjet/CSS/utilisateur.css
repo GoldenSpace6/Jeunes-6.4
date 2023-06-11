@@ -146,3 +146,9 @@
     margin: 10px;
     padding: 10px;
 }
+.mes_references > div {
+    position: relative;
+    background-color: #9ef80c;
+    font-weight: bold;
+    width: 300px;
+}
