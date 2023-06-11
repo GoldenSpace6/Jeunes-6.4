@@ -107,11 +107,7 @@
 				
 			
 		    //Sinon, si il n'y a pas d'id dans l'url ou qu'il n'est pas valide, l'utilisateur est renvoyé à la page d'accueil
-            } else {
-                header("Location: home.html");
             }
-        } else {
-    	    header("Location: home.html");
         }
     ?>
 </head>
