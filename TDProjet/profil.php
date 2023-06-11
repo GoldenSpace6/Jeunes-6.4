@@ -35,7 +35,7 @@
                         $j_data[$id]["date"]=$_POST["date"];
                     }
                     if(isset($_POST["mdp"])){
-                        $j_data[$id]["mdp"]=$_POST["mdp"];
+                        $j_data[$id]["mdp"]=password_hash($_POST["mdp"],PASSWORD_DEFAULT);
                     }
                     if(isset($_POST["competence"])){
                         $j_data[$id]["competences"]=$_POST["competence"];
