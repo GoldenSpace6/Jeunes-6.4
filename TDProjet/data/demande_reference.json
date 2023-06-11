@@ -15,7 +15,7 @@
         "duree": "2023-05-01",
         "engagement": ":)",
         "commentaire":"",
-        "etat":"en attente"
+        "etat": "en attente"
     },
     {
         "id": 9999,
@@ -52,6 +52,6 @@
         "duree": "111",
         "engagement": "111",
         "commentaire":"Moi, 111 111, confirme les valeurs de 1 1.",
-        "etat":"validé"
+        "etat": "valide"
     }
 ]
