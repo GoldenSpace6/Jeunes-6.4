@@ -20,6 +20,10 @@
         $d_url = "data/demande_reference.json";
         $d_data = read_json($d_url);
 
+        //Recupère les données de referentdata.json
+        $r_url = "data/referentdata.json";
+        $r_data = read_json($r_url);
+
         //Validation du référant 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -29,7 +33,7 @@
             }
             //Commentaire
             if(isset($_POST["commentaire"])){
-                $duree = $_POST["commentaire"];
+                $comm = $_POST["commentaire"];
             }
             //Referent
             if(isset($_POST["nom"])){
@@ -45,8 +49,40 @@
             if(isset($_POST["competence"])){
                 $competences = $_POST["competence"];
             }
+
+
+            /*Recupère les données de la demande de référence*/
+            $d_id = getrefid($d_data,$urlid);
             
-            $dataid = getrefid($d_data,$urlid);
+            /*Recupère les données du référent*/
+            $r_id = getid($r_data,$mail);
+
+            if($d_id != -1) {
+                /*Modifie la référence*/
+                $d_data[$d_id]["commentaire"] = $comm;
+                $d_data[$d_id]["referent"] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
+                $d_data[$d_id]["competence_ref"] = $competences;
+
+                /*Sauvegarde les modification dans demande_reference.json*/
+                file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
+
+                if($r_id != -1) {
+                    /*Modifie le référent*/
+                    $r_data[$r_id] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
+                    
+                } else {
+                    $new = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
+                    array_push($r_data,$new);
+                }
+                
+                /*Sauvegarde les modification dans referentdata.json*/
+                file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
+
+                /*Redirige vers la page d'accueil*/
+                header("Location: presentation.php");
+                
+            }
+            
         }
         //Remplissage automatique des champs 
         if(isset($_GET["id"])){
@@ -55,10 +91,10 @@
             $urlid = $_GET["id"];
             
             /*Recupère les données de la demande de référence*/
-            $dataid = getrefid($d_data,$urlid);
+            $d_id = getrefid($d_data,$urlid);
 
-            if($dataid != -1) {
-                $demande = $d_data[$dataid];
+            if($d_id != -1) {
+                $demande = $d_data[$d_id];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
             } else {
@@ -140,7 +176,7 @@
                     <div class="rectangle_texte_2">
                         Je confirme sa(son)*
                     </div>
-                    <form class="liste_checkbox" method="post" action="referent.php">
+                    <div action="referent.php">
                         <div>
                             <input type="checkbox" id="confiance" name="competence[]" value="confiance" onclick="limitCheckboxSelection(this)">
                             <label for="confiance">Confiance</label>
@@ -174,7 +210,7 @@
                             <label for="travail">Travail</label>
                         </div>
                         
-                    </form>   
+                    </div>   
                 </div>
                 
                 <div class="respect_choix_2">
