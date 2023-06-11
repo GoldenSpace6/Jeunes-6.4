@@ -301,12 +301,12 @@
 
                         //Affiche Chacune des référence
                         if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
-                            echo "<div class='mes_reference'><hr>";
+                            echo "<div class='mes_references'>";
                             echo "Demande ".$reference["etat"];
-                            if($reference["etat"]="validé") {
+                            if($reference["etat"]=="validé") {
                                 echo "<input type='checkbox' id='".$reference["id"]."' name='reference'>";
                             }
-                            echo "<br><br>Mon engagement : ".$reference["engagement"]."<br>";
+                            echo "<hr><br>Mon engagement : ".$reference["engagement"]."<br>";
                             echo "Durée : ".$reference["duree"]."<br><br>";
                             
                             echo "Referent:<br>";

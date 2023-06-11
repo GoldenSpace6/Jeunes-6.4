@@ -128,29 +128,21 @@
 
 /*----- Profil -----*/
 
-.couleur_profil{
-    color: #70707b;
-    border-color: #70707b;
-}
-
-.information_profil{
-    position: relative;
-    width: 100%;
-}
-
-.carre_formulaire.couleur_profil > label{
-    display: inline-block;
-    padding: 3px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
 .nouvelle_reference{
     color: lightgrey;
     background-color: rgb(5, 5, 182);
-    display: inline-block;
+    display: block;
+    width: 400px;
+    margin: auto;
     padding: 12px 50px;
     position: relative;
     text-align: center;
     font-size: 24px;
+}
+
+.mes_references{
+    background-color: #ececec;
+    border-radius: 23px;
+    margin: 10px;
+    padding: 10px;
 }
