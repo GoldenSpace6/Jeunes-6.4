@@ -230,14 +230,14 @@
             </div>
             <button name="valider" type="submit" id="valider" class="bouton_valider_referent">Valider</button>
         </form> 
-        <p class="paragraphe">
+        <div class="description">
             Le projet Jeunes-6.4 est un dispositif de valorisation de l'engagement des jeunes en Pyrénées
             Atlantiques soutenu par l'Etat, le Conseil Général, le Conseil Régional, les CAF Béarn
             Soule et Pays Basque, la MSA, la CPAM. Le projet, adressé aux jeunes entre 16 et 30 ans, vise à valoriser
             toute expérience comme source d'enrichissement qui puisse être reconnue comme l'expression d'un savoir-faire ou savoir-être.
             Afin de compléter leur CV, les jeunes peuvent demander des références qui confirment leur expérience
             (clubs de sport, bénévolat, services à domiciles, etc.). Ces références pourront être consultées par un recruteur potentiel.
-        </p>
+        </div>
     </div>
 
 </body>

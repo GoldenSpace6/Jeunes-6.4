@@ -52,7 +52,7 @@
                 <a href="https://www.nouvelle-aquitaine.fr/" target="_blank"><img class="logo-aqu" src="image/logo-aqu.png"></a>
                 <a href="https://www.le64.fr/" target="_blank"><img class="logo-pyr" src="image/logo-pyr.png"></a>
                 <a href="https://www.ameli.fr/" target="_blank"><img class="logo-ame" src="image/logo-ame.png"></a>
-                <a href="https://le64.fr/guide-jeunes-64" target="_blank"><img class="logo_home" src="image/logo-adj.png"></a>
+                <a href="https://le64.fr/guide-jeunes-64" target="_blank"><img class="" src="image/logo-adj.png"></a>
                 <a href="https://annuaire.action-sociale.org/CAF/CAF-64445-01-caf-de-bearn-et-soule---siege-de-pau.html" target="_blank"><img class="logo-caf" src="image/logo-caf.png"></a>
                 <a href="https://annuaire.action-sociale.org/CAF/CAF-64102-01-caf-du-pays-basque-et-du-seignanx---siege-de-bayonne.html" target="_blank"><img class="logo-caf2" src="image/logo-caf2.png"></a>
                 <a href="https://www.msa.fr/lfp" target="_blank"><img class="logo-msa" src="image/logo-msa.png"></a>

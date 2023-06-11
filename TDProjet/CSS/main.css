@@ -211,3 +211,10 @@ a.bouton_partenaire.background{
     word-spacing: 1px;
 }
 /*========================================================================================================================*/
+.description {
+    font-size: 22px;
+    text-align: justify;
+    z-index: 1;
+    width: 900px;
+    margin: auto;
+}
