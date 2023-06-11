@@ -112,7 +112,7 @@
     width: max-content;
     font-size: 24px;
 }
-.jai_pas_compte >*{
+.jai_pas_compte > * {
     color:  #e5239b;
 }
 
@@ -123,9 +123,9 @@
 
 /*----- Profil -----*/
 
-.button_profil{
+.nouvelle_reference{
     color: lightgrey;
-    background-color:  #e5239b;
+    background-color: rgb(5, 5, 182);
     display: block;
     width: 400px;
     margin: auto;
@@ -140,4 +140,10 @@
     border-radius: 23px;
     margin: 10px;
     padding: 10px;
+}
+.mes_references > div {
+    position: relative;
+    background-color: #9ef80c;
+    font-weight: bold;
+    width: 300px;
 }
