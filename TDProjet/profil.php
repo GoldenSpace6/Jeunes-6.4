@@ -23,35 +23,38 @@
         $mdp = $_SESSION["info"]["mdp"];
         $competence = $_SESSION["info"]["competences"];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-            //Recupère les données de jeunedata.json
-            $j_url = "data/jeunedata.json";
-            $j_data = read_json($j_url);
-            $id=$_SESSION["id"];
-                
-            //Recupère les données du formulaire
-            if(isset($_POST["nom"])){
-                $j_data[$id]["nom"]=$_POST["nom"];
+            if(isset($_POST["action"])) {
+                if($_POST["action"] == "profil") {
+                    //Recupère les données de jeunedata.json
+                    $j_url = "data/jeunedata.json";
+                    $j_data = read_json($j_url);
+                    $id=$_SESSION["id"];
+                        
+                    //Recupère les données du formulaire
+                    if(isset($_POST["nom"])){
+                        $j_data[$id]["nom"]=$_POST["nom"];
+                    }
+                    if(isset($_POST["prenom"])){
+                        $j_data[$id]["prenom"]=$_POST["prenom"];
+                    }
+                    if(isset($_POST["e-mail"])){
+                        $j_data[$id]["mail"]=$_POST["e-mail"];
+                    }
+                    if(isset($_POST["date"])){
+                        $j_data[$id]["date"]=$_POST["date"];
+                    }
+                    if(isset($_POST["mdp"])){
+                        $j_data[$id]["mdp"]=$_POST["mdp"];
+                    }
+                    if(isset($_POST["competence"])){
+                        $j_data[$id]["competences"]=$_POST["competence"];
+                    }
+                    file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
+                    $_SESSION["info"] = $j_data[$id];
+                    $message="Profil modifié";
+                } elseif($_POST["action"] == "consultant") {
+                }
             }
-            if(isset($_POST["prenom"])){
-                $j_data[$id]["prenom"]=$_POST["prenom"];
-            }
-            if(isset($_POST["e-mail"])){
-                $j_data[$id]["mail"]=$_POST["e-mail"];
-            }
-            if(isset($_POST["date"])){
-                $j_data[$id]["date"]=$_POST["date"];
-            }
-            if(isset($_POST["mdp"])){
-                $j_data[$id]["mdp"]=$_POST["mdp"];
-            }
-            if(isset($_POST["competence"])){
-                $j_data[$id]["competences"]=$_POST["competence"];
-            }
-            file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
-            $_SESSION["info"] = $j_data[$id];
-            $message="Profil modifié";
-            
         }    
      
     ?>
@@ -88,6 +91,8 @@
             
 			<form action="profil.php" method="POST">
 				<div class="carre_formulaire couleur_profil">
+                    <input type="hidden" name="action" value="profil">
+
                     <?php if($modificationEncours != 1){
                      echo $message;
                     } ?><br>
@@ -281,10 +286,11 @@
                         </div>
                     </div>
                 </div>
-            </form>   
+            </form>
             
-            <div class="carre_formulaire couleur_profil">
+            <form class="carre_formulaire couleur_profil" method="POST" action="profil.php">
                 <label>Mes Reference:</label><br>
+                <input type="hidden" name="action" value="consultant">
                 <?php
 
                     //Recupère les données de demande_reference.json
@@ -292,29 +298,34 @@
                     $d_data = read_json($d_url);
                     
                     foreach($d_data as $reference) {
+
+                        //Affiche Chacune des référence
                         if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
                             echo "<div class='mes_reference'><hr>";
                             echo "Demande ".$reference["etat"];
-                            echo "Mon engagement : ".$reference["engagement"]."<br>";
+                            if($reference["etat"]="validé") {
+                                echo "<input type='checkbox' id='".$reference["id"]."' name='reference'>";
+                            }
+                            echo "<br><br>Mon engagement : ".$reference["engagement"]."<br>";
                             echo "Durée : ".$reference["duree"]."<br><br>";
                             
                             echo "Referent:<br>";
                             echo "Nom : ".$reference["referent"]["nom"]."<br>";
                             echo "Prenom : ".$reference["referent"]["prenom"]."<br>";
                             echo "E-mail : ".$reference["referent"]["mail"]."<br><br>";
-                            if($reference["etat"]="validé") {
-                                echo "<button name='modifier' type='submit' id='submit'>demande consultant</button>";
-                            }
 
                             echo "</div>";
                         }
                     }
                 ?>
-                <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>  
-            </div>
-            
+                <label>Consultant:</label><br>
+                <label for="e-mail">E-mail:</label>
+                <input type="e-mail" name="e-mail" id="e-mail" value=""> 
+                <button name='modifier' type='submit' id='submit'>demande consultant</button>
+            </form>
+            <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
         </div>
-    </div>  
+    </div>
 
 </body>
 </html>
