@@ -10,7 +10,7 @@ Quelque precision sur certaines fonctionnaliter tel que par exemple le telecharg
 
 tcpdf qui va donc vous permettre de pouvoir telecharger en PDF.
 
-Tout d'avoir vous aller arriver sur la page Home du site Jeune 6.4. 
+Tout d'abord vous aller arriver sur la page Home du site Jeune 6.4. 
 
 Par la suite vous aller atterir sur la page presentation ou vous allez avoir un resumer et un descriptif de quoi s'agit le site, ainsi de à qui s'addresse-t'il.
 
