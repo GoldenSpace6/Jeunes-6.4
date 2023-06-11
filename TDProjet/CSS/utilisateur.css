@@ -87,11 +87,6 @@
 
 /*----- CONNEXION -----*/
 
-.couleur_connexion{
-    border-color: #70707b;
-    color: #70707b;
-}
-
 .carre_connexion > input{
     border-color: #70707b;
 }
@@ -118,7 +113,7 @@
     font-size: 24px;
 }
 .jai_pas_compte >*{
-    color:  #70707b;
+    color:  #e5239b;
 }
 
 .information_connexion{
