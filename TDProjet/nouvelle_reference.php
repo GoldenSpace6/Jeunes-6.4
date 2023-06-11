@@ -9,7 +9,7 @@
     <?php
         require("script/phpfonction.php");
 
-        $$nom = $prenom = $mail = $duree = $eng = "";
+        $nom = $prenom = $mail = $duree = $eng = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Recupère les données de demande_reference.json
