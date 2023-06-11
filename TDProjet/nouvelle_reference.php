@@ -65,7 +65,7 @@
 			toute exp&#233;rience comme source d&#39;enrichissement qui puisse &#234;tre reconnue comme l&#39;expression d&#39;un savoir-faire ou savoir-&#234;tre.<br>
 			Afin de compl&#233;ter leur CV, les jeunes peuvent demander des r&#233;f&#233;rences qui confirment leur exp&#233;rience<br>
 			(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
-			Dans le cadre de ce dispositif, $_SESSION['info']['nom'] $_SESSION['info']['prenom'] a effectu&#233; une demande de r&#233;f&#233;rencement.<br>
+			Dans le cadre de ce dispositif, $nom $prenom a effectu&#233; une demande de r&#233;f&#233;rencement.<br>
 			Pour accepter cette demande en temps que r&#233;f&#233;rent, visitez: <a href=$url>Jeune-6.4</a><br>Si vous n&#39;&#234;tes pas concern&#233; par ce mail, vous pouvez l&#39;ignorer.</p>";
             sendmail($mail, $msg);
             

@@ -10,7 +10,8 @@
         require("script/phpfonction.php");
         
         $demande = array("engagement"=>"","duree"=>"");
-        $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
+		
+        $jeune = $demande["jeune"];//array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
         $referent = array("nom"=>"","prenom"=>"","mail"=>"");
         $urlid = "";
 
@@ -55,13 +56,20 @@
                 $d_data[$d_id]["referent"] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
                 $d_data[$d_id]["competence_ref"] = $competences;
                 $d_data[$d_id]["etat"] = "valide";
-
+				$prenom=$d_data[$d_id]["jeune"]["prenom"];
+				$mail=$d_data[$d_id]["jeune"]["mail"];
                 /*Sauvegarde les modification dans demande_reference.json*/
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
 
-                /*Redirige vers la page d'accueil*/
+                /*Redirige vers la page de remerciements*/
+				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				$url=rtrim($url, "referent.php")."home.html";
+				$msg="Bonjour $prenom,<br>
+				Une demande de r&#233;f&#233;rencement a &#233;t&#233; valid&#233;.<br>
+				Pour plus d&#39;informations, visite <a href=$url>Jeune-6.4</a>";
+				echo "here".$mail;
+                sendmail($mail, $msg);
                 header("Location: remerciement.html");
-                
             }
             
         }
