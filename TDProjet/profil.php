@@ -285,6 +285,31 @@
             
             <div class="carre_formulaire couleur_profil">
                 <label>Mes Reference:</label><br>
+                <?php
+
+                    //Recupère les données de demande_reference.json
+                    $d_url = "data/demande_reference.json";
+                    $d_data = read_json($d_url);
+                    
+                    foreach($d_data as $reference) {
+                        if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
+                            echo "<div class='mes_reference'><hr>";
+                            echo "Demande ".$reference["etat"];
+                            echo "Mon engagement : ".$reference["engagement"]."<br>";
+                            echo "Durée : ".$reference["duree"]."<br><br>";
+                            
+                            echo "Referent:<br>";
+                            echo "Nom : ".$reference["referent"]["nom"]."<br>";
+                            echo "Prenom : ".$reference["referent"]["prenom"]."<br>";
+                            echo "E-mail : ".$reference["referent"]["mail"]."<br><br>";
+                            if($reference["etat"]="validé") {
+                                echo "<button name='modifier' type='submit' id='submit'>demande consultant</button>";
+                            }
+
+                            echo "</div>";
+                        }
+                    }
+                ?>
                 <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>  
             </div>
             

@@ -13,8 +13,8 @@
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            //Recupère les données de referantdata.json
-            $r_url = "data/referantdata.json";
+            //Recupère les données de referentdata.json
+            $r_url = "data/referentdata.json";
             $r_data = read_json($r_url);
 
             //Recupère les données de demande_reference.json
@@ -28,7 +28,7 @@
             if(isset($_POST["mon_engagement"])){
                 $eng = $_POST["mon_engagement"];
             }
-            //Referant
+            //Referent
             if(isset($_POST["nom"])){
                 $nom = $_POST["nom"];
             }
@@ -53,10 +53,11 @@
                 /*Créé une nouvelle référence*/
                 $new=array(
                     "id"=>$url_id,
-                    "referant"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
+                    "referent"=>array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail),
                     "jeune"=>$_SESSION["info"],
                     "duree"=>$duree,
-                    "engagement"=>$eng
+                    "engagement"=>$eng,
+                    "etat"=>"en attente"
                 );
 
                 /*L'ajoute au fichier*/

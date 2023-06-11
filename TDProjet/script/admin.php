@@ -9,8 +9,8 @@
         $j_url = "../data/jeunedata.json";
         $j_data = read_json($j_url);
         
-        //Recupère les données de referantdata.json
-        $r_url = "../data/referantdata.json";
+        //Recupère les données de referentdata.json
+        $r_url = "../data/referentdata.json";
         $r_data = read_json($r_url);
 
         //Recupère les données de demande_reference.json
@@ -83,7 +83,7 @@
 
             $new = array(
                 "id"=>intval($_POST["url_id"]),
-                "referant"=>$r_data[$r_id],
+                "referent"=>$r_data[$r_id],
                 "jeune"=>$j_data[$j_id],
                 "duree"=>$_POST["duree"],
                 "engagement"=>$_POST["mon_engagement"]
