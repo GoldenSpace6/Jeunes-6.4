@@ -130,7 +130,7 @@
                 <label for="prenom">Prénom :</label>
                 <input type="text" name="prenom" id="prenom" value="<?php echo $referent["prenom"]?>"><br>
                 <label for="mail">Mail :</label>
-                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $referent["mail"]?>"><br>
+                <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $referent["mail"]?>"><br>
                 <br><br>
                 <label>Information du jeune :</label><br>
                 <label for="nom">Nom :</label>
