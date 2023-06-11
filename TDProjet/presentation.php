@@ -37,6 +37,13 @@
                 </button> 
             </form>
         </div>
+		<div class="texte-nom">
+			<?php
+			 if(isset($_SESSION['statut'])){  
+                  echo $_SESSION["info"]["nom"]." - ".$_SESSION["info"]["prenom"];
+                }
+            ?>
+		</div>
         <div class="soustitre">
                 Pour faire de l'engagement une valeur
         </div>
