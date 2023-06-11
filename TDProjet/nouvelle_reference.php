@@ -57,6 +57,8 @@
                     "jeune"=>$_SESSION["info"],
                     "duree"=>$duree,
                     "engagement"=>$eng,
+                    "commentaire"=>"",
+                    "competence_ref"=>"",
                     "etat"=>"en attente"
                 );
 

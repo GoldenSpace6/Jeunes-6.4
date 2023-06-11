@@ -289,7 +289,7 @@
             </form>
             
             <form class="carre_formulaire couleur_profil" method="POST" action="profil.php">
-                <label>Mes Reference:</label><br>
+                <label>Mes Références:</label><br>
                 <input type="hidden" name="action" value="consultant">
                 <?php
 
@@ -302,11 +302,13 @@
                         //Affiche Chacune des référence
                         if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
                             echo "<div class='mes_references'>";
-                            echo "Demande ".$reference["etat"];
+
                             if($reference["etat"]=="validé") {
-                                echo "<input type='checkbox' id='".$reference["id"]."' name='reference'>";
+                                echo "<input type='checkbox' id='".$reference["id"]."' name='reference'><hr>";
                             }
-                            echo "<hr><br>Mon engagement : ".$reference["engagement"]."<br>";
+                            echo "Demande ".$reference["etat"];
+                            
+                            echo "<br>Mon engagement : ".$reference["engagement"]."<br>";
                             echo "Durée : ".$reference["duree"]."<br><br>";
                             
                             echo "Referent:<br>";

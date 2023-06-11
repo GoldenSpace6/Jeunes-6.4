@@ -11,14 +11,45 @@
         
         $demande = array("engagement"=>"","duree"=>"");
         $jeune = array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
-        $referent = array("");
+        $referent = array("nom"=>"","prenom"=>"","mail"=>"");
+        $urlid = "";
 
+        $lien = 'inscription.php'; // Lien vers la page de connexion
+
+        //Recupère les données de demande_reference.json
+        $d_url = "data/demande_reference.json";
+        $d_data = read_json($d_url);
+
+        //Validation du référant 
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+            //Recupère les données du formulaire
+            if(isset($_POST["id"])){
+                $urlid = $_POST["id"];
+            }
+            //Commentaire
+            if(isset($_POST["commentaire"])){
+                $duree = $_POST["commentaire"];
+            }
+            //Referent
+            if(isset($_POST["nom"])){
+                $nom = $_POST["nom"];
+            }
+            if(isset($_POST["prenom"])){
+                $prenom = $_POST["prenom"];
+            }
+            if(isset($_POST["e-mail"])){
+                $mail = $_POST["e-mail"];
+            }
+            //Competence
+            if(isset($_POST["competence"])){
+                $competences = $_POST["competence"];
+            }
+            
+            $dataid = getrefid($d_data,$urlid);
+        }
+        //Remplissage automatique des champs 
         if(isset($_GET["id"])){
-	    
-            $lien = 'inscription.php'; // Lien vers la page de connexion
-
-            //Recupère les données de demande_reference.json
-            $d_data = read_json("data/demande_reference.json");
             
             //Recupère l'id dans l'url
             $urlid = $_GET["id"];
@@ -61,7 +92,8 @@
             <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
             <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
-        <div class="confirmation_referent">
+        <form action="referent.php" method="post" class="confirmation_referent">
+            <input type="hidden" name="id" value="<?php echo $urlid?>">    
             <div class="couleur_referent texte_formulaire">
                 Confirmez cette experience et ce que vous avez pu constater au contact de ce jeune.
             </div>
@@ -73,24 +105,33 @@
                 <div class="titre_commentaire">
                     COMMENTAIRES
                 </div>
-                <textarea name="commentaires" id="commentaires" cols="14" rows="13">Martin s’est très rapidement intégré à notre équipe !</textarea>
+                <textarea name="commentaire" id="commentaire" cols="14" rows="13" >Martin s’est très rapidement intégré à notre équipe !</textarea>
             </div>
-            <form action="referent.php" method="post" class="carre_referent couleur_referent carre_formulaire">
+            <div class="carre_referent couleur_referent carre_formulaire">
+                <label>Référent (Vous) :</label><br>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>"><br>
+                <input type="text" name="nom" id="nom" value="<?php echo $referent["nom"]?>"><br>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
-                <label for="date">Date de naissance :</label>
-                <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>"><br>
+                <input type="text" name="prenom" id="prenom" value="<?php echo $referent["prenom"]?>"><br>
                 <label for="mail">Mail :</label>
-                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>"><br>
-                <label for="reseau">Réseau social :</label>
-                <input type="text" name="reseau" id="reseau_social" value="<?php echo $jeune["nom"]?>"><br><br><br>
+                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $referent["mail"]?>"><br>
+                <br><br>
+                <label>Demande du jeune :</label><br>
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>" disabled><br>
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>" disabled><br>
+                <label for="mail">Mail :</label>
+                <input type="e-mail" name="mail" id="e-mail" value="<?php echo $jeune["mail"]?>" disabled><br>
+                <label for="date">Date de naissance :</label>
+                <input type="date" name="date" id="date_naissance" value="<?php echo $jeune["date"]?>" disabled><br>
+                <!-- <label for="reseau">Réseau social :</label>
+                <input type="text" name="reseau" id="reseau_social" value=""><br>--><br>
                 <label for="presentation">Présentation :</label>
                 <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>"><br>
                 <label for="duree">Durée :</label>
                 <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
-            </form>
+            </div>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres_2">
                     SES SAVOIRS ETRE
@@ -101,35 +142,35 @@
                     </div>
                     <form class="liste_checkbox" method="post" action="referent.php">
                         <div>
-                            <input type="checkbox" id="confiance" name="competence" value="" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="confiance" name="competence[]" value="confiance" onclick="limitCheckboxSelection(this)">
                             <label for="confiance">Confiance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="bienveillance" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="bienveillance" name="competence[]" value="bienveillance" onclick="limitCheckboxSelection(this)">
                             <label for="bienveillance">Bienveillance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="respect" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="respect" name="competence[]" value="respect" onclick="limitCheckboxSelection(this)">
                             <label for="respect">Respect</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="honnetete" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="honnetete" name="competence[]" value="honnete" onclick="limitCheckboxSelection(this)">
                             <label for="honnetete">Honnetete</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="tolerance" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="tolerance" name="competence[]" onclick="limitCheckboxSelection(this)">
                             <label for="tolerance">Tolerance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="juste" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="juste" name="competence[]" value="juste" onclick="limitCheckboxSelection(this)">
                             <label for="juste">Juste</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="impartial" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="impartial" name="competence[]" value="impartial" onclick="limitCheckboxSelection(this)">
                             <label for="impartial">Impartial</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="travail" name="competence" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="travail" name="competence[]" value="travail" onclick="limitCheckboxSelection(this)">
                             <label for="travail">Travail</label>
                         </div>
                         
@@ -141,8 +182,8 @@
                     
                 </div>
             </div>
-            <a href="" class="bouton_valider_referent">Valider</a>
-        </div> 
+            <button name="valider" type="submit" id="valider" class="bouton_valider_referent">Valider</a>
+        </form> 
         
     </div>
 
