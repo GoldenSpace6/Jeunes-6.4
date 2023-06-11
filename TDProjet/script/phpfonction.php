@@ -25,7 +25,7 @@ function get_comp($comp) {
 						return "checked";
 					}
                     			else{
-                        			return "disabled";
+                        			return "unchecked";
                     			}
 					}else {
 						if ($_SESSION["info"]["competences"]=$comp){
@@ -81,7 +81,7 @@ function get_comp($comp) {
     }
 
 //Envoi un e-mail
-    function sendmail($destinataire,$msg) {
+    function sendmail($destinataire,$msg,$objet) {
         
         $mail = new PHPMailer(true); //intitialise un élément PHPMailer
         try {
@@ -98,7 +98,7 @@ function get_comp($comp) {
             $mail->addAddress($destinataire); //Configure l'adresse mail du destinataire
             
             $mail->isHTML(true); //Configure le message du mail comme étant en html
-            $mail->Subject = 'Demande de referencement'; //Définie le l'objet du mail
+            $mail->Subject = $objet; //Définie le l'objet du mail
             $mail->Body = $msg; //Définie le message du mail en html
             $mail->send(); //Envoie le mail
         } catch (Exception $e) {

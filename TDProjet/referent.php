@@ -68,7 +68,7 @@
 				Une demande de r&#233;f&#233;rencement a &#233;t&#233; valid&#233;.<br>
 				Pour plus d&#39;informations, visite <a href=$url>Jeune-6.4</a>";
 				echo "here".$mail;
-                sendmail($mail, $msg);
+                sendmail($mail, $msg, "Confirmation de referencement");
                 header("Location: remerciement.html");
             }
             

@@ -96,7 +96,7 @@
                                 <input type="text" name="presentation" id="presentation" value="'.$reference["engagement"].'"><br>
                                 <label for="duree">Durée :</label>
                                 <input type="text" name="duree" id="duree" value="'.$reference["duree"].'"><br>
-                                <p> Commentaire </p>
+                                <p> Commentaire :</p>
                                 <p>'.$reference["commentaire"].'</p>
                             </div>';
                         }

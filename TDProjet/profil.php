@@ -110,7 +110,7 @@
 					Afin de compl&#233;ter leur CV, les jeunes peuvent demander des r&#233;f&#233;rences qui confirment leur exp&#233;rience<br>
 					(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
 					Dans le cadre de ce dispositif, $nom $prenom vous propose de consulter ses r&#233;f&#233;rencement : <a href=$url>Jeune-6.4</a>";
-					sendmail($_POST["c_email"], $msg);
+					sendmail($_POST["c_email"], $msg, "Consultation Jeune 6.4");
                 }
             }
         }    
@@ -314,7 +314,7 @@
                             <?php
                             if( $modificationEncours === 1 && !in_array("responsable", $_SESSION["info"]["competences"])){
                                 echo "enabled";
-                            } 
+                            }
                             echo get_comp("responsable");
                                 
                             ?>
@@ -378,9 +378,9 @@
                         }
                     }
                 ?>
-                <label>Consultant :</label><br>
-                <label for="c_mail">E-mail :</label>
-                <input type="e-mail" name="c_mail" id="c_mail" value="" required> 
+                <label>Demande de consultation :</label><br>
+                <label for="c_email">E-mail :</label>
+                <input type="e-mail" name="c_email" id="c_email" value="" required>
                 <button name='modifier' type='submit' id='submit'>demande consultant</button>
             </form>
             <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
