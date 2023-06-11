@@ -20,10 +20,6 @@
         $d_url = "data/demande_reference.json";
         $d_data = read_json($d_url);
 
-        //Recupère les données de referentdata.json
-        $r_url = "data/referentdata.json";
-        $r_data = read_json($r_url);
-
         //Validation du référant 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -50,12 +46,8 @@
                 $competences = $_POST["competence"];
             }
 
-
             /*Recupère les données de la demande de référence*/
             $d_id = getrefid($d_data,$urlid);
-            
-            /*Recupère les données du référent*/
-            $r_id = getid($r_data,$mail);
 
             if($d_id != -1) {
                 /*Modifie la référence*/
@@ -65,18 +57,6 @@
 
                 /*Sauvegarde les modification dans demande_reference.json*/
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
-
-                if($r_id != -1) {
-                    /*Modifie le référent*/
-                    $r_data[$r_id] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
-                    
-                } else {
-                    $new = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
-                    array_push($r_data,$new);
-                }
-                
-                /*Sauvegarde les modification dans referentdata.json*/
-                file_put_contents($r_url,json_encode($r_data,JSON_PRETTY_PRINT));
 
                 /*Redirige vers la page d'accueil*/
                 header("Location: presentation.php");
