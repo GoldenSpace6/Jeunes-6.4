@@ -133,12 +133,12 @@
         </ul>
 
         <div class="information_profil">
-            <div class="texte_formulaire couleur_profil">
+            <div class="texte_formulaire couleur_jeune">
                 Votre Profil
             </div>
             
 			<form action="profil.php" method="POST">
-				<div class="carre_formulaire couleur_profil">
+				<div class="carre_formulaire couleur_jeune">
                     <input type="hidden" name="action" value="profil">
 
                     <label for="nom">Nom:</label>
@@ -207,7 +207,7 @@
                 </div>
             </form>
             
-            <form class="carre_formulaire couleur_profil" method="POST" action="profil.php">
+            <form class="carre_formulaire couleur_referent" method="POST" action="profil.php">
                 <label>Mes Références:</label><br>
                 <input type="hidden" name="action" value="consultant">
                 <?php
