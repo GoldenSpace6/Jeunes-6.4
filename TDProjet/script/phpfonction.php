@@ -98,11 +98,18 @@ function get_comp($comp) {
             $mail->addAddress($destinataire); //Configure l'adresse mail du destinataire
             
             $mail->isHTML(true); //Configure le message du mail comme étant en html
-            $mail->Subject = 'Demande de réferencement'; //Définie le l'objet du mail
-            $mail->Body = "<p>Bonjour,<br>$nom $prenom a effectué une demande de référencement.<br> Pour plus d'informations, visitez: $lien<br>Si vous n'êtes pas concerné par ce mail, vous pouvez l'ignorer.</p> "; //Définie le message du mail en html
+            $mail->Subject = 'Demande de referencement'; //Définie le l'objet du mail
+            $mail->Body = "<p>Bonjour,<br><br>
+			Le projet Jeunes-6.4 est un dispositif de valorisation de l&#39;engagement des jeunes en Pyr&#233;n&#233;es<br>
+			Atlantiques soutenu par l&#39;Etat, le Conseil G&#233;n&#233;ral, le Conseil R&#233;gional, les CAF B&#233;arn<br>
+			Soule et Pays Basque, la MSA, la CPAM. Le projet, adress&#233; aux jeunes entre 16 et 30 ans, vise &#224; valoriser<br>
+			toute exp&#233;rience comme source d&#39;enrichissement qui puisse &#234;tre reconnue comme l&#39;expression d&#39;un savoir-faire ou savoir-&#234;tre.<br>
+			Afin de compl&#233;ter leur CV, les jeunes peuvent demander des r&#233;f&#233;rences qui confirment leur exp&#233;rience<br>
+			(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
+			Dans le cadre de ce dispositif, $nom $prenom a effectu&#233; une demande de r&#233;f&#233;rencement.<br>
+			Pour accepter cette demande en temps que r&#233;f&#233;rent, visitez: <a href=$lien>Jeune-6.4</a><br>Si vous n&#39;&#234;tes pas concern&#233; par ce mail, vous pouvez l&#39;ignorer.</p>"; //Définie le message du mail en html
             $mail->AltBody = "Bonjour,   $nom $prenom a effectué une demande de référencement.  Pour plus d'informations, visitez: $lien Si vous n'êtes pas concerné par ce mail, veuillez l'ignorer."; //Définie le message du mail affiché si l'HTML n'est pas supporté.
             $mail->send(); //Envoie le mail
-            echo "Mail has been sent successfully!"; //DEBUG
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; //DEBUG
         }
