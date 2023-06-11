@@ -68,8 +68,6 @@
 
 
 <body>
-   <script src="checkbox_verification.js" type="text/javascript"></script>
-
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
@@ -97,7 +95,7 @@
             </div>
             
             <div class="arriere_plan">
-                <img src="image/6.4 Rouge.png" >
+                <img src="image/6.4_Rose.png" >
             </div>
 
             <form action="nouvelle_reference.php" method="post">
@@ -117,65 +115,6 @@
                     <input type="e-mail" name="e-mail" id="e-mail" required><br><?php echo $errmail ?><br>
                     <button type="submit" id="submit">Envoyer</button>
                 </div>
-               <!-- <div class="savoir_etre">
-                    <div class="mes_savoir_etres">
-                        MES SAVOIRS ETRE
-                    </div>
-                    
-                    <div class="petit_rectangle_jeune">
-                        <div class="rectangle_texte_1">
-                            Je suis*
-                        </div>
-                        <div class="liste_checkbox">
-                            <div>
-                                <input type="checkbox" id="autonome" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="autonome">Autonome</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="passionne" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="passionne">Passionne</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="reflechi" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="reflechi">Reflechi</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="a_l_ecoute" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="a_l_ecoute">A l'ecoute</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="organise" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="organise">Organise</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="fiable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="fiable">Fiable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="patient" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="patient">Patient</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="responsable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="responsable">Responsable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="sociable" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="sociable">Sociable</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="optimiste" name="competence" onclick="limitCheckboxSelection(this)">
-                                <label for="optimiste">Optimiste</label>
-                            </div>
-                        </div>   
-                    </div>
-                    
-                    <div class="respect_choix">
-                        *Faire 4 choix maximum
-                        
-                    </div>
-                    
-                </div>-->
             </form>
         </div> 
     </div>
