@@ -12,12 +12,16 @@
 			{
 				"nom": "1",
 				"prenom": "1",
-				"mail": "1"
+				"mail": "1",
+				"duree": "2023-05-01",
+				"engagement": ":)"
 			},
 			{
 				"nom": "2",
 				"prenom": "2",
-				"mail": "2"
+				"mail": "2",
+				"duree": "2023-05-01",
+				"engagement": ":)"
 			}
 		]
     }
