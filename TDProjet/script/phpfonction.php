@@ -81,7 +81,7 @@ function get_comp($comp) {
     }
 
 //Envoi un e-mail
-    function sendmail($destinataire,$nom,$prenom,$msg) {
+    function sendmail($destinataire,$msg) {
         
         $mail = new PHPMailer(true); //intitialise un élément PHPMailer
         try {
