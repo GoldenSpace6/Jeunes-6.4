@@ -12,7 +12,6 @@
         require("script/phpfonction.php");
 
         $message = "";
-        $competence = $_SESSION["info"]["competences"];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["action"])) {
