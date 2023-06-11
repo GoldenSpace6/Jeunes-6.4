@@ -3,56 +3,56 @@
 <head>
 
     <link rel="stylesheet" href="CSS/main.css" type="text/css">
+    <link rel="stylesheet" href="CSS/formulaire.css" type="text/css">
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <meta charset="utf-8">
 	<script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
-    $modificationEncours= 0;
-    if(isset($_POST["modifier"])){
-        $modificationEncours= 1;
-    }
-    $message ="";
-    
+        $modificationEncours= 0;
+        if(isset($_POST["modifier"])){
+            $modificationEncours= 1;
+        }
         require("script/phpfonction.php");
-            $message = "";
-            $nom = $_SESSION["info"]["nom"];
-            $prenom = $_SESSION["info"]["prenom"];
-            $mail = $_SESSION["info"]["mail"];
-            $date = $_SESSION["info"]["date"];
-            $mdp = $_SESSION["info"]["mdp"];
-            $competence = $_SESSION["info"]["competences"];
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            
-                //Recupère les données de jeunedata.json
-                $j_url = "data/jeunedata.json";
-                $j_data = read_json($j_url);
-                $id=$_SESSION["id"];
-                    
-                //Recupère les données du formulaire
-                if(isset($_POST["nom"])){
-                    $j_data[$id]["nom"]=$_POST["nom"];
-                }
-                if(isset($_POST["prenom"])){
-                    $j_data[$id]["prenom"]=$_POST["prenom"];
-                }
-                if(isset($_POST["e-mail"])){
-                    $j_data[$id]["mail"]=$_POST["e-mail"];
-                }
-                if(isset($_POST["date"])){
-                    $j_data[$id]["date"]=$_POST["date"];
-                }
-                if(isset($_POST["mdp"])){
-                    $j_data[$id]["mdp"]=$_POST["mdp"];
-                }
-                if(isset($_POST["competence"])){
-                    $j_data[$id]["competences"]=$_POST["competence"];
-                }
-                file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
-                $_SESSION["info"] = $j_data[$id];
-                $message="Profil modifié";
+
+        $message = "";
+        $nom = $_SESSION["info"]["nom"];
+        $prenom = $_SESSION["info"]["prenom"];
+        $mail = $_SESSION["info"]["mail"];
+        $date = $_SESSION["info"]["date"];
+        $mdp = $_SESSION["info"]["mdp"];
+        $competence = $_SESSION["info"]["competences"];
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+            //Recupère les données de jeunedata.json
+            $j_url = "data/jeunedata.json";
+            $j_data = read_json($j_url);
+            $id=$_SESSION["id"];
                 
-            }    
+            //Recupère les données du formulaire
+            if(isset($_POST["nom"])){
+                $j_data[$id]["nom"]=$_POST["nom"];
+            }
+            if(isset($_POST["prenom"])){
+                $j_data[$id]["prenom"]=$_POST["prenom"];
+            }
+            if(isset($_POST["e-mail"])){
+                $j_data[$id]["mail"]=$_POST["e-mail"];
+            }
+            if(isset($_POST["date"])){
+                $j_data[$id]["date"]=$_POST["date"];
+            }
+            if(isset($_POST["mdp"])){
+                $j_data[$id]["mdp"]=$_POST["mdp"];
+            }
+            if(isset($_POST["competence"])){
+                $j_data[$id]["competences"]=$_POST["competence"];
+            }
+            file_put_contents($j_url,json_encode($j_data,JSON_PRETTY_PRINT));
+            $_SESSION["info"] = $j_data[$id];
+            $message="Profil modifié";
+            
+        }    
      
     ?>
 </head>
@@ -63,8 +63,8 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="titre_profil titre">
-                Profil
+        <div class="couleur_profil titre">
+            Profil
         </div>
 
         <div class="soustitre">
@@ -75,19 +75,19 @@
     <div class="bas_de_page"> 
 
         <ul class="les_modules">
-                <li><a class="bouton_jeune background" href="profil.php">PROFIL</a> </li>
-                <li><a class="bouton_referent" href="referent.php">REFERENT</a> </li>
-                <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
-                <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
+            <li><a class="bouton_jeune background" href="profil.php">PROFIL</a> </li>
+            <li><a class="bouton_referent" href="referent.php">REFERENT</a> </li>
+            <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
+            <li><a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </ul>
 
         <div class="information_profil">
-            <div class="texte_profil">
+            <div class="texte_formulaire couleur_profil">
                 Votre Profil
             </div>
             
-			<form action="profil.php" method="POST" class="texte_carre_profil">
-				<div class="carre_profil">
+			<form action="profil.php" method="POST">
+				<div class="carre_formulaire couleur_profil">
                     <?php if($modificationEncours != 1){
                      echo $message;
                     } ?><br>
@@ -283,7 +283,8 @@
                 </div>
             </form>   
             
-            <div class="carre_profil">Mes Reference
+            <div class="carre_formulaire couleur_profil">
+                <label>Mes Reference:</label><br>
                 <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>  
             </div>
             

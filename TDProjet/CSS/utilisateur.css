@@ -128,52 +128,29 @@
 
 /*----- Profil -----*/
 
-
-.titre_profil{
+.couleur_profil{
     color: #70707b;
+    border-color: #70707b;
 }
-
-.texte_profil{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top: 3vh;
-    color:  #70707b;
-    font-size: 24px;
-}
-
-.carre_profil{
-    position: relative;
-    border: 3px solid #70707b;
-    top: 8vh;
-    width: 40vw;
-    padding: 18px;
-    color:#70707b;
-    margin: auto;
-    text-align: justify;
-}
-
-
-.nouvelle_reference{
-    color: lightgrey;
-    background-color: rgb(5, 5, 182);
-    z-index: 1;
-    place-items: center;
-    width: 12vw;    
-    height: 5vh;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    top: 38vh;
-    font-size: 24px;
-}
-
 
 .information_profil{
     position: relative;
     width: 100%;
+}
+
+.carre_formulaire.couleur_profil > label{
+    display: inline-block;
+    padding: 3px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nouvelle_reference{
+    color: lightgrey;
+    background-color: rgb(5, 5, 182);
+    display: inline-block;
+    padding: 12px 50px;
+    position: relative;
+    text-align: center;
+    font-size: 24px;
 }
