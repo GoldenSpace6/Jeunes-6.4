@@ -54,24 +54,24 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="couleur_connexion titre">
+        <div class="couleur_jeune titre">
                 CONNEXION
         </div>
     </div>
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page">  
         <div class="les_modules">
-                <li> <a class="bouton_connexion background" href="inscription.php">JEUNE</a> </li>
+                <li> <a class="bouton_jeune background" href="inscription.php">JEUNE</a> </li>
                 <li> <a class="bouton_referent">REFERENT</a> </li>
                 <li> <a class="bouton_consultant">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </div>
 
         <div class="information_connexion">
-            <div class="couleur_connexion texte_formulaire">
+            <div class="couleur_jeune texte_formulaire">
                 Connecte ton compte
             </div>
-            <form action="connexion.php" method="POST" class="carre_connexion couleur_connexion carre_formulaire">
+            <form action="connexion.php" method="POST" class="carre_connexion couleur_jeune carre_formulaire">
                     <?php echo $error?><br>
                     <label for="e-mail">E-mail:</label>
                     <input type="e-mail" name="e-mail" id="e-mail" required><br>
