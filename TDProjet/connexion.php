@@ -13,6 +13,7 @@
         
         $error = $nom = $prenom = $mail = $date = $mdp = "";
         
+		//met à jour la page actuelle
         if(isset($_SESSION['page_actuelle'])){
             $_SESSION['page_actuelle'] = 'connexion.php';
         }
@@ -29,19 +30,19 @@
                 $mdp = $_POST["mdp"];
             }
 
-            /*Verifie l'existance du compte jeune*/
+            /*Recherche le compte jeune*/
             $id=getid($j_data,$mail);
             
-            /*Verifie le mot de passe*/
+            /*Verifie le mot de passe et l'existance du compte*/
             if ($id===-1 or !password_verify($mdp,$j_data[$id]["mdp"])){
                 $error = "E-Mail ou mot de passe invalide.";
             } else {
-                /*Créé un session*/
+                /*Créé un session contenant le statut "connecter" et les informations du jeune*/
                 $_SESSION["id"] = $id;
                 $_SESSION["info"] = $j_data[$id];
                 $_SESSION['statut'] = 'connecter';
                 
-                /*redirige vers la page d'accueil*/
+                /*Redirige vers la page d'accueil*/
                 header("Location: presentation.php");
             }
         }
@@ -52,6 +53,7 @@
 <body>
     
     <div class="haut_de_page">
+	<!-- Logo renvoyant vers l'accueil -->
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="couleur_jeune titre">
@@ -59,7 +61,8 @@
         </div>
     </div>
     <div class="haut_de_page_vide"></div>
-    <div class="bas_de_page">  
+    <div class="bas_de_page">
+		<!-- Boutons des modules-->
         <div class="les_modules">
                 <li> <a class="bouton_jeune background" href="inscription.php">JEUNE</a> </li>
                 <li> <a class="bouton_referent">REFERENT</a> </li>
@@ -72,13 +75,19 @@
                 Connecte ton compte
             </div>
             <form action="connexion.php" method="POST" class="carre_connexion couleur_jeune carre_formulaire">
-                    <?php echo $error?><br>
+                    <!-- Message d'erreur, vide de base-->
+					<?php echo $error?><br>
+					
+					<!-- Champs de saisie pour la connexion-->
                     <label for="e-mail">E-mail:</label>
                     <input type="e-mail" name="e-mail" id="e-mail" required><br>
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" name="mdp" id="mdp" required> <br> <br>
+					
+					<!-- Bouton de connexion-->
                     <div class="boutton_submit"><button type="submit" id="submit">Connexion</button></div>
             </form>
+			<!-- Bouton de changement de page vers la création de compte-->
             <div class="jai_pas_compte"><a href="inscription.php">Je n'ai pas de compte</a></div>
         </div>
     </div>  

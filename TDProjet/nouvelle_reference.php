@@ -9,7 +9,7 @@
     <?php
         require("script/phpfonction.php");
 
-        $errmail = $nom = $prenom = $mail = $duree = $eng = "";
+        $$nom = $prenom = $mail = $duree = $eng = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Recupère les données de demande_reference.json
@@ -23,7 +23,8 @@
             if(isset($_POST["mon_engagement"])){
                 $eng = $_POST["mon_engagement"];
             }
-            //Referent
+			
+            //Récupère les données du réferent dans le formulaire
             if(isset($_POST["nom"])){
                 $nom = $_POST["nom"];
             }
@@ -34,7 +35,7 @@
                 $mail = $_POST["e-mail"];
             }
 
-            /*Genère un id random*/
+            /*Genère un id aléatoire et vérifie qu'il ne soit pas déjà utilisé*/
             do {
                 $url_id=rand(0,100000);
             } while(getrefid($d_data,$url_id) != -1);
@@ -55,9 +56,16 @@
             array_push($d_data,$new);
             file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
             
-            /*Envoie un email de référence*/
+            /*=== Envoie un email de référence ===*/
+			
+			//récupère l'adresse de la page actuelle
             $url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			
+			//modifie la fin de l'adresse pour remplacer le fichier en fin d'adresse
+			//par referent.php avec l'id ajouté avec la méthode GET
             $url=rtrim($url, "nouvelle_reference.php")."referent.php?id=".$url_id;
+			
+			//Défini le message du mail
 			$msg="<p>Bonjour,<br><br>
 			Le projet Jeunes-6.4 est un dispositif de valorisation de l&#39;engagement des jeunes en Pyr&#233;n&#233;es<br>
 			Atlantiques soutenu par l&#39;Etat, le Conseil G&#233;n&#233;ral, le Conseil R&#233;gional, les CAF B&#233;arn<br>
@@ -67,7 +75,9 @@
 			(clubs de sport, b&#233;n&#233;volat, services &#224; domiciles, etc.). Ces r&#233;f&#233;rences pourront &#234;tre consult&#233;es par un recruteur potentiel.<br><br>
 			Dans le cadre de ce dispositif, $nom $prenom a effectu&#233; une demande de r&#233;f&#233;rencement.<br>
 			Pour accepter cette demande en temps que r&#233;f&#233;rent, visitez: <a href=$url>Jeune-6.4</a><br>Si vous n&#39;&#234;tes pas concern&#233; par ce mail, vous pouvez l&#39;ignorer.</p>";
-            sendmail($mail, $msg, "Demande de referencement");
+            
+			//Envoie du mail (destinataire, message, objet du mail)
+			sendmail($mail, $msg, "Demande de referencement");
             
             /*Redirige vers la page d'accueil*/
             header("Location: presentation.php");
@@ -75,9 +85,9 @@
     ?>
 </head>
 
-
 <body>
     <div class="haut_de_page">
+	<!-- Logo renvoyant à l'accueil-->
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="couleur_jeune titre">
@@ -90,7 +100,7 @@
     </div>
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
-
+		<!-- Boutons des modules-->
         <ul class="les_modules">
                 <li><a class="bouton_jeune background" href="profil.php">JEUNE</a> </li>
                 <li><a class="bouton_referent">REFERENT</a> </li>
@@ -108,27 +118,28 @@
             </div>
 
             <form action="nouvelle_reference.php" method="post">
-            
                 <div class="carre_jeune couleur_jeune carre_formulaire">
+					<!-- Champs de saisie de l'expérience-->
                     <h3>Experience :</h3>
                     <label for="mon_engagement">Mon engagement :</label>
                     <input type="text" name="mon_engagement" id="mon_engagement" required><br>
                     <label for="duree">Duree :</label>
                     <input type="text" name="duree" id="duree" required>
+					
+					<!-- Champs de saisies des informations du référent-->
                     <h3>Référent :</h3>
                     <label for="nom">Nom :</label>
                     <input type="text" name="nom" id="nom" required><br>
                     <label for="prenom">Prenom :</label>
                     <input type="text" name="prenom" id="prenom" required><br>
                     <label for="e-mail">E-mail :</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" required><br><?php echo $errmail ?><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" required><br>
+					
+					<!-- Bouton de validation-->
                     <button type="submit" id="submit">Envoyer</button>
                 </div>
             </form>
         </div> 
     </div>
-
-    
-
 </body>
 </html>

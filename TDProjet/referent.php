@@ -9,11 +9,14 @@
     <?php
         require("script/phpfonction.php");
         
+		//Initialise la demande
         $demande = array("engagement"=>"","duree"=>"");
 		
-        $jeune = $demande["jeune"];//array("nom"=>"","prenom"=>"","mail"=>"","duree"=>"","date"=>"");
-        $referent = array("nom"=>"","prenom"=>"","mail"=>"");
-        $urlid = "";
+        //$jeune = $demande["jeune"];
+        //$referent = array("nom"=>"","prenom"=>"","mail"=>"");
+        
+		//Initialise l'id contenu dans l'url
+		$urlid = "";
 
         $lien = 'inscription.php'; // Lien vers la page de connexion
 
@@ -49,26 +52,40 @@
 
             /*Recupère les données de la demande de référence*/
             $d_id = getrefid($d_data,$urlid);
-
+			
+			//Valide la référence ssi l'id de l'url est valide
             if($d_id != -1) {
-                /*Modifie la référence*/
+                /*Modifie la référence, dont les informations du référent,
+				si jamais le jeune a fait une faute en les remplissant dans la demande*/
                 $d_data[$d_id]["commentaire"] = $comm;
                 $d_data[$d_id]["referent"] = array("nom"=>$nom,"prenom"=>$prenom,"mail"=>$mail);
                 $d_data[$d_id]["competence_ref"] = $competences;
                 $d_data[$d_id]["etat"] = "valide";
 				$prenom=$d_data[$d_id]["jeune"]["prenom"];
 				$mail=$d_data[$d_id]["jeune"]["mail"];
+				
                 /*Sauvegarde les modification dans demande_reference.json*/
                 file_put_contents($d_url,json_encode($d_data,JSON_PRETTY_PRINT));
 
-                /*Redirige vers la page de remerciements*/
+                /*=== Envoie d'un email de confirmation au jeune ===*/
+				
+				//récupère l'adresse de la page actuelle
 				$url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				
+				//modifie la fin de l'adresse pour remplacer le fichier en fin d'adresse par home.html
 				$url=rtrim($url, "referent.php")."home.html";
+				
+				//Définie le message du mail
 				$msg="Bonjour $prenom,<br>
 				Une demande de r&#233;f&#233;rencement a &#233;t&#233; valid&#233;.<br>
 				Pour plus d&#39;informations, visite <a href=$url>Jeune-6.4</a>";
-				echo "here".$mail;
+				
+				//Envoi du mail (destinataire, message, objet du mail)
                 sendmail($mail, $msg, "Confirmation de referencement");
+				
+				
+				
+				/*Redirige le référent vers la page de remerciements*/
                 header("Location: remerciement.html");
             }
             
@@ -81,23 +98,27 @@
             
             /*Recupère les données de la demande de référence*/
             $d_id = getrefid($d_data,$urlid);
-
+			
+			//Rempli les champs ssi l'id  contenue dans l'url est valide
             if($d_id != -1) {
                 $demande = $d_data[$d_id];
                 $referent = $demande["referent"];
                 $jeune = $demande["jeune"];
+				
+			
+		//Sinon, si il n'y a pas d'id dans l'url ou qu'il n'est pas valide, l'utilisateur est renvoyé à la page d'accueil
             } else {
-                $lien = previousPage();
+                header("Location: home.html");
             }
         } else {
-    	    $lien = previousPage();
+    	    header("Location: home.html");
         }
     ?>
 </head>
 
 
 <body>
-    <script src="script/checkbox_verification.js" type="text/javascript"></script>
+    <script src="script/verif_case.js" type="text/javascript"></script>
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
@@ -130,7 +151,7 @@
                 <div class="titre_commentaire">
                     COMMENTAIRES
                 </div>
-                <textarea name="commentaire" id="commentaire" cols="14" rows="13" >Martin s’est très rapidement intégré à notre équipe !</textarea>
+                <textarea name="commentaire" id="commentaire" cols="14" rows="13" ></textarea>
             </div>
             <div class="carre_referent couleur_referent carre_formulaire">
                 <label>Référent (Vous) :</label><br>
@@ -167,35 +188,35 @@
                     </div>
                     <div action="referent.php">
                         <div>
-                            <input type="checkbox" id="confiance" name="competence[]" value="confiance" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="confiance" name="competence[]" value="confiance" onclick="caseMax(this)">
                             <label for="confiance">Confiance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="bienveillance" name="competence[]" value="bienveillance" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="bienveillance" name="competence[]" value="bienveillance" onclick="caseMax(this)">
                             <label for="bienveillance">Bienveillance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="respect" name="competence[]" value="respect" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="respect" name="competence[]" value="respect" onclick="caseMax(this)">
                             <label for="respect">Respect</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="honnetete" name="competence[]" value="honnetete" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="honnetete" name="competence[]" value="honnetete" onclick="caseMax(this)">
                             <label for="honnetete">Honnetete</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="tolerance" name="competence[]" value="tolerance" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="tolerance" name="competence[]" value="tolerance" onclick="caseMax(this)">
                             <label for="tolerance">Tolerance</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="juste" name="competence[]" value="juste" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="juste" name="competence[]" value="juste" onclick="caseMax(this)">
                             <label for="juste">Juste</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="impartial" name="competence[]" value="impartial" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="impartial" name="competence[]" value="impartial" onclick="caseMax(this)">
                             <label for="impartial">Impartial</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="travail" name="competence[]" value="travail" onclick="limitCheckboxSelection(this)">
+                            <input type="checkbox" id="travail" name="competence[]" value="travail" onclick="caseMax(this)">
                             <label for="travail">Travail</label>
                         </div>
                         

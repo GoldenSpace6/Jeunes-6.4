@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <meta charset="utf-8">
-	<script src="script/checkbox_verification.js" type="text/javascript"></script>
+	<script src="script/verif_case.js" type="text/javascript"></script>
     <?php
         require("script/phpfonction.php");
 
@@ -164,43 +164,43 @@
                             Je suis*
                         </div>
                         <div>
-                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="limitCheckboxSelection(this)" <?php echo get_comp("autonome");?>>
+                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="caseMax(this)" <?php echo get_comp("autonome");?>>
                             <label for="autonome">Autonome</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="limitCheckboxSelection(this)" <?php echo get_comp("passionne");?>>
+                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="caseMax(this)" <?php echo get_comp("passionne");?>>
                             <label for="passionne">Passionne</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="limitCheckboxSelection(this)" <?php echo get_comp("reflechi");?>>
+                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="caseMax(this)" <?php echo get_comp("reflechi");?>>
                             <label for="reflechi">Reflechi</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="limitCheckboxSelection(this)" <?php echo get_comp("a_l_ecoute");?>>
+                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="caseMax(this)" <?php echo get_comp("a_l_ecoute");?>>
                             <label for="a_l_ecoute">A l'ecoute</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="limitCheckboxSelection(this)" <?php echo get_comp("organise"); ?>>
+                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="caseMax(this)" <?php echo get_comp("organise"); ?>>
                             <label for="organise">Organise</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="fiable" name="competence[]" value="fiable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("fiable"); ?>>
+                            <input type="checkbox" id="fiable" name="competence[]" value="fiable" onclick="caseMax(this)" <?php echo get_comp("fiable"); ?>>
                             <label for="fiable">Fiable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="limitCheckboxSelection(this)" <?php echo get_comp("patient");?>>
+                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="caseMax(this)" <?php echo get_comp("patient");?>>
                             <label for="patient">Patient</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("responsable");?>>
+                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="caseMax(this)" <?php echo get_comp("responsable");?>>
                             <label for="responsable">Responsable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("sociable");?>>
+                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="caseMax(this)" <?php echo get_comp("sociable");?>>
                             <label for="sociable">Sociable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="limitCheckboxSelection(this)" <?php echo get_comp("optimiste"); ?>>
+                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="caseMax(this)" <?php echo get_comp("optimiste"); ?>>
                             <label for="optimiste">Optimiste</label>
                         </div>
                     </div>

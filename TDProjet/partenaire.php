@@ -8,10 +8,11 @@
     <meta charset="utf-8">
     <?php
         session_start();
+		//Teste si l'utilisateur est connecté ou non
         if (isset($_SESSION['statut'])) {
-            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur si il est connecté
         } else {
-            $lien = 'inscription.php'; // Lien vers la page de connexion
+            $lien = 'inscription.php'; // Lien vers la page de connexion sinon
         }
     ?>
 </head>
@@ -20,6 +21,7 @@
 <body>
     
     <div class="haut_de_page">
+	<!-- Logo renvoyant à l'accueil-->
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="titre_partenaire titre">
@@ -28,20 +30,23 @@
     </div>
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
-        
+        <!-- Boutons des modules-->
         <div class="les_modules">
                 <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
                 <li> <a class="bouton_referent">REFERENT</a> </li>
                 <li> <a class="bouton_consultant">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire background" href="partenaire.php">PARTENAIRES</a> </li>
         </div>
+
         <div class="les_ecritures2">
             <div>
+					<!-- Texte avec la chartre de l'engagement disponible en pdf en cliquant dessus-->
                     <p class="text_partenaire">
                         JEUNES 6.4 est un dispositif issu de la <a href="charte2013.pdf">chartre de l'engagement</a> pour la
                         jeunesse signée en 2013 par des partenaires institutionnels...
                     </p>
             </div>
+			<!-- Images des partenaires Renvoyant vers leurs sites-->
             <div class="images">
                 <a href="https://www.service-public.fr/" target="_blank"><img class="logo-rep" src="image/logo-rep.png"></a>
                 <a href="https://www.nouvelle-aquitaine.fr/" target="_blank"><img class="logo-aqu" src="image/logo-aqu.png"></a>
@@ -61,4 +66,3 @@
     </div>
 </body>
 </html>
-

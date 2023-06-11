@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="fr">
 <head>
 
@@ -8,26 +8,34 @@
     <meta charset="utf-8">
     <?php 
         session_start();
+		//Met à jour la page actuelle
         $_SESSION['page_actuelle'] = 'presentation.php';
+		
+		//deconnecte le Jeune en supprimant sa session
         if (isset($_POST['deconnexion'])) { 
             session_destroy();
             header('Location: presentation.php');
             exit;
         }
+		
+		//Teste si l'utilisateur est connecté ou non
         if (isset($_SESSION['statut'])) {
-            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur
+            $lien = 'profil.php'; // Lien vers le profil de l'utilisateur si il est connecté
         } else {
-            $lien = 'inscription.php'; // Lien vers la page de connexion
+            $lien = 'inscription.php'; // Lien vers la page de connexion sinon
         }
     ?>
 </head>
 
 <body >
     <div class="haut_de_page">
+		<!-- Logo renvoyant à la page d'accueil (donc la page actuelle)-->
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
         <div class="les_boutons">
+		
             <form action="presentation.php" method="post">
-                <button 
+                <!-- Bouton deconnexion, affiché seulement si l'utilisateur est connecté-->
+				<button 
                 <?php 
                 if(!isset($_SESSION['statut'])){  
                   echo "style='display:none;'";
@@ -35,8 +43,10 @@
                 ?>
                  name="deconnexion" type="submit" class="deconnexion">Deconnexion
                 </button> 
+				
             </form>
         </div>
+		<!-- Affiche le nom et le prénom du Jeune, si il est connecté-->
 		<div class="texte-nom">
 			<?php
 			 if(isset($_SESSION['statut'])){  
@@ -52,6 +62,7 @@
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
         
+		<!-- Boutons des modules-->
         <ul class="les_modules ">
                 <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
                 <li> <a class="bouton_referent">REFERENT</a> </li>

@@ -38,6 +38,7 @@
 
 <body>
     <div class="haut_de_page">
+	<!-- Logo renvoyant vers l'accueil -->
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
         <div class="couleur_consultant titre">
@@ -51,7 +52,7 @@
     </div>
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page"> 
-        
+        <!-- Boutons des modules-->
         <div class="les_modules">
                 <li> <a class="bouton_jeune" href="<?php echo $lien; ?>">JEUNE</a> </li>
                 <li> <a class="bouton_referent">REFERENT</a> </li>
@@ -65,6 +66,7 @@
             <div class="arriere_plan" style="display:none">
                 <img src="image/6.4_Bleu.png" >
             </div>
+			<!-- Informations du Jeune-->
             <div class="carre_consultant">
                 <div class="carre_jeune">
                     <div action="profil.php" method="POST" class="texte_carre_jeune couleur_jeune carre_formulaire">
@@ -80,6 +82,7 @@
                     </div>
                 </div>
                 <div class="carre_referent">
+				<!-- Informations des referencement et des référents correspondants-->
                     <?php
                         foreach($demande["referencent"] as $reference) {
                             echo '<div action="profil.php" method="POST" class="texte_carre_referent couleur_referent carre_formulaire">
