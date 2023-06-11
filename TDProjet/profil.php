@@ -211,74 +211,80 @@
                 <label>Mes Références:</label><br>
                 <input type="hidden" name="action" value="consultant">
                 <?php
+                    function affichage() {
+                        $ret="";
+                        //Recupère les données de demande_reference.json
+                        $d_url = "data/demande_reference.json";
+                        $d_data = read_json($d_url);
+                        
+                        foreach($d_data as $reference) {
 
-                    //Recupère les données de demande_reference.json
-                    $d_url = "data/demande_reference.json";
-                    $d_data = read_json($d_url);
-                    
-                    foreach($d_data as $reference) {
+                            //Affiche Chacune des référence
+                            if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
+                                $ret=$ret."<div class='mes_references'>";
 
-                        //Affiche Chacune des référence
-                        if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
-                            echo "<div class='mes_references'>";
+                                if($reference["etat"]=="valide") {
+                                    $ret=$ret."<input type='checkbox' name='".$reference["id"]."' >";
+                                }
+                                
+                                $ret=$ret."Demande ".$reference["etat"];
+                                
+                                $ret=$ret."<hr>Mon engagement : ".$reference["engagement"]."<br>";
+                                $ret=$ret."Durée : ".$reference["duree"]."<br><br>";
+                                
+                                $ret=$ret."Referent<br>";
+                                $ret=$ret."Nom : ".$reference["referent"]["nom"]."<br>";
+                                $ret=$ret."Prenom : ".$reference["referent"]["prenom"]."<br>";
+                                $ret=$ret."E-mail : ".$reference["referent"]["mail"]."<br><br>";
 
-                            if($reference["etat"]=="valide") {
-                                echo "<input type='checkbox' name='".$reference["id"]."' >";
+                                $ret=$ret."Commentaire : ".$reference["commentaire"]." <br><br>";
+
+                                $ret=$ret.'
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("confiance",$reference["competence_ref"]).' disabled>
+                                    <label>Confiance</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("bienveillance",$reference["competence_ref"]).' disabled>
+                                    <label>Bienveillance</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("respect",$reference["competence_ref"]).' disabled>
+                                    <label>Respect</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("honnetete",$reference["competence_ref"]).' disabled>
+                                    <label>Honnetete</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("tolerance",$reference["competence_ref"]).' disabled>
+                                    <label>Tolerance</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("juste",$reference["competence_ref"]).' disabled>
+                                    <label>Juste</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("impartial",$reference["competence_ref"]).' disabled>
+                                    <label>Impartial</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" '.get_comp_tab("travail",$reference["competence_ref"]).' disabled>
+                                    <label>Travail</label>
+                                </div>';
+                                $ret=$ret."</div>";
                             }
-                            echo "Demande ".$reference["etat"];
-                            
-                            echo "<hr>Mon engagement : ".$reference["engagement"]."<br>";
-                            echo "Durée : ".$reference["duree"]."<br><br>";
-                            
-                            echo "Referent<br>";
-                            echo "Nom : ".$reference["referent"]["nom"]."<br>";
-                            echo "Prenom : ".$reference["referent"]["prenom"]."<br>";
-                            echo "E-mail : ".$reference["referent"]["mail"]."<br><br>";
-
-                            echo "Commentaire : ".$reference["commentaire"]." <br><br>";
-
-                            echo '
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("confiance",$reference["competence_ref"]).' disabled>
-                                <label>Confiance</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("bienveillance",$reference["competence_ref"]).' disabled>
-                                <label>Bienveillance</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("respect",$reference["competence_ref"]).' disabled>
-                                <label>Respect</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("honnetete",$reference["competence_ref"]).' disabled>
-                                <label>Honnetete</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("tolerance",$reference["competence_ref"]).' disabled>
-                                <label>Tolerance</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("juste",$reference["competence_ref"]).' disabled>
-                                <label>Juste</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("impartial",$reference["competence_ref"]).' disabled>
-                                <label>Impartial</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" '.get_comp_tab("travail",$reference["competence_ref"]).' disabled>
-                                <label>Travail</label>
-                            </div>';
-                            echo "</div>";
                         }
+                        return $ret;
                     }
+                    echo affichage();
                 ?>
                 <label>Demande de consultation :</label><br>
                 <label for="c_email">E-mail :</label>
                 <input type="e-mail" name="c_email" id="c_email" value="" required>
                 <button name='modifier' type='submit' id='submit'>demande consultant</button>
             </form>
+            <
             <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
         </div>
     </div>
