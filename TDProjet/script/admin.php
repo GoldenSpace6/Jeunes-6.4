@@ -13,8 +13,8 @@
         $r_url = "../data/referantdata.json";
         $r_data = read_json($r_url);
 
-        //Recupère les données de demande.json
-        $d_url = "../data/demande.json";
+        //Recupère les données de demande_reference.json
+        $d_url = "../data/demande_reference.json";
         $d_data = read_json($d_url);
 
 
@@ -163,7 +163,7 @@
     </form></fieldset>
 
 
-    <fieldset><legend>Ajouter une demande :</legend>
+    <fieldset><legend>Ajouter une demande de référence :</legend>
     <form action="admin.php" method="post">
         <input type="text" value="D+" name="action" style="display:none;">
 
@@ -183,7 +183,7 @@
     </form></fieldset>
 
 
-    <fieldset><legend>Supprimer une demande :</legend>
+    <fieldset><legend>Supprimer une demande de référence :</legend>
     <form action="admin.php" method="post">
         <input type="text" value="D-" name="action" style="display:none;">
         

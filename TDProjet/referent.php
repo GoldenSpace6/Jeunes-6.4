@@ -75,7 +75,8 @@
                 </div>
                 <textarea name="commentaires" id="commentaires" cols="14" rows="13">Martin s’est très rapidement intégré à notre équipe !</textarea>
             </div>
-            <form action="referent.php" method="post" class="carre_referent couleur_referent carre_formulaire">                    <label for="nom">Nom :</label>
+            <form action="referent.php" method="post" class="carre_referent couleur_referent carre_formulaire">
+                <label for="nom">Nom :</label>
                 <input type="text" name="nom" id="nom" value="<?php echo $jeune["nom"]?>"><br>
                 <label for="prenom">Prénom :</label>
                 <input type="text" name="prenom" id="prenom" value="<?php echo $jeune["prenom"]?>"><br>
