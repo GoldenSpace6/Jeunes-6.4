@@ -12,8 +12,8 @@
 		//Initialise la demande
         $demande = array("engagement"=>"","duree"=>"");
 		
-        //$jeune = $demande["jeune"];
-        //$referent = array("nom"=>"","prenom"=>"","mail"=>"");
+        $jeune = $demande["jeune"];
+        $referent = array("nom"=>"","prenom"=>"","mail"=>"");
         
 		//Initialise l'id contenu dans l'url
 		$urlid = "";
@@ -174,9 +174,9 @@
                 <!-- <label for="reseau">Réseau social :</label>
                 <input type="text" name="reseau" id="reseau_social" value=""><br>--><br>
                 <label for="presentation">Présentation :</label>
-                <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>"><br>
+                <input type="text" name="presentation" id="presentation" value="<?php echo $demande["engagement"]?>" disabled><br>
                 <label for="duree">Durée :</label>
-                <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>"><br>
+                <input type="text" name="duree" id="duree" value="<?php echo $demande["duree"]?>" disabled><br>
             </div>
             <div class="savoir_etre">
                 <div class="mes_savoir_etres_2">

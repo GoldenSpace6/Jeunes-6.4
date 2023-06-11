@@ -237,35 +237,35 @@
 
                             echo '
                             <div>
-                                <input type="checkbox" '.get_comp_tab("confiance",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("confiance",$reference["competence_ref"]).' disabled>
                                 <label>Confiance</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("bienveillance",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("bienveillance",$reference["competence_ref"]).' disabled>
                                 <label>Bienveillance</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("respect",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("respect",$reference["competence_ref"]).' disabled>
                                 <label>Respect</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("honnetete",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("honnetete",$reference["competence_ref"]).' disabled>
                                 <label>Honnetete</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("tolerance",$reference["competence_ref"]).' >
+                                <input type="checkbox" '.get_comp_tab("tolerance",$reference["competence_ref"]).' disabled>
                                 <label>Tolerance</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("juste",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("juste",$reference["competence_ref"]).' disabled>
                                 <label>Juste</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("impartial",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("impartial",$reference["competence_ref"]).' disabled>
                                 <label>Impartial</label>
                             </div>
                             <div>
-                                <input type="checkbox" '.get_comp_tab("travail",$reference["competence_ref"]).'>
+                                <input type="checkbox" '.get_comp_tab("travail",$reference["competence_ref"]).' disabled>
                                 <label>Travail</label>
                             </div>';
                             echo "</div>";
