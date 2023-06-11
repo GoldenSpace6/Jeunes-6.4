@@ -114,7 +114,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="couleur_profil titre">
+        <div class="couleur_jeune titre">
             Profil
         </div>
 
