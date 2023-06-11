@@ -61,9 +61,9 @@
     <div class="haut_de_page_vide"></div>
     <div class="bas_de_page">  
         <div class="les_modules">
-                <li> <a class="bouton_connexion background" href="connexion.php">JEUNE</a> </li>
-                <li> <a class="bouton_referent" href="referent.php">REFERENT</a> </li>
-                <li> <a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
+                <li> <a class="bouton_connexion background" href="inscription.php">JEUNE</a> </li>
+                <li> <a class="bouton_referent">REFERENT</a> </li>
+                <li> <a class="bouton_consultant">CONSULTANT</a>  </li> 
                 <li> <a class="bouton_partenaire" href="partenaire.php">PARTENAIRES</a> </li>
         </div>
 
