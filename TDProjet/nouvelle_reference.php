@@ -98,9 +98,9 @@
     <div class="bas_de_page"> 
 
         <ul class="les_modules">
-                <li><a class="bouton_jeune background" href="nouvelle_reference.php">JEUNE</a> </li>
-                <li><a class="bouton_referent" href="referent.php">REFERENT</a> </li>
-                <li><a class="bouton_consultant" href="consultant.php">CONSULTANT</a>  </li> 
+                <li><a class="bouton_jeune background" href="profil.php">JEUNE</a> </li>
+                <li><a class="bouton_referent">REFERENT</a> </li>
+                <li><a class="bouton_consultant">CONSULTANT</a>  </li> 
                 <li><a class="bouton_partenaire" href="partenaire.html">PARTENAIRES</a> </li>
         </ul>
         
