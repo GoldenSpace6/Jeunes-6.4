@@ -87,11 +87,6 @@
     font-weight: bold;
 }
 
-.information_jeune{
-    position: fixed;
-    width: 100%;
-}
-
 /*----- REFERANT -----*/
 
 .couleur_referent{
@@ -176,11 +171,6 @@
     right: 3vw;
 }
 
-.confirmation_referent{
-    position: relative;
-    width: 100%;
-}
-
 .boite_commentaire{
     position: absolute;
     top: 8vh;
@@ -237,10 +227,6 @@
     border-color: #70707b;
 }
 
-.information_profil{
-    position: relative;
-    width: 100%;
-}
 
 .carre_formulaire.couleur_profil > label{
     display: inline-block;
