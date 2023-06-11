@@ -191,19 +191,19 @@
                             <label for="fiable">Fiable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="caseMax(this)" <?php get_comp("patient");?>>
+                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="caseMax(this)" <?php echo get_comp("patient");?>>
                             <label for="patient">Patient</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("responsable");?>>
+                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="caseMax(this)" <?php echo get_comp("responsable");?>>
                             <label for="responsable">Responsable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("sociable");?>>
+                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="caseMax(this)" <?php echo get_comp("sociable");?>>
                             <label for="sociable">Sociable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="limitCheckboxSelection(this)" <?php echo get_comp("optimiste"); ?>>
+                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="caseMax(this)" <?php echo get_comp("optimiste"); ?>>
                             <label for="optimiste">Optimiste</label>
                         </div>
                     </div>
