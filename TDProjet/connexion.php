@@ -10,6 +10,7 @@
 
     <?php
         require("script/phpfonction.php");
+        session_start();
         
         $error = $nom = $prenom = $mail = $date = $mdp = "";
         

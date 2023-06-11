@@ -128,21 +128,52 @@
 
 /*----- Profil -----*/
 
-.nouvelle_reference{
-    color: lightgrey;
-    background-color: rgb(5, 5, 182);
-    display: block;
-    width: 400px;
-    margin: auto;
-    padding: 12px 50px;
+
+.titre_profil{
+    color: #70707b;
+}
+
+.texte_profil{
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
+    justify-content: center;
+    top: 3vh;
+    color:  #70707b;
     font-size: 24px;
 }
 
-.mes_references{
-    background-color: #ececec;
-    border-radius: 23px;
-    margin: 10px;
-    padding: 10px;
+.carre_profil{
+    position: relative;
+    border: 3px solid #70707b;
+    top: 8vh;
+    width: 40vw;
+    padding: 18px;
+    color:#70707b;
+    margin: auto;
+    text-align: justify;
+}
+
+
+.nouvelle_reference{
+    color: lightgrey;
+    background-color: rgb(5, 5, 182);
+    z-index: 1;
+    place-items: center;
+    width: 12vw;    
+    height: 5vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    top: 38vh;
+    font-size: 24px;
+}
+
+
+.information_profil{
+    position: fixed;
+    width: 100%;
 }
