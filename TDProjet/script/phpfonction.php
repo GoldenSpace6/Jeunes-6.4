@@ -23,11 +23,10 @@ function get_comp($comp) {
 				if (is_array($_SESSION["info"]["competences"])){
 					if (in_array($comp, $_SESSION["info"]["competences"])){
 						return "checked";
-					}
-                    			else{
-                        			return "unchecked";
-                    			}
-					}else {
+					} else {
+                        	return "unchecked";
+                    	}
+					} else {
 						if ($_SESSION["info"]["competences"]=$comp){
 						return "checked";
 					}

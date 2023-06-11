@@ -9,18 +9,9 @@
     <meta charset="utf-8">
 	<script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
-        $modificationEncours= 0;
-        if(isset($_POST["modifier"])){
-            $modificationEncours= 1;
-        }
         require("script/phpfonction.php");
 
         $message = "";
-        $nom = $_SESSION["info"]["nom"];
-        $prenom = $_SESSION["info"]["prenom"];
-        $mail = $_SESSION["info"]["mail"];
-        $date = $_SESSION["info"]["date"];
-        $mdp = $_SESSION["info"]["mdp"];
         $competence = $_SESSION["info"]["competences"];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -101,7 +92,7 @@
 					$url=rtrim($url, "profil.php")."consultant.php?id=".$url_id;
 					$prenom=$_SESSION["info"]["prenom"];
 					$nom=$_SESSION["info"]["nom"];
-					echo "here:".$_POST["c_email"];
+					echo "here:".$_POST["c_mail"];
 					$msg="<p>Bonjour,<br><br>
 					Le projet Jeunes-6.4 est un dispositif de valorisation de l&#39;engagement des jeunes en Pyr&#233;n&#233;es<br>
 					Atlantiques soutenu par l&#39;Etat, le Conseil G&#233;n&#233;ral, le Conseil R&#233;gional, les CAF B&#233;arn<br>
@@ -151,77 +142,18 @@
 				<div class="carre_formulaire couleur_profil">
                     <input type="hidden" name="action" value="profil">
 
-                    <?php if($modificationEncours != 1){
-                     echo $message;
-                    } ?><br>
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["info"]["nom"];?>" 
-                    <?php
-                        if( $modificationEncours === 1){
-                            echo ' ';
-                        }
-                        else{
-                            echo "disabled";
-                        }
-                   ?>><br>
+                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION["info"]["nom"];?>"><br>
                     <label for="prenom">Prénom:</label>
-                    <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION["info"]["prenom"];?>" 
-                    <?php
-                        if( $modificationEncours === 1){
-                            echo ' ';
-                        }
-                        else{
-                            echo "disabled";
-                        }
-                   ?>><br>
+                    <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION["info"]["prenom"];?>"><br>
                     <label for="date">Date de naissance:</label>
-                    <input type="Date" name="date" id="date" value="<?php echo $_SESSION["info"]["date"];?>" 
-                    <?php
-                        if( $modificationEncours === 1){
-                            echo ' ';
-                        }
-                        else{
-                            echo "disabled";
-                        }
-                   ?>><br>
+                    <input type="Date" name="date" id="date" value="<?php echo $_SESSION["info"]["date"];?>"><br>
                     <label for="e-mail">E-mail:</label>
-                    <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $_SESSION["info"]["mail"];?>" 
-                    <?php
-                        if( $modificationEncours === 1){
-                            echo ' ';
-                        }
-                        else{
-                            echo "disabled";
-                        }
-                   ?>><br>
+                    <input type="e-mail" name="e-mail" id="e-mail" value="<?php echo $_SESSION["info"]["mail"];?>"><br>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="password" name="mdp" id="mdp" value="" 
-                    <?php
-                        if( $modificationEncours === 1){
-                            echo ' ';
-                        }
-                        else{
-                            echo "disabled";
-                        }
-                   ?>><br>
-					
+                    <input type="password" name="mdp" id="mdp" value=""><br>
 
-                    <button name="modifier" type="submit" id="submit"
-                    <?php
-                    if($modificationEncours === 1){
-                        echo "style='display:none;'";
-                    }
-                   ?>
-                   > >Modifier</button>
-
-
-                   <button name="valider" type="submit" id="submit_valider"
-                   <?php
-                    if(!isset($_POST['modifier'])){
-                        echo "style='display:none;'";
-                    } 
-                   ?>
-                   > >Valider</button>    
+                    <button name="valider" type="submit" id="submit_valider">Valider</button>    
                 </div>
                 <div class="savoir_etre">
                     <div class="mes_savoir_etres">
@@ -233,114 +165,44 @@
                             Je suis*
                         </div>
                         <div>
-                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="limitCheckboxSelection(this)"
-                            <?php
-                                if( $modificationEncours === 1 && !in_array("autonome", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("autonome");
-                                
-                            ?>
-                            ><label for="autonome">Autonome</label>
+                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="limitCheckboxSelection(this)" <?php echo get_comp("autonome");?>>
+                            <label for="autonome">Autonome</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="limitCheckboxSelection(this)"
-                            <?php 
-                            if( $modificationEncours === 1 && !in_array("passionne", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("passionne");
-                                
-                            ?>
-                            ><label for="passionne">Passionne</label>
+                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="limitCheckboxSelection(this)" <?php echo get_comp("passionne");?>>
+                            <label for="passionne">Passionne</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="limitCheckboxSelection(this)"
-                            <?php 
-                            if( $modificationEncours === 1 && !in_array("reflechi", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("reflechi");
-                                
-                            ?>
-                            ><label for="reflechi">Reflechi</label>
+                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="limitCheckboxSelection(this)" <?php echo get_comp("reflechi");?>>
+                            <label for="reflechi">Reflechi</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="limitCheckboxSelection(this)"
-                            <?php 
-                            if($modificationEncours === 1 && !in_array("a_l_ecoute", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("a_l_ecoute");
-                                
-                            ?>
-                            ><label for="a_l_ecoute">A l'ecoute</label>
+                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="limitCheckboxSelection(this)" <?php echo get_comp("a_l_ecoute");?>>
+                            <label for="a_l_ecoute">A l'ecoute</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("organise", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("organise");
-                                
-                            ?>
-                            ><label for="organise">Organise</label>
+                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="limitCheckboxSelection(this)" <?php echo get_comp("organise"); ?>>
+                            <label for="organise">Organise</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="fiable" name="competence{]" value="fiable" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("fiable", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("fiable");
-                                
-                            ?>
-                            ><label for="fiable">Fiable</label>
+                            <input type="checkbox" id="fiable" name="competence{]" value="fiable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("fiable"); ?>>
+                            <label for="fiable">Fiable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("patient", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("patient");
-                                
-                            ?>
-                            ><label for="patient">Patient</label>
+                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="limitCheckboxSelection(this)" <?php get_comp("patient");?>>
+                            <label for="patient">Patient</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("responsable", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            }
-                            echo get_comp("responsable");
-                                
-                            ?>
-                            ><label for="responsable">Responsable</label>
+                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("responsable");?>>
+                            <label for="responsable">Responsable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("sociable", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            } 
-                            echo get_comp("sociable");
-                                
-                            ?>
-                            ><label for="sociable">Sociable</label>
+                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("sociable");?>>
+                            <label for="sociable">Sociable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="limitCheckboxSelection(this)"
-                            <?php
-                            if( $modificationEncours === 1 && !in_array("optimiste", $_SESSION["info"]["competences"])){
-                                echo "enabled";
-                            }  
-                            echo get_comp("optimiste");
-                                
-                            ?>
-                            ><label for="optimiste">Optimiste</label>
+                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="limitCheckboxSelection(this)" <?php echo get_comp("optimiste"); ?>>
+                            <label for="optimiste">Optimiste</label>
                         </div>
                     </div>
                 </div>
