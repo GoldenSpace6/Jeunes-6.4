@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="CSS/utilisateur.css" type="text/css">
     <title>Jeunes 6.4 - Profil</title>
     <meta charset="utf-8">
-	<script src="script/verif_case.js" type="text/javascript"></script>
+	<script src="script/checkbox_verification.js" type="text/javascript"></script>
     <?php
+    
         require("script/phpfonction.php");
 
         $message = "";
+        $competence = $_SESSION["info"]["competences"];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["action"])) {
@@ -66,7 +68,7 @@
                     $reference=[];
                     foreach($d_data as $i) {
                         if(isset($_POST[$i["id"]])) {
-                            if( !empty($_POST[ $i["id"] ]) ) {
+                            if( !empty($_POST[ $i["id"] ]) ) { // !empty cocher
                                 array_push($reference,array(
                                     "referent"=>$i["referent"],
                                     "duree"=>$i["duree"],
@@ -77,11 +79,18 @@
                         }
                     }
                     
+                    
+                        
+                       
+                
+                
+                        
+
                     /*Créé une nouvelle demande_consultant*/
                     $new=array(
                         "id"=>$url_id,
                         "jeune"=>$_SESSION["info"],
-                        "referencement"=>$reference
+                        "referencent"=>$reference
                     );
 
                     /*L'ajoute au fichier*/
@@ -103,6 +112,7 @@
 					sendmail($_POST["c_email"], $msg, "Consultation Jeune 6.4");
                 }
             }
+            
         }    
      
     ?>
@@ -114,7 +124,7 @@
     <div class="haut_de_page">
         <a href="presentation.php" class="logo_home"><img src="image/logohome-removebg-preview.png"></a>
 
-        <div class="couleur_jeune titre">
+        <div class="couleur_profil titre">
             Profil
         </div>
 
@@ -164,128 +174,64 @@
                             Je suis*
                         </div>
                         <div>
-                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="caseMax(this)" <?php echo get_comp("autonome");?>>
+                            <input type="checkbox" id="autonome" name="competence[]" value="autonome" onclick="limitCheckboxSelection(this)" <?php echo get_comp("autonome");?>>
                             <label for="autonome">Autonome</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="caseMax(this)" <?php echo get_comp("passionne");?>>
+                            <input type="checkbox" id="passionne" name="competence[]" value="passionne" onclick="limitCheckboxSelection(this)" <?php echo get_comp("passionne");?>>
                             <label for="passionne">Passionne</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="caseMax(this)" <?php echo get_comp("reflechi");?>>
+                            <input type="checkbox" id="reflechi" name="competence[]" value="reflechi" onclick="limitCheckboxSelection(this)" <?php echo get_comp("reflechi");?>>
                             <label for="reflechi">Reflechi</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="caseMax(this)" <?php echo get_comp("a_l_ecoute");?>>
+                            <input type="checkbox" id="a_l_ecoute" name="competence[]" value="a_l_ecoute" onclick="limitCheckboxSelection(this)" <?php echo get_comp("a_l_ecoute");?>>
                             <label for="a_l_ecoute">A l'ecoute</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="caseMax(this)" <?php echo get_comp("organise"); ?>>
+                            <input type="checkbox" id="organise" name="competence[]" value="organise" onclick="limitCheckboxSelection(this)" <?php echo get_comp("organise"); ?>>
                             <label for="organise">Organise</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="fiable" name="competence[]" value="fiable" onclick="caseMax(this)" <?php echo get_comp("fiable"); ?>>
+                            <input type="checkbox" id="fiable" name="competence{]" value="fiable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("fiable"); ?>>
                             <label for="fiable">Fiable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="caseMax(this)" <?php echo get_comp("patient");?>>
+                            <input type="checkbox" id="patient" name="competence[]" value="patient" onclick="limitCheckboxSelection(this)" <?php get_comp("patient");?>>
                             <label for="patient">Patient</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="caseMax(this)" <?php echo get_comp("responsable");?>>
+                            <input type="checkbox" id="responsable" name="competence[]" value="responsable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("responsable");?>>
                             <label for="responsable">Responsable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="caseMax(this)" <?php echo get_comp("sociable");?>>
+                            <input type="checkbox" id="sociable" name="competence[]" value="sociable" onclick="limitCheckboxSelection(this)" <?php echo get_comp("sociable");?>>
                             <label for="sociable">Sociable</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="caseMax(this)" <?php echo get_comp("optimiste"); ?>>
+                            <input type="checkbox" id="optimiste" name="competence[]" value="optimiste" onclick="limitCheckboxSelection(this)" <?php echo get_comp("optimiste"); ?>>
                             <label for="optimiste">Optimiste</label>
                         </div>
                     </div>
                 </div>
             </form>
             
-            <form class="carre_formulaire couleur_referent" method="POST" action="profil.php">
+            <form class="carre_formulaire couleur_jeune" method="POST" action="profil.php">
                 <label>Mes Références:</label><br>
                 <input type="hidden" name="action" value="consultant">
                 <?php
-                    function affichage() {
-                        $ret="";
-                        //Recupère les données de demande_reference.json
-                        $d_url = "data/demande_reference.json";
-                        $d_data = read_json($d_url);
-                        
-                        foreach($d_data as $reference) {
-
-                            //Affiche Chacune des référence
-                            if($reference["jeune"]["mail"]==$_SESSION["info"]["mail"]) {
-                                $ret=$ret."<div class='mes_references'>";
-
-                                if($reference["etat"]=="valide") {
-                                    $ret=$ret."<input type='checkbox' name='".$reference["id"]."' >";
-                                }
-                                
-                                $ret=$ret."Demande ".$reference["etat"];
-                                
-                                $ret=$ret."<hr>Mon engagement : ".$reference["engagement"]."<br>";
-                                $ret=$ret."Durée : ".$reference["duree"]."<br><br>";
-                                
-                                $ret=$ret."Referent<br>";
-                                $ret=$ret."Nom : ".$reference["referent"]["nom"]."<br>";
-                                $ret=$ret."Prenom : ".$reference["referent"]["prenom"]."<br>";
-                                $ret=$ret."E-mail : ".$reference["referent"]["mail"]."<br><br>";
-
-                                $ret=$ret."Commentaire : ".$reference["commentaire"]." <br><br>";
-
-                                $ret=$ret.'
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("confiance",$reference["competence_ref"]).' disabled>
-                                    <label>Confiance</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("bienveillance",$reference["competence_ref"]).' disabled>
-                                    <label>Bienveillance</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("respect",$reference["competence_ref"]).' disabled>
-                                    <label>Respect</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("honnetete",$reference["competence_ref"]).' disabled>
-                                    <label>Honnetete</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("tolerance",$reference["competence_ref"]).' disabled>
-                                    <label>Tolerance</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("juste",$reference["competence_ref"]).' disabled>
-                                    <label>Juste</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("impartial",$reference["competence_ref"]).' disabled>
-                                    <label>Impartial</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" '.get_comp_tab("travail",$reference["competence_ref"]).' disabled>
-                                    <label>Travail</label>
-                                </div>';
-                                $ret=$ret."</div>";
-                            }
-                        }
-                        return $ret;
-                    }
-                    echo affichage();
+                echo affichage();
                 ?>
                 <label>Demande de consultation :</label><br>
                 <label for="c_email">E-mail :</label>
                 <input type="e-mail" name="c_email" id="c_email" value="" required>
                 <button name='modifier' type='submit' id='submit'>demande consultant</button>
             </form>
-            <
-            <a class="nouvelle_reference" href="nouvelle_reference.php">Nouvelle reference</a>
+            <a class="button_profil" href="nouvelle_reference.php">Nouvelle reference</a>
+            <form action="test_telechargement.php" method="post">
+                <button class="button_profil" name="telechargement_pdf">Telechargement en pdf</button>
+            </form>
         </div>
     </div>
 
