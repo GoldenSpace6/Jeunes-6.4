@@ -61,7 +61,7 @@
             sendmail($mail, $url, $_SESSION["info"]["nom"], $_SESSION["info"]["prenom"]);
             
             /*Redirige vers la page d'accueil*/
-            header("Location: remerciment.html");
+            header("Location: remerciement.html");
         }
     ?>
 </head>
