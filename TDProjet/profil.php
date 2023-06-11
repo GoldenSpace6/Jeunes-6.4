@@ -230,10 +230,12 @@
                             echo "<hr>Mon engagement : ".$reference["engagement"]."<br>";
                             echo "Durée : ".$reference["duree"]."<br><br>";
                             
-                            echo "Referent:<br>";
+                            echo "Referent<br>";
                             echo "Nom : ".$reference["referent"]["nom"]."<br>";
                             echo "Prenom : ".$reference["referent"]["prenom"]."<br>";
                             echo "E-mail : ".$reference["referent"]["mail"]."<br><br>";
+
+                            echo "Commentaire : ".$reference["commentaire"]." <br><br>";
 
                             echo '
                             <div>
