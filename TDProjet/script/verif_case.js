@@ -4,10 +4,3 @@ function caseMax(checkbox) {
       checkbox.checked = false;
     }
   }
-
-
-
-
-
-
-
